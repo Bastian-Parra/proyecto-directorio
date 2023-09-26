@@ -8,7 +8,7 @@ const app = express()
 
 app.use(cors())
 app.use(express.json())
-app.use('/usuario', negocioRoutes)
+app.use('/usuarios', negocioRoutes)
 
 try {
     await db.authenticate()

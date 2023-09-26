@@ -17,6 +17,7 @@
   top: 0;
   height: auto;
   width: 100%;
+  background-color: #fff;
 }
 
 .containerNavigator ul{
@@ -73,5 +74,10 @@
   float:left;
   margin-left: 50px;
   margin-right: 20px;
+}
+
+#img-valparaiso {
+  width: 100%;
+  height: auto;
 }
 
