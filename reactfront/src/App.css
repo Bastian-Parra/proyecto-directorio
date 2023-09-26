@@ -81,3 +81,16 @@
   height: auto;
 }
 
+.contenedor-titulo {
+  width: 100%;
+  height: auto;
+  text-align: center;
+}
+#titulo {
+  color: red;
+}
+
+#img-mantenimiento {
+  width: 100px;
+}
+

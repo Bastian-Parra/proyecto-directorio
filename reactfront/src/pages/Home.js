@@ -1,4 +1,9 @@
-export default function Home() {
-    return <h1>Home</h1>
-}
+import mantenimiento from '../utils/mantenimiento.png'
+import MainContent from '../components/main-content'
 
+
+export default function Home() {
+    return (
+        <MainContent/>
+    )
+}

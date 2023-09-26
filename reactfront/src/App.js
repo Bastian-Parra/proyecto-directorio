@@ -2,11 +2,12 @@ import './App.css';
 import Navigator from './components/navigator.js'
 import React, {useState, useEffect} from 'react'
 import MainContent from './components/main-content.js';
-import idk from './components/idk.js';
+import idk from './components/testing.js';
 import Home from './pages/Home'
 import Eventos from './pages/Eventos'
 import Negocios from './pages/Negocios'
 import Lugares from './pages/Lugares'
+import CompShowUsers from './components/testing.js';
 
 function App() {
   let component 
