@@ -1,0 +1,77 @@
+/*Aquí se importan las fuentes*/
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap');
+
+:root {
+  --principalBlue: rgb(17, 84, 216);
+  --greyColor: #b3b3b3;
+}
+
+* {
+  font-family: 'Source Code Pro', monospace;
+  margin: 0;
+  padding: 0;
+}
+
+.containerNavigator {
+  border-bottom: 1px solid var(--greyColor);
+  top: 0;
+  height: auto;
+  width: 100%;
+}
+
+.containerNavigator ul{
+  list-style: none;
+  overflow: hidden;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.containerNavigator ul li {
+  display: inline;
+}
+
+.containerNavigator ul li a {
+  float: left;
+  font-style: none;
+  text-decoration: none;
+  padding: 10px 10px;
+}
+
+#button-rest {
+  color: #000; 
+  margin-right: 10px; 
+}
+
+#button-rest:hover {
+  opacity: 0.75;
+  transform: translateY(-5px);
+  color: var(--principalBlue);
+}
+
+.containerNavigator ul li a:hover {
+  transition: 0.5s;
+}
+
+
+#button-inicio {
+  float: right;
+  border-radius: 50px;
+  color: var(--principalBlue);
+  border: 2px solid var(--principalBlue);
+  margin-right: 50px;
+}
+
+#button-inicio:hover {
+  background-color: var(--principalBlue);
+  color: #fff;
+  transition: 1s;
+}
+
+#logo {
+  width: 100px;
+  height: auto;
+  float:left;
+  margin-left: 50px;
+  margin-right: 20px;
+}
+
