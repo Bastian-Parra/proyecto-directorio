@@ -1,15 +1,24 @@
 import React from 'react'
 import Navegador from './Navegador.jsx'
 import imgRight from '../assets/valparaiso.jpg'
+import miniImgLeft from '../assets/descarga.png'
+import miniImgMid from '../assets/descarga2.png'
+import miniImgRight from '../assets/descarga3.png'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCalendarDays, faShop, faMapLocationDot } from '@fortawesome/free-solid-svg-icons'
+
 import '../styles/home.css'
 
 const Home = () => {
   return (
-    <Contenido/>
+    <>
+    <ContenedorHeader/>
+    <ContenedorAbout/>
+    </>
   )
 }
 
-function Contenido() {
+function ContenedorHeader() {
   return (
     <div className="container">
       <div className="container-left">
@@ -27,6 +36,40 @@ function Contenido() {
           </div>      
       </div>
       <div className="container-right"></div>
+    </div>
+  )
+}
+
+function ContenedorAbout() {
+  return (
+    <div className="container-about">
+        <h1 className="titulo-about">
+        ¿Qué encuentras aquí?
+        </h1>
+        <p>
+          Duis cillum consequat ex voluptate in ex consequat ad adipisicing.
+          <br></br>Do ullamco ullamco cillum velit aliqua sunt et <br></br>proident deserunt
+          adipisicing eiusmod.
+        </p>
+        <div className="container-inside-about">
+
+          <div className="minicontainer">
+            <FontAwesomeIcon icon={faShop} className="iconos"/>
+            <h4>Negocios</h4>
+            <p>Laboris et excepteur reprehenderit labore enim ullamco in sunt velit cupidatat qui magna.</p>
+          </div>
+          <div className="minicontainer">
+          <FontAwesomeIcon icon={faCalendarDays} className="iconos"/>
+            <h4>Eventos</h4>
+            <p>Laboris et excepteur reprehenderit labore enim ullamco in sunt velit cupidatat qui magna.</p>
+          </div>
+          <div className="minicontainer">
+          <FontAwesomeIcon icon={faMapLocationDot} className="iconos"/>
+            <h4>Lugares</h4>
+            <p>Laboris et excepteur reprehenderit labore enim ullamco in sunt velit cupidatat qui magna.</p>
+          </div>
+
+        </div>
     </div>
   )
 }

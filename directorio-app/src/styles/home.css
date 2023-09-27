@@ -1,17 +1,18 @@
 :root {
     --primaryColor: #3d8af7;
+    --greyColor: #ebebeb;
 }
 
 
 .container {
     display: flex;
     width: 1200px;
-    max-width: 1200px;
     margin: 0 auto;
     margin-top: 50px;
     box-shadow: 0px 0px 16px 1px rgba(0,0,0,0.22);
     border-radius: 5px;
     overflow: hidden;
+    margin-bottom: 50px;
 }   
 
 .container-left {
@@ -79,3 +80,60 @@
     border-bottom-right-radius: 5px;
     background-image: url("../assets/valparaiso.jpg");
 }
+
+
+/* estilos contenedor about */
+
+hr {
+    background-color: var(--greyColor);
+}
+
+.container-about {
+    width: 1200px;
+    margin: 0 auto;
+    margin-top: 50px;
+    box-shadow: 0px 0px 16px 1px rgba(0,0,0,0.22);
+    border-radius: 5px;
+    overflow: hidden;
+    margin-bottom: 50px;
+    padding: 60px 0px 0px 0px;
+    text-align: center;
+}
+
+.titulo-about {
+    color: var(--primaryColor);
+    margin-bottom: 10px;
+}
+
+.container-inside-about {
+    padding: 20px;
+    width: 100%;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+}
+
+.container-inside-about img{
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+}
+
+.minicontainer {
+    padding: 30px;
+    margin-right: 50px;
+    max-width: 200px;
+}
+
+.iconos {
+    margin-bottom: 10px;
+    font-size:100px;
+    color: #d9d8d8;
+}
+
+.minicontainer h4 {
+    color: var(--primaryColor);
+}
+
+
+
