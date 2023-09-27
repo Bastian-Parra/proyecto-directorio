@@ -87,10 +87,33 @@
   text-align: center;
 }
 #titulo {
-  color: red;
+  font-size: 30px;
+  color: #000;
+  font-weight: 600;
+}
+
+#subtitulo {
+  font-size: 20px;
 }
 
 #img-mantenimiento {
   width: 100px;
 }
 
+/*Contenedor principal del Home*/
+.contenedor-header {
+  width: 60%;
+  align-items: center;
+  text-align: center;
+  display: flex;
+  margin: 0 auto;
+}
+
+.contenido-izquierda {
+  text-align: left;
+}
+
+.img-derecha {
+  width: 500px;
+  border-radius: 10px;
+}

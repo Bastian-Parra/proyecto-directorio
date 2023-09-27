@@ -1,11 +1,10 @@
 import express from 'express';
 const router = express.Router()
-import {obtenerElementos, obtenerUnElemento, crearElemento, updateElemento, eliminarElemento} from '../controllers/usuarioController.js'
+const {obtenerHome, obtenerNegocios, obtenerEventos, obtenerLugares} = require('../controllers/pagesController.js')
 
-router.get('/', obtenerElementos)
-router.get('/:id', obtenerUnElemento)
-router.post('/', crearElemento)
-router.put('/:id', updateElemento)
-router.delete('/:id', eliminarElemento)
+router.get('/', obtenerHome)
+router.get('/negocios',obtenerNegocios)
+router.get('/eventos', obtenerEventos)
+router.get('/lugares', obtenerLugares)
 
-export default router
+module.exports = router
