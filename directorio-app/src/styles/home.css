@@ -1,0 +1,81 @@
+:root {
+    --primaryColor: #3d8af7;
+}
+
+
+.container {
+    display: flex;
+    width: 1200px;
+    max-width: 1200px;
+    margin: 0 auto;
+    margin-top: 50px;
+    box-shadow: 0px 0px 16px 1px rgba(0,0,0,0.22);
+    border-radius: 5px;
+    overflow: hidden;
+}   
+
+.container-left {
+    padding: 60px;
+    max-width: 400px;
+}
+.container-left h1{
+    font-weight: 800;
+    font-size: 28px;
+}
+
+.container-left h3 {
+    font-weight: 400;
+    font-size: 20px;
+    margin: 15px 0 15px 0px;
+}
+
+.container-left p {
+    margin-bottom: 40px;
+    font-size: 15px;
+}
+
+.container-buttons {
+    height: auto;
+    width: 100%;
+    display: inline;
+}
+
+#btn-verMas {
+    color: #fff;
+    background-color: var(--primaryColor);
+    margin-right: 20px;
+    text-decoration: none;
+    padding: 10px 30px 10px 30px;
+    border-radius: 50px;
+    border: 2px solid var(--primaryColor);
+}
+
+
+#btn-verMas:hover {
+    color: var(--primaryColor);
+    background-color: #fff;
+    border: 2px solid var(--primaryColor);
+    transition: 0.5s;
+}
+#btn-registro {
+    padding: 10px 30px 10px 30px;
+    text-decoration: none;
+    color: var(--primaryColor);
+    border-radius: 50px;
+    border: 2px solid var(--primaryColor);
+}
+
+#btn-registro:hover {
+    color: #fff;
+    transition:0.5s;
+    background-color: var(--primaryColor);
+    border: 2px solid var(--primaryColor);
+}
+
+.container-right {
+    width: 100%;
+    height: auto;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    background-image: url("../assets/valparaiso.jpg");
+}

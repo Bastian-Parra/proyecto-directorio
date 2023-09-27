@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap');
 
 :root {
-  --principalBlue: rgb(17, 84, 216);
+  --primaryColor: #3d8af7;
   --greyColor: #b3b3b3;
 }
 
@@ -46,7 +46,7 @@
   #button-rest:hover {
     opacity: 0.75;
     transform: translateY(-5px);
-    color: var(--principalBlue);
+    color: var(--primaryColor);
   }
   
   .containerNavigator ul li a:hover {
@@ -57,13 +57,13 @@
   #button-inicio {
     float: right;
     border-radius: 50px;
-    color: var(--principalBlue);
-    border: 2px solid var(--principalBlue);
+    color: var(--primaryColor);
+    border: 2px solid var(--primaryColor);
     margin-right: 50px;
   }
   
   #button-inicio:hover {
-    background-color: var(--principalBlue);
+    background-color: var(--primaryColor);
     color: #fff;
     transition: 1s;
   }

@@ -1,0 +1,9 @@
+.container-footer {
+    margin-top: 50px;
+    padding: 50px;
+    width: 100%;
+    position: absolute;
+    text-align: center;
+    background-color: #ebeaea;
+    bottom: 0;
+}

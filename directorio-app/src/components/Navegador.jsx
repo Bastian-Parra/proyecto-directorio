@@ -1,4 +1,5 @@
 import logo from '../assets/logo.png'
+import '../styles/navegador.css'
 
 export default function Navigator() {
     return (
@@ -14,7 +15,7 @@ function Nav() {
         <nav class="containerNavigator">
             <div id="navigation-container">
                 <div class="logo">
-                    <a href="#"><img id="logo" src={logo}></img></a>
+                    <a href="/"><img id="logo" src={logo}></img></a>
                 </div>
                 <ul>
                     <li><a id="button-rest" href="/">Inicio</a></li>

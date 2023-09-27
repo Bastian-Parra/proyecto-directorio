@@ -6,8 +6,7 @@ import Home from './components/Home.jsx'
 import Negocios from './components/Negocios.jsx'
 import Eventos from './components/Eventos.jsx'
 import Lugares from './components/Lugares.jsx'
-import './styles/navegador.css'
-
+import Footer from './components/Footer.jsx'
 function App() {
   return (
     <div className="App">
@@ -20,6 +19,9 @@ function App() {
         <Route path='/eventos' element={<Eventos/>}></Route>
         <Route path='/lugares' element={<Lugares/>}></Route>
       </Routes>
+      <footer>
+        <Footer/>
+      </footer>
     </div>
   )
 }
