@@ -135,5 +135,67 @@ hr {
     color: var(--primaryColor);
 }
 
+/* estilos contededor recomendaciones*/
 
+.container-recomendations {
+    width: 1200px;
+    margin: 0 auto;
+    margin-top: 50px;
+    box-shadow: 0px 0px 16px 1px rgba(0,0,0,0.22);
+    border-radius: 5px;
+    overflow: hidden;
+    margin-bottom: 50px;
+    padding: 60px 0px 0px 0px;
+    text-align: center;
+}
+
+.contenedor-carrusel {
+    margin: 20px 0px 20px 0px;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+.carrusel-item {
+    height: auto;
+    width: 250px;
+    max-width: 250px;
+    border: 3px solid var(--greyColor);
+    padding: 20px 0px 0px 0px;
+    scroll-snap-type: center;
+    margin-right: 60px;
+    border-radius: 5px;
+    scroll-snap-align: center;
+}
+
+.carrusel-item img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+.contenedor-carrusel p {
+    margin-bottom: 20px;
+}
+
+.container-bottom {
+    padding: 10px 10px 20px 10px;
+    background-color: rgba(0, 0, 0, 0.093);
+}
+
+.container-bottom a {
+    text-decoration: none;
+    background-color: var(--primaryColor);
+    padding: 10px 20px 10px 20px;
+    color: #fff;
+    border-radius: 50px;
+}
+
+.container-bottom a:hover {
+    background-color:#fff;
+    color: var(--primaryColor);
+    border: 2px solid var(--primaryColor);
+    transition:0.5s;
+}
 

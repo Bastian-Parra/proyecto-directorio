@@ -1,9 +1,9 @@
 import React from 'react'
 import Navegador from './Navegador.jsx'
 import imgRight from '../assets/valparaiso.jpg'
-import miniImgLeft from '../assets/descarga.png'
-import miniImgMid from '../assets/descarga2.png'
-import miniImgRight from '../assets/descarga3.png'
+import imgContenedor_1 from '../assets/descarga.png'
+import imgContenedor_2 from '../assets/descarga2.png'
+import imgContenedor_3 from '../assets/descarga3.png'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCalendarDays, faShop, faMapLocationDot } from '@fortawesome/free-solid-svg-icons'
 
@@ -14,6 +14,7 @@ const Home = () => {
     <>
     <ContenedorHeader/>
     <ContenedorAbout/>
+    <ContenedorRecomendaciones/>
     </>
   )
 }
@@ -68,6 +69,54 @@ function ContenedorAbout() {
             <p>Laboris et excepteur reprehenderit labore enim ullamco in sunt velit cupidatat qui magna.</p>
           </div>
 
+        </div>
+    </div>
+  )
+}
+
+function ContenedorRecomendaciones() {
+  return (
+    <div class="container-recomendations">
+      <h1 className="titulo-about">
+        Algunas recomendaciones...
+        </h1>
+        <p>
+          Duis cillum consequat ex voluptate in ex consequat ad adipisicing.
+          <br></br>Do ullamco ullamco cillum velit aliqua sunt et <br></br>proident deserunt
+          adipisicing eiusmod.
+        </p>
+
+        <div className="contenedor-carrusel">
+          <div className="carrusel-item ">
+            <img src={imgContenedor_1}></img>
+            <div className="container-bottom">
+              <p>
+                Qui excepteur pariatur et dolore reprehenderit sint 
+                exercitation laboris veniam ipsum commodo qui.
+              </p>
+              <a href="#">Ver más</a>
+            </div>
+          </div>
+          <div className="carrusel-item">
+            <img src={imgContenedor_2}></img>
+            <div className="container-bottom">
+              <p>
+                Qui excepteur pariatur et dolore reprehenderit sint 
+                exercitation laboris veniam ipsum commodo qui.
+              </p>
+              <a href="#">Ver más</a>
+            </div>
+          </div>
+          <div className="carrusel-item">
+            <img src={imgContenedor_3}></img>
+            <div className="container-bottom">
+              <p>
+                Qui excepteur pariatur et dolore reprehenderit sint 
+                exercitation laboris veniam ipsum commodo qui.
+              </p>
+              <a href="#">Ver más</a>
+            </div>
+          </div>
         </div>
     </div>
   )
