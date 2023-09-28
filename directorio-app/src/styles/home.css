@@ -1,3 +1,7 @@
+thml {
+    scroll-behavior: smooth;
+}
+
 :root {
     --primaryColor: #3d8af7;
     --greyColor: #ebebeb;
@@ -8,7 +12,7 @@
     display: flex;
     width: 1200px;
     margin: 0 auto;
-    margin-top: 50px;
+    margin-top: 130px;
     box-shadow: 0px 0px 16px 1px rgba(0,0,0,0.22);
     border-radius: 5px;
     overflow: hidden;
@@ -160,12 +164,17 @@ hr {
     height: auto;
     width: 250px;
     max-width: 250px;
-    border: 3px solid var(--greyColor);
+    border: 3px solid var(--primaryColor);
     padding: 20px 0px 0px 0px;
     scroll-snap-type: center;
     margin-right: 60px;
     border-radius: 5px;
     scroll-snap-align: center;
+}
+
+.carrusel-item:hover {
+    transition: 0.5s;
+    transform: scale(1.1);
 }
 
 .carrusel-item img {
@@ -174,6 +183,7 @@ hr {
     border-radius: 50%;
     margin-bottom: 10px;
 }
+
 
 .contenedor-carrusel p {
     margin-bottom: 20px;

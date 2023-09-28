@@ -13,6 +13,7 @@
 
 
   .containerNavigator {
+
     box-shadow: 0px 0px 16px 1px rgba(0,0,0,0.22);
     border-bottom: 3px solid var(--greyColor);
     border-left: 3px solid var(--greyColor);
@@ -24,6 +25,11 @@
     padding: 15px 0px 15px 0px;
     background-color: #fff;
     margin: 0 auto;
+    position: fixed;
+    top: 0;
+    left: 50%; /* Centra horizontalmente el elemento */
+    transform: translateX(-50%); /* Ajusta la posición horizontal para centrar */
+    z-index: 1000;
   }
   
   .containerNavigator ul{
