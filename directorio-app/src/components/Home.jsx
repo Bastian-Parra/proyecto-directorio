@@ -52,7 +52,6 @@ function ContenedorAbout() {
           adipisicing eiusmod.
         </p>
         <div className="container-inside-about">
-
           <div className="minicontainer">
             <FontAwesomeIcon icon={faShop} className="iconos"/>
             <h4>Negocios</h4>
