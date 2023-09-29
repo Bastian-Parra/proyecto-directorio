@@ -25,11 +25,11 @@
     padding: 15px 0px 15px 0px;
     background-color: #fff;
     margin: 0 auto;
-    position: fixed;
+    /* position: fixed;
     top: 0;
-    left: 50%; /* Centra horizontalmente el elemento */
-    transform: translateX(-50%); /* Ajusta la posición horizontal para centrar */
-    z-index: 1000;
+    left: 50%; 
+    transform: translateX(-50%);
+    z-index: 1000; */
   }
   
   .containerNavigator ul{

@@ -22,7 +22,7 @@ function Nav() {
                     <li><a id="button-rest" href="/negocios">Negocios</a></li>
                     <li><a id="button-rest" href="/eventos">Eventos</a></li>
                     <li><a id="button-rest" href="/lugares">Lugares de Interes</a></li>
-                    <li><a id="button-inicio" href="#">Inicio de Sesión</a></li>
+                    <li><a id="button-inicio" href="/login">Inicio de Sesión</a></li>
                 </ul>
             </div>
         </nav>

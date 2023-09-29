@@ -1,0 +1,105 @@
+:root {
+    --primaryColor: #3d8af7;
+    --greyColor: #ebebeb;
+}
+
+
+.principal-container {
+    display: flex;
+    width: 1200px;
+    margin: 0 auto;
+    margin-top:50px;
+    height: auto;
+
+}
+
+.left-container {
+    width: 1000px;
+    height: auto;
+    max-width: 800px;
+    background-color: #fff;
+    box-shadow: 0px 0px 16px 1px rgba(0,0,0,0.22);
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.container-img {
+    height: 200px;
+    background-image: url('../assets/loginImg.png');
+    background-position-y: -140px;
+    background-size: 600px;
+}
+
+.container-text {
+    padding: 50px 30px 50px 30px;
+}
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.right-container {
+    width: 500px;
+    background-color: #fff;
+    box-shadow: 0px 0px 16px 1px rgba(0,0,0,0.22);
+    border-radius: 5px;
+    overflow: hidden;
+    margin-left: 50px;
+}
+
+.title-container {
+    background-color: var(--primaryColor);
+    color: #fff;
+    font-weight:600;
+    padding: 20px;
+    font-size: 20px;
+    text-align: center;
+}
+
+.form-container {
+    padding: 60px;
+}
+
+.form-container label {
+    font-size: 15px;
+    margin-bottom: 5px;
+}
+
+.form-container input {
+    margin-bottom: 30px;
+    padding: 10px;
+    border: 2px solid var(--greyColor);
+    border-radius:5px;
+}
+
+.form-container button {
+    padding: 10px;
+    border: 2px solid var(--primaryColor);
+    background-color: var(--primaryColor);
+    color: #fff;
+    font-size: 15px;
+    font-weight: 500;
+    border-radius: 5px;
+}
+
+.form-container button:hover {
+    background-color: #fff;
+    color: var(--primaryColor);
+    border: 2px solid var(--primaryColor);
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+#checkbox {
+    margin-top: 10px;
+    margin-right: 5px;
+}
+
+#checkboxlabel {
+    margin-top: -2px;
+}
+
+
+
+

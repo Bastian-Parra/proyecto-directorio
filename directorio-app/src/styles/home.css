@@ -1,4 +1,4 @@
-thml {
+html {
     scroll-behavior: smooth;
 }
 
@@ -12,7 +12,7 @@ thml {
     display: flex;
     width: 1200px;
     margin: 0 auto;
-    margin-top: 130px;
+    margin-top: 50px;
     box-shadow: 0px 0px 16px 1px rgba(0,0,0,0.22);
     border-radius: 5px;
     overflow: hidden;

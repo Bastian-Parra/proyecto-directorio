@@ -15,4 +15,8 @@ const obtenerLugares = (req, res) => {
     res.render('lugares' , {component: Lugares})
 }
 
-export default {obtenerHome, obtenerNegocios, obtenerEventos, obtenerLugares}
+const obtenerLogin = (req, res) => {
+    res.render('login' , {component: Login})
+}
+
+export default {obtenerHome, obtenerNegocios, obtenerEventos, obtenerLugares, obtenerLogin}
