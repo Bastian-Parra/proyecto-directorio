@@ -1,6 +1,7 @@
 import express from 'express'
 import cors from 'cors'
 import db from './database/db.config.js'
+import Evento from './database/models/Evento.js';
 
 const PORT = 5000
 const app = express()
@@ -14,6 +15,16 @@ try {
 } catch (error) {
     console.error("Error al conectar con la DB: " + error)
 }
+
+app.get('/api/eventos', async (req, res) => {
+    try {
+      const eventos = await Evento.findAll(); // se obtienen los eventos de la base de datos
+      res.json(eventos);
+    } catch (error) {
+      console.error('Error al obtener eventos:', error);
+      res.status(500).json({ error: 'Error al obtener eventos' });
+    }
+});
 
 app.get('/', (req, res) =>{
     res.send("Hola Mundo")
