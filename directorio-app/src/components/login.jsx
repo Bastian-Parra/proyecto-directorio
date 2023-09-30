@@ -38,6 +38,10 @@ function LogIn() {
                         <input id="checkbox"type="checkbox" name="remember"></input>
                         Recordar cuenta
                     </label>
+                    <div id="container-redirect">
+                    ¿No tienes cuenta? 
+                    <a id="enviar-registro">Registrate</a>
+                    </div>
                 </div>
             </div>
         </div>

@@ -3,9 +3,6 @@ const obtenerHome = (req, res) => {
     res.render('index' , {component: Home, data})
 }
 
-const obtenerNegocios = (req, res) => {
-    res.render('negocios' , {component: Negocios})
-}
 
 const obtenerEventos = (req, res) => {
     res.render('eventos' , {component: Eventos})
