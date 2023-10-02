@@ -12,9 +12,9 @@ export default function Navigator() {
 function Nav() {
     return (
         
-        <nav class="containerNavigator">
+        <nav className="containerNavigator">
             <div id="navigation-container">
-                <div class="logo">
+                <div className="logo">
                     <a href="/"><img id="logo" src={logo}></img></a>
                 </div>
                 <ul>

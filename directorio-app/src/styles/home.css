@@ -9,6 +9,7 @@ html {
 
 
 .container {
+    border: 1px solid rgb(204, 203, 203);
     display: flex;
     width: 1200px;
     margin: 0 auto;
@@ -93,6 +94,7 @@ hr {
 }
 
 .container-about {
+    border: 1px solid rgb(204, 203, 203);
     width: 1200px;
     margin: 0 auto;
     margin-top: 50px;
@@ -142,6 +144,7 @@ hr {
 /* estilos contededor recomendaciones*/
 
 .container-recomendations {
+    border: 1px solid rgb(204, 203, 203);
     width: 1200px;
     margin: 0 auto;
     margin-top: 50px;

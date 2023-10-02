@@ -4,16 +4,17 @@
 }
 
 
+
 .principal-container {
     display: flex;
     width: 1200px;
     margin: 0 auto;
     margin-top:50px;
     height: auto;
-
 }
 
 .left-container {
+    border: 1px solid rgb(204, 203, 203);
     width: 1000px;
     height: auto;
     max-width: 800px;
@@ -40,12 +41,13 @@
 }
 
 .right-container {
-    width: 500px;
+    width: 600px;
     background-color: #fff;
     box-shadow: 0px 0px 16px 1px rgba(0,0,0,0.22);
     border-radius: 5px;
     overflow: hidden;
     margin-left: 50px;
+    border: 1px solid rgb(204, 203, 203);
 }
 
 .title-container {
@@ -98,6 +100,20 @@
 
 #checkboxlabel {
     margin-top: -2px;
+}
+
+#enviar-registro {
+    text-decoration: underline;
+    margin-left: 10px;
+}
+
+#enviar-registro:hover {
+    cursor: pointer;
+    color: var(--primaryColor);
+}
+
+#container-redirect {
+    display: flex;
 }
 
 
