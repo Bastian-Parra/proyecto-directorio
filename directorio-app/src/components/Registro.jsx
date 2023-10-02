@@ -31,7 +31,7 @@ class Registro extends Component {
           alert('Registro exitoso. Ahora puedes iniciar sesión.');
         } else {
           alert('Error en el registro. Comprueba tus credenciales o inténtalo nuevamente.');
-        }
+        } 
       })
       .catch((error) => {
         console.error('Error al registrar usuario:', error);
@@ -49,6 +49,7 @@ class Registro extends Component {
             <div>
               <label htmlFor="username">Nombre de Usuario</label>
               <input
+                required
                 placeholder="Ingresa tu nombre de usuario"
                 type="text"
                 id="username"
@@ -59,6 +60,7 @@ class Registro extends Component {
             <div>
               <label htmlFor="email">Correo Electrónico</label>
               <input
+                required
                 placeholder="Ingresa tu correo electrónico"
                 type="email"
                 id="email"
@@ -69,6 +71,7 @@ class Registro extends Component {
             <div>
               <label htmlFor="password">Contraseña</label>
               <input
+                required
                 placeholder="Ingresa tu contraseña"
                 type="password"
                 id="password"
