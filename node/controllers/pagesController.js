@@ -3,9 +3,6 @@ const obtenerHome = (req, res) => {
     res.render('index' , {component: Home, data})
 }
 
-const obtenerNegocios = (req, res) => {
-    res.render('negocios' , {component: Negocios})
-}
 
 const obtenerEventos = (req, res) => {
     res.render('eventos' , {component: Eventos})
@@ -15,4 +12,8 @@ const obtenerLugares = (req, res) => {
     res.render('lugares' , {component: Lugares})
 }
 
-export default {obtenerHome, obtenerNegocios, obtenerEventos, obtenerLugares}
+const obtenerLogin = (req, res) => {
+    res.render('login' , {component: Login})
+}
+
+export default {obtenerHome, obtenerNegocios, obtenerEventos, obtenerLugares, obtenerLogin}

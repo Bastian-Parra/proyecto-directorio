@@ -33,7 +33,7 @@ function ContenedorHeader() {
           </p>
           <div className="container-buttons">
             <a id="btn-verMas" href="/">Ver más</a>
-            <a id="btn-registro"href="/">Regístrate</a>
+            <a id="btn-registro"href="/registro">Regístrate</a>
           </div>      
       </div>
       <div className="container-right"></div>
@@ -76,7 +76,7 @@ function ContenedorAbout() {
 
 function ContenedorRecomendaciones() {
   return (
-    <div class="container-recomendations">
+    <div className="container-recomendations">
       <h1 className="titulo-about">
         Algunas recomendaciones...
         </h1>

@@ -1,12 +1,26 @@
-// se importa la conexion a la db
-
 import db from '../database/db.config.js'
 import { DataTypes } from 'sequelize'
 
-const AppModel = db.define('usuarios', {
-    contraseña: {type: DataTypes.STRING},
-    nombre_usuario: {type: DataTypes.STRING},
-    correo_usuario: {type: DataTypes.STRING},
-}, {timestamps:false,})
+const Usuario = db.define('usuarios', {
+  contraseña: {
+    type: DataTypes.STRING,
+  },
+  correo_usuario: { 
+    type: DataTypes.STRING,
+    unique: true,
+  },
+  nombre_usuario: {
+    type: DataTypes.STRING,
+    unique: true,
+  },
+},{timestamps:false,});
 
-export default AppModel
+db.sync()
+  .then(() => {
+    console.log('Base de datos sincronizada');
+  })
+  .catch((error) => {
+    console.error('Error al sincronizar la base de datos:', error);
+  });
+
+export default Usuario;

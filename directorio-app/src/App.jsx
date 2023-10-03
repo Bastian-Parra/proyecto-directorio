@@ -7,6 +7,8 @@ import Negocios from './components/Negocios.jsx'
 import Eventos from './components/Eventos.jsx'
 import Lugares from './components/Lugares.jsx'
 import Footer from './components/Footer.jsx'
+import Login from './components/login.jsx'
+import Registro from './components/Registro.jsx'
 import './app.css'
 function App() {
   return (
@@ -20,6 +22,8 @@ function App() {
         <Route path='/negocios' element={<Negocios/>}></Route>
         <Route path='/eventos' element={<Eventos/>}></Route>
         <Route path='/lugares' element={<Lugares/>}></Route>
+        <Route path='/login' element={<Login/>}></Route>
+        <Route path='/registro' element={<Registro/>}></Route>
       </Routes>
       </div>
       <Footer/>
