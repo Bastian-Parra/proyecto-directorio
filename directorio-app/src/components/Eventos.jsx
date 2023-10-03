@@ -23,7 +23,7 @@ class Eventos extends Component {
   render() {
     return (
       <div>
-        <h1>Eventos</h1>
+        <h3>Eventos</h3>
         <ul>
           {this.state.eventos.map((evento) => (
             <li key={evento.id}>

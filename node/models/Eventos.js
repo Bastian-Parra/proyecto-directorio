@@ -1,5 +1,5 @@
 import { DataTypes } from 'sequelize';
-import db from '../db.config.js';
+import db from '../database/db.config.js';
 
 const Evento = db.define('Evento', {
   id_ubicacion: {
