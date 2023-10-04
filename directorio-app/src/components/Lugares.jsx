@@ -1,5 +1,6 @@
 import React from 'react'
 import '../styles/lugares.css'
+import imgRight from '../assets/Lugaresimage.jpg'
 const parrafoHeader = 'En la zona de Valparaíso, Chile, se encuentran numerosos lugares de interés que ofrecen una amplia variedad de experiencias para los visitantes. Esta región costera es conocida por su belleza escénica y su rica historia cultural. Aquí, puedes encontrar una gran cantidad de tiendas, restaurantes y otras opciones para disfrutar de la vida urbana.'
 
 function Lugares() {
@@ -13,7 +14,7 @@ function Lugares() {
         </div>
       </div>
     </div>
-  )
+ );
 }
 
-export default Lugares
+export default Lugares;
