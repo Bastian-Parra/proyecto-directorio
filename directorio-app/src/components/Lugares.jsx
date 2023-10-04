@@ -11,9 +11,14 @@ function Lugares() {
         <div className="contenedor-derecha">
           <h1>Lugares de interes a tu disposicion</h1>
           <p>{parrafoHeader}</p>
+          <div className="container-buttons">
+            <a id="btn-Buscar" href="/">Buscar</a>
+            <a id="btn-Filtrar"href="/">Filtrar</a>
+          </div>      
+      </div>
         </div>
       </div>
-    </div>
+    
  );
 }
 

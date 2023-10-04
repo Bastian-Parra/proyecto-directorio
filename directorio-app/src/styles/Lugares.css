@@ -27,9 +27,49 @@
 .contenedor-izquierda {
     background-image: url('../assets/Lugaresimage.jpg');
     height: auto;
-    width: 600px;
+    width: 700px;
 }
 
 .contenedor-derecha {
-    width: 600px;
+    width: 500px;
+}
+
+.container-buttons {
+    height: flex;
+    width: 80%;
+    display: flex;
+    align-items: center; /* Centra horizontalmente */
+    justify-content: center; /* Centra verticalmente */
+}
+
+#btn-Buscar {
+    color: #fff;
+    background-color: var(--primaryColor);
+    margin-right: 20px;
+    text-decoration: none;
+    padding: 10px 30px 10px 30px;
+    border-radius: 50px;
+    border: 2px solid var(--primaryColor);
+}
+
+
+#btn-Buscar:hover {
+    color: var(--primaryColor);
+    background-color: #fff;
+    border: 2px solid var(--primaryColor);
+    transition: 0.5s;
+}
+#btn-Filtrar {
+    padding: 10px 30px 10px 30px;
+    text-decoration: none;
+    color: var(--primaryColor);
+    border-radius: 50px;
+    border: 2px solid var(--primaryColor);
+}
+
+#btn-Filtrar:hover {
+    color: #fff;
+    transition:0.5s;
+    background-color: var(--primaryColor);
+    border: 2px solid var(--primaryColor);
 }
