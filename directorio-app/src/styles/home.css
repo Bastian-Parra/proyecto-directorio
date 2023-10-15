@@ -1,6 +1,5 @@
-html {
-    scroll-behavior: smooth;
-}
+@import url('../styles/fonts/fonts.css');
+
 
 :root {
     --primaryColor: #3d8af7;
@@ -25,8 +24,8 @@ html {
     max-width: 400px;
 }
 .container-left h1{
-    font-weight: 800;
-    font-size: 28px;
+    font-family: fuenteBold;
+    font-size: 34px;
 }
 
 .container-left h3 {

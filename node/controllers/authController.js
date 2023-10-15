@@ -1,0 +1,124 @@
+import Usuario from "../models/usuarioModel.js"
+import { Sequelize } from "sequelize"
+import bcrypt from "bcrypt"
+import {crearTokenDeAcceso} from '../libs/jwt.js'
+import jwt  from "jsonwebtoken"
+import { TOKEN_SECRET } from "../config.js"
+
+export const verificarUsuario = async (nombre, correo) => {
+    try {
+      // con el metodo findOne verificamos si la cuenta que se quiere crear ya existe
+      // obviamente deben coincidir el nombre y el correo por lo que tomamos esos parametros para hacer la busqueda (where)
+      const usuario = await Usuario.findOne({
+        where: {
+          [Sequelize.Op.or]: [
+            { nombre_usuario: nombre }, 
+            { correo_usuario: correo }, 
+          ],
+        },
+      });
+      // si no se encuentra, retornar que el usuario no existe (se puede crear)
+      return !!usuario;
+    } catch (error) {
+      throw error;
+    }
+  }
+  
+export const register = async(nombre, contraseña, correo) => {
+    try {
+      const saltRounds = 5;
+      // con la biblioteca bcrypt y el metodo hash() hasheamos la contrasena (la dejamos en un formato mas seguro)
+      const contraseñaHash = await bcrypt.hash(contraseña, saltRounds)
+  
+      // creamos la tabla con los datos ingresados y la contraseña hasheada
+      await Usuario.create({
+        nombre_usuario: nombre,
+        contraseña: contraseñaHash, 
+        correo_usuario: correo, 
+      })
+      
+    } catch (error) {
+      throw error;
+    }
+  }
+export const login = async (req, res) => {
+    const { nombre_usuario, contraseña } = req.body;
+
+    try {
+        // Verifica si nombre_usuario es válido
+        if (!nombre_usuario || nombre_usuario.trim() === "") {
+            return res.status(400).json(['El nombre de usuario es obligatorio']);
+        }
+       
+        // con el metodo findOne buscamos un nombre en la base de datos igual al que se ingreso
+        const usuario = await Usuario.findOne({ where: { nombre_usuario } });
+       
+           // si no existe, enviar un mensaje de error
+         if (!usuario) {
+         return res.status(404).json(['Usuario no encontrado']);
+         }
+
+       // con la biblioteca bcrypt y el metodo compare, la contrasena ingresada la comparamos con la que esta en la bd
+         const contraseñaValida = await bcrypt.compare(contraseña, usuario.contraseña);
+
+         if (!contraseñaValida) {
+         return res.status(404).json(['Contraseña incorrecta']);
+       }
+
+       const token = await crearTokenDeAcceso({usuarioId: usuario.id})
+       res.cookie('token', token)
+       
+       res.json({
+        id: usuario.id,
+        nombre: usuario.nombre_usuario,
+        correo: usuario.correo_usuario,
+       })
+
+        // si todo sale bien y los datos concuerdan, se genera un token de expiracion a 1h (se puede modificar el tiempo),
+        // con este token luego podemos verificar al usuario en las distintas paginas que requieran autentificacion
+
+
+    } catch (error) {
+        console.error('Error en la autentificación:', error);
+        res.status(500).json('Error en el servidor', error.message );
+    }
+}
+
+export const logout = async (req, res) => {
+    res.cookie('token', "", {
+        expires: new Date(0)
+    })
+    return res.sendStatus(200)
+}
+
+export const profile = async (req, res) => {
+  const usuarioEncontrado = await Usuario.findByPk(req.user.usuarioId);
+  if (!usuarioEncontrado) return res.status(400).json({message: "Usuario no encontrado"})
+
+  return res.json({
+    id: usuarioEncontrado.id,
+    nombre: usuarioEncontrado.nombre_usuario,
+    correo: usuarioEncontrado.correo_usuario,
+  })
+}
+
+export const verificarToken = async (req, res) => {
+  const { token } = req.cookies
+
+  if(!token) return res.status(401).json({message: "No autorizado"})
+  
+  jwt.verify(token, TOKEN_SECRET, async (err, usuario) => {
+    if(err) return res.status(err).json({message: "No autorizado"})
+ 
+    const usuarioEncontrado = await Usuario.findByPk(usuario.usuarioId);
+
+    if (!usuarioEncontrado) return res.status(401).json({message: "No autorizado"})
+
+    return res.json({
+      id: usuarioEncontrado.id,
+      nombre: usuarioEncontrado.nombre_usuario,
+      correo: usuarioEncontrado.correo_usuario,
+    })
+  })
+}
+

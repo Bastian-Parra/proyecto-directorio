@@ -1,30 +1,52 @@
 import logo from '../assets/logo.png'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Link } from 'react-router-dom';
+import { faHome, faShop, faCalendarDays, faMapLocationDot, faArrowRightToBracket, faUser } from '@fortawesome/free-solid-svg-icons';
+import { useAuth } from '../context/AuthContext';
 import '../styles/navegador.css'
 
-export default function Navigator() {
-    return (
-        <div>
-            <Nav/>
-        </div>
-    );
+function Navigator() {
+
+  const {estaAutentificado, cerrarSesion, usuario} = useAuth()
+
+
+  return (
+    <nav className="containerNavigator">
+    <div id="navigation-container">
+      <div className="logo">
+        <a href="/"><img id="logo" src={logo} alt="Logo" /></a>
+      </div>
+      <ul>
+        <li><Link id="button-rest" to="/"><FontAwesomeIcon icon={faHome} id="iconos-nav" />Inicio</Link></li>
+        <li><Link id="button-rest" to="/negocios"><FontAwesomeIcon icon={faShop} id="iconos-nav" />Negocios</Link></li>
+        <li><Link id="button-rest" to="/eventos"><FontAwesomeIcon icon={faCalendarDays} id="iconos-nav" />Eventos</Link></li>
+        <li><Link id="button-rest" to="/lugares"><FontAwesomeIcon icon={faMapLocationDot} id="iconos-nav" />Lugares de Interés</Link></li>
+        {estaAutentificado ? (
+          <>
+          <li>
+            <Link id="btn-perfil" to="/profile"><FontAwesomeIcon icon={faUser} id="iconos-nav" />{usuario.nombre}</Link>
+          </li>
+          <li>
+            <Link id="btn-logout" 
+              to="/" 
+              onClick={() => {cerrarSesion()}
+            }>
+            <FontAwesomeIcon icon={faArrowRightToBracket} id="iconos-nav" />Cerrar sesion</Link>
+          </li>
+          
+          </>
+        ) : (
+          <>
+          <li>
+            <Link id="button-inicio" to="/login"><FontAwesomeIcon icon={faArrowRightToBracket} id="iconos-nav" />Inicio de Sesión</Link>
+          </li>
+          </>
+        )}
+        
+      </ul>
+    </div>
+  </nav>
+  );
 }
 
-function Nav() {
-    return (
-        
-        <nav className="containerNavigator">
-            <div id="navigation-container">
-                <div className="logo">
-                    <a href="/"><img id="logo" src={logo}></img></a>
-                </div>
-                <ul>
-                    <li><a id="button-rest" href="/">Inicio</a></li>
-                    <li><a id="button-rest" href="/negocios">Negocios</a></li>
-                    <li><a id="button-rest" href="/eventos">Eventos</a></li>
-                    <li><a id="button-rest" href="/lugares">Lugares de Interes</a></li>
-                    <li><a id="button-inicio" href="/login">Inicio de Sesión</a></li>
-                </ul>
-            </div>
-        </nav>
-    );
-}
+export default Navigator
