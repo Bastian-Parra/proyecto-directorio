@@ -18,8 +18,56 @@ function Lugares() {
       </div>
         </div>
       </div>
-    
+
  );
+}
+
+function ContenedorRecomendaciones() {
+  return (
+    <div className="container-recomendations">
+      <h1 className="titulo-about">
+        Algunas recomendaciones...
+        </h1>
+        <p>
+          Duis cillum consequat ex voluptate in ex consequat ad adipisicing.
+          <br></br>Do ullamco ullamco cillum velit aliqua sunt et <br></br>proident deserunt
+          adipisicing eiusmod.
+        </p>
+
+        <div className="contenedor-carrusel">
+          <div className="carrusel-item ">
+            <img src={imgContenedor_1}></img>
+            <div className="container-bottom">
+              <p>
+                Qui excepteur pariatur et dolore reprehenderit sint 
+                exercitation laboris veniam ipsum commodo qui.
+              </p>
+              <a href="#">Ver más</a>
+            </div>
+          </div>
+          <div className="carrusel-item">
+            <img src={imgContenedor_2}></img>
+            <div className="container-bottom">
+              <p>
+                Qui excepteur pariatur et dolore reprehenderit sint 
+                exercitation laboris veniam ipsum commodo qui.
+              </p>
+              <a href="#">Ver más</a>
+            </div>
+          </div>
+          <div className="carrusel-item">
+            <img src={imgContenedor_3}></img>
+            <div className="container-bottom">
+              <p>
+                Qui excepteur pariatur et dolore reprehenderit sint 
+                exercitation laboris veniam ipsum commodo qui.
+              </p>
+              <a href="#">Ver más</a>
+            </div>
+          </div>
+        </div>
+    </div>
+  )
 }
 
 export default Lugares;
