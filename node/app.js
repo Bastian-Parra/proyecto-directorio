@@ -3,11 +3,16 @@ import cors from 'cors'
 import db from './database/db.config.js'
 import routes from './routes/routes.js'
 import bodyParser from 'body-parser'
+import cookieParser from 'cookie-parser'
 const app = express()
 
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(cors())
+app.use(cors({
+    origin: 'http://localhost:5173',
+    credentials: true
+}))
 app.use(express.json())
+app.use(cookieParser())
 
 try {
     await db.authenticate()
@@ -18,7 +23,7 @@ try {
 
 app.use('/', routes)
 
-const PORT = 5000
+const PORT = 3000
 app.listen(PORT, () =>{
     console.log("listening on port http://localhost:" + PORT)
 })
