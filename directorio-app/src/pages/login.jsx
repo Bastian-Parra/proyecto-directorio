@@ -58,7 +58,7 @@ function LoginPage() {
           <button type='submit'>Logearse</button>
           <p className='no-account'>
             ¿No tienes cuenta? 
-            <Link to="/register">  Registrate</Link>
+            <Link to="/register">Registrate</Link>
           </p>
         </form>
     </div>

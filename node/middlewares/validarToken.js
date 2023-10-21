@@ -3,6 +3,7 @@ import { TOKEN_SECRET } from "../config.js"
 
 
 
+// Esta funcion valida el token de acceso
 export const authRequerida = (req, res, next) => {
     const {token} = req.cookies
 

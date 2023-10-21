@@ -9,8 +9,10 @@ import Footer from './components/Footer.jsx'
 import Login from './pages/login.jsx'
 import Registro from './pages/Registro.jsx'
 import Error404 from './pages/404.jsx'
+import Dashboard from './pages/Dashboard.jsx'
 import Perfil from './pages/Perfil.jsx'
 import RutasProtegidas from './RutasProtegidas.jsx'
+import RutaDashboard from './dashboardProtegido.jsx'
 import {Route, Routes, Navigate} from 'react-router-dom'
 import { BrowserRouter } from 'react-router-dom'
 import { AuthProvider } from './context/AuthContext.jsx'
@@ -47,6 +49,9 @@ function App() {
                 <Route path="*" element={<Navigate to="/404"/>}/>
                 <Route element={<RutasProtegidas/>}>
                   <Route path='/profile' element={<Perfil/>}></Route>
+                </Route>
+                <Route element={<RutaDashboard />}>
+                  <Route path='/dashboard' element={<Dashboard/>}></Route>
                 </Route>
               </Routes>
             </BrowserRouter>

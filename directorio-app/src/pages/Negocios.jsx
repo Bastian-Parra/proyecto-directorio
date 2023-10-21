@@ -20,11 +20,25 @@ const NegociosPage = () => {
   }
 
   return (
-    <div className='container-negocios'>
-    {negocios.map(negocio => (
-        <NegociosCard negocio={negocio} key={negocio.id}/>
-      ))}
-  </div>
+    <>
+    <div className='container-negocio'>
+      <div className='container-left-negocio'></div>
+      <div className='container-right-negocio'>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque quaerat qui corrupti eveniet facere reiciendis temporibus. At adipisci ex aut fuga iusto assumenda sint maiores cupiditate aliquid, quae architecto ratione?</p>
+      </div>
+    </div>
+    <div className='container-filters'>
+      <button className='filtro'>Filtrar</button>
+      <label for="site-search" placeholder='Nombre del negocio'>Buscar por nombre </label>
+      <input id="buscar" type="search" name="q" />
+      <button className='filtro'>Buscar</button>
+    </div>
+    <div className='container-negocios-inside'>
+        {negocios.map(negocio => (
+          <NegociosCard negocio={negocio} key={negocio.id}/>
+        ))}
+    </div>
+    </>
   )
 }
 
