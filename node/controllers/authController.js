@@ -18,12 +18,40 @@ export const verificarUsuario = async (nombre, correo) => {
         },
       });
       // si no se encuentra, retornar que el usuario no existe (se puede crear)
-      return !!usuario;
+      return !!usuario
     } catch (error) {
-      throw error;
-    }
+      throw error
   }
+}
+export const registerFunction = async (req, res) => {
+  const { nombre_usuario, contraseña, correo_usuario } = req.body;
+
+  try {
+    // usamos la funcion creada en loginController para verificar la existencia de un usuario y pasamos los parametros solicitados
+    const usuarioExistente = await verificarUsuario(nombre_usuario, correo_usuario);
+
+    // si el usuario exite, enviar un mensaje con el error especifico
+    if (usuarioExistente) {
+      return res.status(400).json(["El usuario ya esta en uso"])
+    }
+
+    // si el usuario no existe, registrar un nuevo usuario en la bd
+    await register(nombre_usuario, contraseña, correo_usuario);
   
+    const token = await crearTokenDeAcceso({usuarioId: nombre_usuario.id})
+       res.cookie('token', token)
+       res.json({
+        id: nombre_usuario.id,
+        nombre: nombre_usuario,
+        correo: correo_usuario,
+       })
+
+  } catch (error) {
+    console.error('Error al registrar usuario:', error);
+    res.status(500).json({ success: false, message: 'Error en el registro' });
+  }
+}
+
 export const register = async(nombre, contraseña, correo) => {
     try {
       const saltRounds = 5;
@@ -36,11 +64,12 @@ export const register = async(nombre, contraseña, correo) => {
         contraseña: contraseñaHash, 
         correo_usuario: correo, 
       })
-      
+
     } catch (error) {
-      throw error;
+      throw error
     }
   }
+  
 export const login = async (req, res) => {
     const { nombre_usuario, contraseña } = req.body;
 
@@ -64,7 +93,7 @@ export const login = async (req, res) => {
          if (!contraseñaValida) {
          return res.status(404).json(['Contraseña incorrecta']);
        }
-
+      
        const token = await crearTokenDeAcceso({usuarioId: usuario.id})
        res.cookie('token', token)
        

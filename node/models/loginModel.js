@@ -10,5 +10,5 @@ const Usuario = db.define('usuarios', {
        type: DataTypes.STRING,
      },
    },{timestamps:false,});
-
+  
 export default Usuario
