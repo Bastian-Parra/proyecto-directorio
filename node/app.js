@@ -2,6 +2,7 @@ import express from 'express'
 import cors from 'cors'
 import db from './database/db.config.js'
 import routes from './routes/routes.js'
+import router from './routes/tasks.routes.js'
 import bodyParser from 'body-parser'
 import cookieParser from 'cookie-parser'
 const app = express()
@@ -22,8 +23,10 @@ try {
 }
 
 app.use('/', routes)
+app.use('/negocios', router)
 
-const PORT = 3000
+const PORT = 4000
+
 app.listen(PORT, () =>{
     console.log("listening on port http://localhost:" + PORT)
 })
