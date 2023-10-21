@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Box, Button, Typography } from "@mui/material";
-import { Link } from "react-router-dom"; // Importa Link si deseas agregar enlaces a otras páginas
+import { Link } from "react-router-dom";
 
 class Eventos extends Component {
   constructor() {
@@ -11,8 +11,8 @@ class Eventos extends Component {
   }
 
   componentDidMount() {
-    // Realiza una solicitud GET al servidor para obtener eventos
-    fetch('/api/eventos') // Asegúrate de que coincida con la ruta correcta de tu servidor
+    
+    fetch('/api/eventos') 
       .then((response) => response.json())
       .then((data) => {
         this.setState({ eventos: data });
@@ -100,4 +100,4 @@ class Eventos extends Component {
   }
 }
 
-export default Eventos;
+export default Eventos

@@ -7,12 +7,12 @@ const Evento = db.define('Evento', {
     allowNull: false,
   },
   direccion_evento: {
-    type: DataTypes.STRING(70), // Longitud de 70 caracteres
+    type: DataTypes.STRING(70),
     allowNull: false,
     collate: 'utf8mb4_general_ci',
   },
   nombre_evento: {
-    type: DataTypes.STRING(70), // Longitud de 70 caracteres
+    type: DataTypes.STRING(70),
     allowNull: false,
     collate: 'utf8mb4_general_ci',
   },
