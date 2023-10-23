@@ -1,5 +1,6 @@
 import React from 'react'
 import Navegador from '../components/Navegador.jsx'
+import ContenedorHeader from '../components/contenedorHeader.jsx'
 import imgRight from '../assets/valparaiso.jpg'
 import imgContenedor_1 from '../assets/descarga.png'
 import imgContenedor_2 from '../assets/descarga2.png'
@@ -7,7 +8,6 @@ import imgContenedor_3 from '../assets/descarga3.png'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCalendarDays, faShop, faMapLocationDot } from '@fortawesome/free-solid-svg-icons'
 import { Link } from 'react-router-dom'
-const parrafoHeader = "Bienvenido al Directorio de Negocios, tu fuente confiable para descubrir y conectar con una amplia variedad de empresas locales. Nuestra plataforma te ofrece acceso a una vasta red de emprendedores y compañías, desde restaurantes y tiendas minoristas hasta servicios profesionales y más. Explora, encuentra y apoya a las empresas de tu comunidad mientras descubres ofertas exclusivas y valiosa información sobre productos y servicios."
 
 import '../styles/home.css'
 
@@ -18,25 +18,6 @@ const Home = () => {
     <ContenedorAbout/>
     <ContenedorRecomendaciones/>
     </>
-  )
-}
-
-function ContenedorHeader() {
-  return (
-    <div className="container">
-      <div className="container-left">
-          <h1>Directorio de Negocios</h1>
-          <h3>A tu disposición</h3>
-          <p>
-            {parrafoHeader}
-          </p>
-          <div className="container-buttons">
-            <a id="btn-verMas" href="/">Ver más</a>
-            <Link id="btn-registro" to="/register" >Regístrate</Link>
-          </div>      
-      </div>
-      <div className="container-right"></div>
-    </div>
   )
 }
 

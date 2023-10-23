@@ -170,8 +170,9 @@ hr {
     padding: 20px 0px 0px 0px;
     scroll-snap-type: center;
     margin-right: 60px;
-    border-radius: 5px;
+    border-radius: 30px;
     scroll-snap-align: center;
+    overflow: hidden;
 }
 
 .carrusel-item:hover {

@@ -1,7 +1,7 @@
 function NegociosCard({negocio}) {
     return (
             <div className="negocio-card">
-            <h3>{negocio.nombre}</h3>
+            <p id="title-card">{negocio.nombre}</p>
             <p><b>Descripcion:</b> {negocio.descripcion}</p>
             <p><b>Tipo: </b>{negocio.tipo_negocio}</p>
             <p><b>Horario:</b> {negocio.H_operacion}</p>

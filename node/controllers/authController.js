@@ -63,6 +63,7 @@ export const register = async(nombre, contraseña, correo) => {
         nombre_usuario: nombre,
         contraseña: contraseñaHash, 
         correo_usuario: correo, 
+        rango: "usuario",
       })
 
     } catch (error) {
@@ -101,6 +102,7 @@ export const login = async (req, res) => {
         id: usuario.id,
         nombre: usuario.nombre_usuario,
         correo: usuario.correo_usuario,
+        rango: usuario.rango,
        })
 
         // si todo sale bien y los datos concuerdan, se genera un token de expiracion a 1h (se puede modificar el tiempo),
@@ -128,9 +130,12 @@ export const profile = async (req, res) => {
     id: usuarioEncontrado.id,
     nombre: usuarioEncontrado.nombre_usuario,
     correo: usuarioEncontrado.correo_usuario,
+    rango: usuarioEncontrado.rango,
   })
 }
 
+
+// esta funcion verifica si el token es valido y si no lo es envia un status 401 (no autorizado), si encuentra al usuario responde con los datos
 export const verificarToken = async (req, res) => {
   const { token } = req.cookies
 
@@ -147,6 +152,7 @@ export const verificarToken = async (req, res) => {
       id: usuarioEncontrado.id,
       nombre: usuarioEncontrado.nombre_usuario,
       correo: usuarioEncontrado.correo_usuario,
+      rango: usuarioEncontrado.rango,
     })
   })
 }

@@ -1,5 +1,6 @@
 import Negocio from '../models/negociosModels.js'
 import { Sequelize } from "sequelize"
+import multer from 'multer'
 
 export const obtenerNegocios = async (req, res) => {
     try {
@@ -20,7 +21,7 @@ export const obtenerNegocio = async (req, res) => {
     res.json(negocio)
 }
 
-export const crearNegocio = async (param_tipo_negocio, param_H_operacion, param_descripcion, param_nombre, param_direccion, param_telefono, param_correo, param_id_ubicacion) => {
+export const crearNegocio = async (param_tipo_negocio, param_H_operacion, param_descripcion, param_nombre, param_direccion, param_telefono, param_correo, param_id_ubicacion, param_imagen) => {
 
     try {
         await Negocio.create({
@@ -32,6 +33,7 @@ export const crearNegocio = async (param_tipo_negocio, param_H_operacion, param_
             telefono: param_telefono,
             correo: param_correo,
             id_ubicacion: param_id_ubicacion,
+            imagen: param_imagen,
         })
     } catch (error) {
         throw error
@@ -48,7 +50,10 @@ export const addNegocio = async (req, res) => {
         return res.status(400).json({message: "El negocio ya existe"})
     }
 
-    await crearNegocio(tipo_negocio, H_operacion, descripcion, nombre, direccion, telefono, correo, id_ubicacion)
+    // se llama a la funcion para crear el negocio
+    await crearNegocio(tipo_negocio, H_operacion, descripcion, nombre, direccion, telefono, correo, id_ubicacion, req.file.path)
+
+    res.status(200).json({ success: true, message: 'Negocio creado exitosamente' });
     } catch (error) {
         console.error('Error al crear un negocio', error)
         res.status(500).json({ success: false, error: 'Error al crear un negocio'})
@@ -71,4 +76,30 @@ export const verificarNegocio = async (nombre_negocio, tipoNegocio,idUbicacion) 
         throw error
     }
 }
+
+
+export const AlmacenarImagenes = multer.diskStorage({
+    destination: (req, file, cb) => {
+        cb(null, "Images")
+    },
+    filename: (req, file, cb) => {
+        cb(null, Date.now(), file.originalname)
+    }
+})
+
+export const SubirImagenes = multer({
+    storage: AlmacenarImagenes,
+    limits: {fileSize: 1024 * 1024 * 10},
+    fileFilter: (req, file, cb) => {
+        const fileTypes = /jpeg|jpg|png|gif/
+        const mimetype = fileTypes.test(file.mimetype)
+        const extname = fileTypes.test(path.extname(file.originalname))
+
+        if (mimetype && extname) {
+            cb(null, true)
+        } else {
+            cb(null, false)
+        }
+    }
+}).single('imagen')
 

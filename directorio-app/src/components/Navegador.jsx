@@ -1,13 +1,15 @@
 import logo from '../assets/logo.png'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Link } from 'react-router-dom';
-import { faHome, faShop, faCalendarDays, faMapLocationDot, faArrowRightToBracket, faUser } from '@fortawesome/free-solid-svg-icons';
+import { faHome, faShop, faCalendarDays, faMapLocationDot, faArrowRightToBracket, faUser, faDashboard } from '@fortawesome/free-solid-svg-icons';
 import { useAuth } from '../context/AuthContext';
 import '../styles/navegador.css'
 
 function Navigator() {
 
   const {estaAutentificado, cerrarSesion, usuario} = useAuth()
+
+  const esAdmin = usuario && usuario.rango === 'administrador'
 
 
   return (
@@ -23,17 +25,22 @@ function Navigator() {
         <li><Link id="button-rest" to="/lugares"><FontAwesomeIcon icon={faMapLocationDot} id="iconos-nav" />Lugares de Interés</Link></li>
         {estaAutentificado ? (
           <>
-          <li>
-            <Link id="btn-perfil" to="/profile"><FontAwesomeIcon icon={faUser} id="iconos-nav" />{usuario.nombre}</Link>
-          </li>
-          <li>
-            <Link id="btn-logout" 
-              to="/" 
-              onClick={() => {cerrarSesion()}
-            }>
-            <FontAwesomeIcon icon={faArrowRightToBracket} id="iconos-nav" />Cerrar sesion</Link>
-          </li>
-          
+            <li>
+              <Link id="btn-perfil" to="/profile"><FontAwesomeIcon icon={faUser} id="iconos-nav" />{usuario.nombre}</Link>
+            </li>
+            {esAdmin && (
+              <li>
+              <Link id="btn-dashboard" to="/dashboard"><FontAwesomeIcon icon={faDashboard} id="iconos-nav" />Control Panel</Link>
+            </li>
+            )}
+
+            <li>
+              <Link id="btn-logout" 
+                to="/" 
+                onClick={() => {cerrarSesion()}
+              }>
+              <FontAwesomeIcon icon={faArrowRightToBracket} id="iconos-nav" />Cerrar sesion</Link>
+            </li>
           </>
         ) : (
           <>

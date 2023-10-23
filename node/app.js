@@ -3,7 +3,7 @@ import cors from 'cors'
 import db from './database/db.config.js'
 import Evento from './models/Eventos.js';
 import routes from './routes/routes.js'
-import router from './routes/tasks.routes.js'
+import router from './routes/negocios.routes.js'
 import bodyParser from 'body-parser'
 import cookieParser from 'cookie-parser'
 const app = express()
