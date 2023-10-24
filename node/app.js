@@ -5,6 +5,7 @@ import routesAuth from './routes/auth.routes.js'
 import routesNegocio from './routes/negocios.routes.js'
 import bodyParser from 'body-parser'
 import cookieParser from 'cookie-parser'
+import routerConsultas from './routes/consultas.routes.js'
 const app = express()
 
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -24,6 +25,7 @@ try {
 
 app.use('/auth', routesAuth)
 app.use('/negocios', routesNegocio)
+app.use('/consultas', routerConsultas)
 
 const PORT = 4000
 
