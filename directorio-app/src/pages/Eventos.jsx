@@ -35,7 +35,7 @@ const EventosPage = () => {
     </div>
     <div className='container-filters'>
       <button className='filtro'>Filtrar</button>
-      <label htmlfor="site-search" placeholder='Nombre del evento'>Buscar por nombre </label>
+      <label htmlFor="buscar" placeholder='Nombre del evento'>Buscar por nombre </label>
       <input id="buscar" type="search" name="q" />
       <button className='filtro'>Buscar</button>
     </div>
