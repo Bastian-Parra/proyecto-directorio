@@ -1,7 +1,8 @@
 import express from 'express'
 import cors from 'cors'
 import db from './database/db.config.js'
-import routes from './routes/routes.js'
+import routesAuth from './routes/auth.routes.js'
+import routesNegocio from './routes/negocios.routes.js'
 import bodyParser from 'body-parser'
 import cookieParser from 'cookie-parser'
 const app = express()
@@ -21,9 +22,11 @@ try {
     console.error("Error al conectar con la DB: " + error)
 }
 
-app.use('/', routes)
+app.use('/auth', routesAuth)
+app.use('/negocios', routesNegocio)
 
-const PORT = 3000
+const PORT = 4000
+
 app.listen(PORT, () =>{
     console.log("listening on port http://localhost:" + PORT)
 })

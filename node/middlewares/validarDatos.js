@@ -1,3 +1,5 @@
+
+// valida los schemas de la base de datos
 export const validarSchema = (schema) =>  (req, res, next) => {
     try {
         schema.parse(req.body)
@@ -7,5 +9,4 @@ export const validarSchema = (schema) =>  (req, res, next) => {
         .status(400)
         .json(error.errors.map(error => error.message))
     }
-    
 }
