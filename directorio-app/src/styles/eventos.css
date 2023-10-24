@@ -1,0 +1,58 @@
+:root {
+  --primaryColor: #3d8af7;
+  --greyColor: #ebebeb;
+}
+
+.container-evento {
+  display: flex;
+  margin: 20px;
+}
+
+.container-left-evento {
+  flex: 1;
+  padding: 20px;
+  background-color: #f2f2f2;
+}
+
+.container-right-evento {
+  flex: 2;
+  padding: 20px;
+  background-color: #ffffff;
+}
+
+.container-filters {
+  display: flex;
+  align-items: center;
+  margin: 20px;
+}
+
+.filtro {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+label {
+  font-weight: bold;
+}
+
+#buscar {
+  padding: 5px;
+  margin: 0 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.container-eventos-inside {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 20px;
+}
+
+.descripción_sección {
+  text-align: justify;
+}

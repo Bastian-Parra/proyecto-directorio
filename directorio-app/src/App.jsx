@@ -17,6 +17,7 @@ import {Route, Routes, Navigate} from 'react-router-dom'
 import { BrowserRouter } from 'react-router-dom'
 import { AuthProvider } from './context/AuthContext.jsx'
 import { NegociosProvider } from './context/negociosContext.jsx'
+import { EventosProvider } from './context/eventosContext.jsx'
 import './app.css'
 
 
@@ -27,6 +28,7 @@ function App() {
       <div className="content">
         <AuthProvider>
           <NegociosProvider>
+          <EventosProvider>
             <BrowserRouter>
               <Navegador/>
               <Routes>
@@ -46,6 +48,7 @@ function App() {
                 </Route>
               </Routes>
             </BrowserRouter>
+          </EventosProvider>
           </NegociosProvider>
         </AuthProvider>
       </div>
