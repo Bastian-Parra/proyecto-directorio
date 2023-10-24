@@ -22,15 +22,6 @@ import './app.css'
 
 
 function App() {
-
-  // // logica para el loader
-  // const [estaCargando, setEstaCargando] = useState(true)
-  // useEffect(() => {
-  //   setTimeout(() => {
-  //     setEstaCargando(false)
-  //   }, 2000)
-  // }, [])
-
   return (
     <div className="App">   
       <div className="content">

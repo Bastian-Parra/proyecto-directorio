@@ -8,7 +8,7 @@ import { TOKEN_SECRET } from "../config.js"
 export const verificarUsuario = async (nombre, correo) => {
     try {
       // con el metodo findOne verificamos si la cuenta que se quiere crear ya existe
-      // obviamente deben coincidir el nombre y el correo por lo que tomamos esos parametros para hacer la busqueda (where)
+      // por obviedad deben coincidir el nombre y el correo por lo que tomamos esos parametros para hacer la busqueda (where)
       const usuario = await Usuario.findOne({
         where: {
           [Sequelize.Op.or]: [
@@ -32,12 +32,14 @@ export const registerFunction = async (req, res) => {
 
     // si el usuario exite, enviar un mensaje con el error especifico
     if (usuarioExistente) {
-      return res.status(400).json(["El usuario ya esta en uso"])
+      return res.status(409).json(["El usuario ya existe"]);
     }
 
     // si el usuario no existe, registrar un nuevo usuario en la bd
     await register(nombre_usuario, contraseña, correo_usuario);
-  
+
+    res.status(200).json({ success: true, message: 'Usuario registrado correctamente!' });
+
     const token = await crearTokenDeAcceso({usuarioId: nombre_usuario.id})
        res.cookie('token', token)
        res.json({
@@ -48,14 +50,14 @@ export const registerFunction = async (req, res) => {
 
   } catch (error) {
     console.error('Error al registrar usuario:', error);
-    res.status(500).json({ success: false, message: 'Error en el registro' });
+    res.status(500).json({ success: false, message: 'Error al registrar usuario' });
   }
 }
 
 export const register = async(nombre, contraseña, correo) => {
     try {
       const saltRounds = 5;
-      // con la biblioteca bcrypt y el metodo hash() hasheamos la contrasena (la dejamos en un formato mas seguro)
+      // con la biblioteca bcrypt y el metodo hash() hasheamos la contraseña (la dejamos en un formato mas seguro)
       const contraseñaHash = await bcrypt.hash(contraseña, saltRounds)
   
       // creamos la tabla con los datos ingresados y la contraseña hasheada
@@ -63,13 +65,13 @@ export const register = async(nombre, contraseña, correo) => {
         nombre_usuario: nombre,
         contraseña: contraseñaHash, 
         correo_usuario: correo, 
-        rango: "usuario",
+        rango: "usuario", // esto se agrega para la diferenciacion de rangos de los usuarios (por defecto es "usuario")
       })
 
     } catch (error) {
       throw error
     }
-  }
+}
   
 export const login = async (req, res) => {
     const { nombre_usuario, contraseña } = req.body;
@@ -92,7 +94,7 @@ export const login = async (req, res) => {
          const contraseñaValida = await bcrypt.compare(contraseña, usuario.contraseña);
 
          if (!contraseñaValida) {
-         return res.status(404).json(['Contraseña incorrecta']);
+         return res.status(401).json(['Contraseña incorrecta']);
        }
       
        const token = await crearTokenDeAcceso({usuarioId: usuario.id})
