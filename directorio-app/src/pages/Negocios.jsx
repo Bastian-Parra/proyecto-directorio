@@ -24,7 +24,7 @@ const NegociosPage = () => {
     <div className='container-negocio'>
       <div className='container-left-negocio'></div>
       <div className='container-right-negocio'>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque quaerat qui corrupti eveniet facere reiciendis temporibus. At adipisci ex aut fuga iusto assumenda sint maiores cupiditate aliquid, quae architecto ratione?</p>
+        <p>En la ciudad de Valparaíso, Chile, se abren las puertas a numerosas oportunidades de negocios que ofrecen una variada gama de experiencias para empresarios e inversores.  Aquí, encontrarás una diversidad de oportunidades comerciales, que van desde acogedores restaurantes y tiendas únicas hasta servicios profesionales!!</p>
       </div>
     </div>
     <div className='container-filters'>
