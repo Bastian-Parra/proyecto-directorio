@@ -1,38 +1,4 @@
-/* contenedor principal */
-.container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-  }
-  
-  /*título */
-  h1 {
-    font-size: 24px;
-    text-align: center;
-    margin-bottom: 20px;
-  }
-  
-  /*lista de eventos */
-  ul {
-    list-style-type: none;
-    padding: 0;
-  }
-  
-  li {
-    margin-bottom: 20px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    background-color: #f9f9f9;
-  }
-  
-  /*campos de los eventos */
-  h2 {
-    font-size: 20px;
-    margin-bottom: 10px;
-  }
-  
-  p {
-    font-size: 16px;
-    margin: 0;
-  }
+:root {
+  --primaryColor: #3d8af7;
+  --greyColor: #ebebeb;
+}

@@ -1,4 +1,4 @@
-import Negocio from '../models/eventosModel.js'
+import Evento from '../models/eventosModel.js'
 import { Sequelize } from "sequelize"
 import multer from 'multer'
 

@@ -7,4 +7,4 @@ router.get('/mostrar', obtenerEventos);
 router.get('/mostrar/:id', obtenerEvento);
 router.post('/add',SubirImagenes, addEvento)
 
-export default router
+export default router;

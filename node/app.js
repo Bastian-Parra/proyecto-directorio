@@ -1,9 +1,9 @@
 import express from 'express'
 import cors from 'cors'
 import db from './database/db.config.js'
-import Evento from './models/eventosModel.js';
 import routes from './routes/routes.js'
 import router from './routes/negocios.routes.js'
+import routerEventos from './routes/eventos.routes.js'
 import bodyParser from 'body-parser'
 import cookieParser from 'cookie-parser'
 const app = express()
@@ -22,19 +22,9 @@ try {
 } catch (error) {
     console.error("Error al conectar con la DB: " + error)
 }
-
-app.get('../Eventos.js', async (req, res) => {
-    try {
-      const eventos = await Evento.findAll(); // se obtienen los eventos de la base de datos
-      res.json(eventos);
-    } catch (error) {
-      console.error('Error al obtener eventos:', error);
-      res.status(500).json({ error: 'Error al obtener eventos' });
-    }
-});
-
 app.use('/', routes)
 app.use('/negocios', router)
+app.use('/eventos', routerEventos)
 
 const PORT = 4000
 
