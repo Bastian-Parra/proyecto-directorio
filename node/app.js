@@ -1,11 +1,12 @@
 import express from 'express'
 import cors from 'cors'
 import db from './database/db.config.js'
-import routes from './routes/routes.js'
-import router from './routes/negocios.routes.js'
+import routesAuth from './routes/auth.routes.js'
+import routesNegocio from './routes/negocios.routes.js'
 import routerEventos from './routes/eventos.routes.js'
 import bodyParser from 'body-parser'
 import cookieParser from 'cookie-parser'
+import routerConsultas from './routes/consultas.routes.js'
 const app = express()
 
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -22,8 +23,9 @@ try {
 } catch (error) {
     console.error("Error al conectar con la DB: " + error)
 }
-app.use('/', routes)
-app.use('/negocios', router)
+app.use('/auth', routesAuth)
+app.use('/negocios', routesNegocio)
+app.use('/consultas', routerConsultas)
 app.use('/eventos', routerEventos)
 
 const PORT = 4000

@@ -16,12 +16,33 @@ export const obtenerNegocios = async (req, res) => {
 export const obtenerNegocio = async (req, res) => {
     const negocio = await Negocio.findByPk(req.params.id)
     
-    if (!negocio) return res.status(400).json({message: "Negocio no encontrado"})
+    if (!negocio) return res.status(404).json({message: "Negocio no encontrado"})
 
     res.json(negocio)
 }
 
-export const crearNegocio = async (param_tipo_negocio, param_H_operacion, param_descripcion, param_nombre, param_direccion, param_telefono, param_correo, param_id_ubicacion, param_imagen) => {
+export const addNegocio = async (req, res) => {
+    try {
+        const {tipo_negocio, H_operacion, descripcion, nombre, direccion, telefono, correo, id_ubicacion} = req.body;
+    
+    const negocioExistente = await verificarNegocio(nombre, tipo_negocio)
+
+    if (negocioExistente) {
+        return res.status(409).json({message: "El negocio ya existe"})
+    }
+
+    // se llama a la funcion para crear el negocio
+    await crearNegocio(tipo_negocio, H_operacion, descripcion, nombre, direccion, telefono, correo, id_ubicacion)
+
+    res.status(200).json({ success: true, message: 'Negocio creado exitosamente' });
+
+    } catch (error) {
+        console.error('Error al crear un negocio', error)
+        res.status(500).json({ success: false, error: 'Error al crear un negocio'})
+    }
+}
+
+export const crearNegocio = async (param_tipo_negocio, param_H_operacion, param_descripcion, param_nombre, param_direccion, param_telefono, param_correo, param_id_ubicacion) => {
 
     try {
         await Negocio.create({
@@ -33,47 +54,75 @@ export const crearNegocio = async (param_tipo_negocio, param_H_operacion, param_
             telefono: param_telefono,
             correo: param_correo,
             id_ubicacion: param_id_ubicacion,
-            imagen: param_imagen,
         })
     } catch (error) {
         throw error
     }
 }
 
-export const addNegocio = async (req, res) => {
-    try {
-        const {tipo_negocio, H_operacion, descripcion, nombre, direccion, telefono, correo, id_ubicacion} = req.body;
-    
-    const negocioExistente = await verificarNegocio(nombre, tipo_negocio, id_ubicacion)
 
-    if (negocioExistente) {
-        return res.status(400).json({message: "El negocio ya existe"})
-    }
-
-    // se llama a la funcion para crear el negocio
-    await crearNegocio(tipo_negocio, H_operacion, descripcion, nombre, direccion, telefono, correo, id_ubicacion, req.file.path)
-
-    res.status(200).json({ success: true, message: 'Negocio creado exitosamente' });
-    } catch (error) {
-        console.error('Error al crear un negocio', error)
-        res.status(500).json({ success: false, error: 'Error al crear un negocio'})
-    }
-}
-
-export const verificarNegocio = async (nombre_negocio, tipoNegocio,idUbicacion) => {
+export const verificarNegocio = async (nombre_negocio, tipoNegocio) => {
     try {
         const negocio = await Negocio.findOne({
             where: {
               [Sequelize.Op.or]: [
                 { nombre: nombre_negocio }, 
                 { tipo_negocio: tipoNegocio },
-                { id_ubicacion: idUbicacion },
               ],
             },
         })
         return !!negocio
     } catch (error) {
         throw error
+    }
+}
+
+export const actualizarNegocio = async (req, res) => {
+    try {
+        const negocio = await Negocio.findByPk(req.params.id)
+        
+        if (!negocio) return res.status(400).json({message: "Negocio no encontrado"})
+        
+        const {tipo_negocio, H_operacion, descripcion, nombre, direccion, telefono, correo, id_ubicacion} = req.body;
+        
+        const negocioExistente = await verificarNegocio(nombre, tipo_negocio, id_ubicacion)
+        
+        if (negocioExistente) {
+            return res.status(400).json({message: "Negocio existente encontrado"})
+        }
+        
+        await negocio.update({
+            tipo_negocio: tipo_negocio,
+            H_operacion: H_operacion,
+            descripcion: descripcion,
+            nombre: nombre,
+            direccion: direccion,
+            telefono: telefono,
+            correo: correo,
+            id_ubicacion: id_ubicacion,
+        })
+        
+        res.status(200).json({ success: true, message: 'Negocio actualizado exitosamente' });
+        
+    } catch (error) {
+        console.error('Error al actualizar un negocio', error)
+        res.status(500).json({ success: false, error: 'Error al actualizar un negocio'})
+    }
+}
+
+export const eliminarNegocio = async (req, res) => {
+    try {
+        const negocio = await Negocio.findByPk(req.params.id)
+        
+        if (!negocio) return res.status(400).json({message: "Negocio no encontrado"})
+        
+        await negocio.destroy()
+        
+        res.status(200).json({ success: true, message: 'Negocio eliminado exitosamente' });
+        
+    } catch (error) {
+        console.error('Error al eliminar un negocio', error)
+        res.status(500).json({ success: false, error: 'Error al eliminar un negocio'})
     }
 }
 

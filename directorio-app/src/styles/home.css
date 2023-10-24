@@ -82,7 +82,8 @@
     height: auto;
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
-    background-image: url("../assets/valparaiso.jpg");
+    background-image: url("../assets/images/valparaiso.jpg");
+    background-size: 900px;
 }
 
 

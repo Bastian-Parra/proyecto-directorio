@@ -20,6 +20,7 @@ router.post('/login', validarSchema(loginSchema), login)
 
 router.post('/register', validarSchema(registerSchema), registerFunction)
 
+
 router.post('/logout', logout)
 
 

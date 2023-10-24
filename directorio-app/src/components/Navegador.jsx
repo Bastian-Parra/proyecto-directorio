@@ -1,4 +1,4 @@
-import logo from '../assets/logo.png'
+import logo from '../assets/images/logo.png'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Link } from 'react-router-dom';
 import { faHome, faShop, faCalendarDays, faMapLocationDot, faArrowRightToBracket, faUser, faDashboard } from '@fortawesome/free-solid-svg-icons';
