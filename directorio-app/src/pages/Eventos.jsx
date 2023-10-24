@@ -1,7 +1,8 @@
 import React, { useEffect } from 'react';
-import '../styles/Eventos.css'
+import '../styles/eventos.css'
 import {useEventos} from '../context/eventosContext.jsx'
 import EventosCard from '../components/eventosCard'
+import Imagen from '../assets/eventos.png'
 
 const EventosPage = () => {
   
@@ -21,21 +22,27 @@ const EventosPage = () => {
   return (
     <>
     <div className='container-evento'>
-      <div className='container-left-evento'></div>
+      <div className='container-left-evento'>
+        <img
+          src = {Imagen}
+          width="500" // Ajusta el ancho de la imagen
+          height="200" // Ajusta la altura de la imagen
+        />
+      </div>
       <div className='container-right-evento'>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque quaerat qui corrupti eveniet facere reiciendis temporibus. At adipisci ex aut fuga iusto assumenda sint maiores cupiditate aliquid, quae architecto ratione?</p>
+        <p className = "descripción_sección">La sección de eventos es un lugar especial dedicado a la celebración de diversas actividades y acontecimientos que pueden ser de tu interés. Aquí, te invitamos a explorar un amplio catálogo de eventos que abarcan una variedad de temas, desde conciertos, exhibiciones artísticas, conferencias educativas, hasta ferias y festivales locales. Cualquiera que sea tu pasión o área de interés, seguramente encontrarás eventos emocionantes y entretenidos que se adaptarán a tus preferencias.</p>
       </div>
     </div>
     <div className='container-filters'>
       <button className='filtro'>Filtrar</button>
-      <label for="site-search" placeholder='Nombre del evento'>Buscar por nombre </label>
+      <label htmlfor="site-search" placeholder='Nombre del evento'>Buscar por nombre </label>
       <input id="buscar" type="search" name="q" />
       <button className='filtro'>Buscar</button>
     </div>
     <div className='container-eventos-inside'>
-        {eventos.map(evento => (
-          <EventosCard evento={eventos} key={eventos.id}/>
-        ))}
+      {eventos.map((evento) => (
+        <EventosCard evento={evento} key={evento.id}/>
+      ))}
     </div>
     </>
   )
