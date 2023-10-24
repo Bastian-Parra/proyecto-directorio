@@ -1,7 +1,8 @@
 function DashboardComponents() {
+    const titulo = "Panel de control (En mantenimiento)"
     return (
         <div className="container-panel">
-            <h1>Panel de control</h1>
+            <h1>{titulo}</h1>
             <div className="container-tasks">
                 <div className="task-card">
                     <h2>Negocios</h2>
