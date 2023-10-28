@@ -16,7 +16,7 @@ export function EventosProvider({children}) {
 
     const [eventos, setEventos] = useState([])
 
-    const mostrarEventos = async () => {
+    const mostrarEventos = async () => { 
         try {
             const respuesta = await consultaEventos()
             setEventos(respuesta.data)
