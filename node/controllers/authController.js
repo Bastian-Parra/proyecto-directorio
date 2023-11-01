@@ -38,15 +38,19 @@ export const registerFunction = async (req, res) => {
     // si el usuario no existe, registrar un nuevo usuario en la bd
     await register(nombre_usuario, contraseña, correo_usuario);
 
-    res.status(200).json({ success: true, message: 'Usuario registrado correctamente!' });
-
+    // crea el token de acceso para el usuario registrado
     const token = await crearTokenDeAcceso({usuarioId: nombre_usuario.id})
-       res.cookie('token', token)
-       res.json({
-        id: nombre_usuario.id,
-        nombre: nombre_usuario,
-        correo: correo_usuario,
-       })
+    
+    // se establece la cookie
+    res.cookie('token', token)
+
+    res.status(200).json({
+      success: true,
+      message: "Usuario registrado correctamente",
+      id: nombre_usuario.id,
+      nombre: nombre_usuario,
+      correo: correo_usuario,
+    })
 
   } catch (error) {
     console.error('Error al registrar usuario:', error);

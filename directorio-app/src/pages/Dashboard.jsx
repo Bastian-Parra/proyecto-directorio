@@ -1,5 +1,5 @@
 import '../styles/dashboard.css'
-import DashboardComponents from '../components/dashboardComponents.jsx'
+import DashboardComponents from '../components/dashboard/dashboardComponents.jsx'
 
 
 function Dashboard() {

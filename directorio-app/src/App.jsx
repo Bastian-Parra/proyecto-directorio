@@ -13,11 +13,15 @@ import Dashboard from './pages/Dashboard.jsx'
 import Perfil from './pages/Perfil.jsx'
 import RutasProtegidas from './RutasProtegidas.jsx'
 import RutaDashboard from './dashboardProtegido.jsx'
+import NegocioDetails from './components/negociosDetail.jsx'
 import {Route, Routes, Navigate} from 'react-router-dom'
 import { BrowserRouter } from 'react-router-dom'
 import { AuthProvider } from './context/AuthContext.jsx'
 import { NegociosProvider } from './context/negociosContext.jsx'
 import { EventosProvider } from './context/eventosContext.jsx'
+import EventosDashboard from './components/dashboard/eventosDashboard.jsx'
+import NegociosDashboard from './components/dashboard/negociosDashboard.jsx'
+import LugaresDashboard from './components/dashboard/lugaresDashboard.jsx'
 import './app.css'
 
 
@@ -34,6 +38,7 @@ function App() {
               <Routes>
                 <Route path='/' element={<Home/>}></Route>
                 <Route path='/negocios' element={<Negocios/>}></Route>
+                <Route path='/negocios/:id' element={<NegocioDetails/>}></Route>
                 <Route path='/eventos' element={<Eventos/>}></Route>
                 <Route path='/lugares' element={<Lugares/>}></Route>
                 <Route path='/register' element={<Registro/>}></Route>
@@ -45,6 +50,9 @@ function App() {
                 </Route>
                 <Route element={<RutaDashboard />}>
                   <Route path='/dashboard' element={<Dashboard/>}></Route>
+                  <Route path='/dashboard/negocios' element={<NegociosDashboard/>}></Route>
+                  <Route path='/dashboard/eventos' element={<EventosDashboard/>}></Route>
+                  <Route path='/dashboard/lugares' element={<LugaresDashboard/>}></Route>
                 </Route>
               </Routes>
             </BrowserRouter>

@@ -1,4 +1,5 @@
 import '../styles/404.css'
+import {Link} from 'react-router-dom'
 
 
 const Error404 = () => {
@@ -6,7 +7,7 @@ const Error404 = () => {
           <div id="error">
           <h1>Error 404</h1>
           <p>La página que buscas no existe.</p>
-          <a href="/">Ve al Inicio</a>
+          <Link to="/">Ve al Inicio</Link>
           </div>
      )
    }

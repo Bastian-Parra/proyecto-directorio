@@ -29,7 +29,7 @@ const NegociosPage = () => {
     </div>
     <div className='container-filters'>
       <button className='filtro'>Filtrar</button>
-      <label for="site-search" placeholder='Nombre del negocio'>Buscar por nombre </label>
+      <label htmlFor="site-search" placeholder='Nombre del negocio'>Buscar por nombre </label>
       <input id="buscar" type="search" name="q" />
       <button className='filtro'>Buscar</button>
     </div>
