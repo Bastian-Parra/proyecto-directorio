@@ -4,7 +4,9 @@ function NegociosDashboard() {
     return (
         <>
         <HeaderDashboard/>
-        <h1>Negocios Dashboard</h1> 
+        <div className="container-tabla">
+            <h1>Negocios Dashboard</h1> 
+        </div>
         </>
     );
 }

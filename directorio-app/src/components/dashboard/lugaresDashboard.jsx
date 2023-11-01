@@ -4,7 +4,9 @@ function LugaresDashboard() {
     return (
         <>
         <HeaderDashboard/>
-        <h1>Lugares Dashboard</h1>
+        <div className="container-tabla">
+            <h1>Lugares Dashboard</h1> 
+        </div>
         </>
     );
 }

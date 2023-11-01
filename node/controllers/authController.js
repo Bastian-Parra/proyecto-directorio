@@ -102,9 +102,10 @@ export const login = async (req, res) => {
        }
       
        const token = await crearTokenDeAcceso({usuarioId: usuario.id})
+       
        res.cookie('token', token)
        
-       res.json({
+       res.status(200).json({
         id: usuario.id,
         nombre: usuario.nombre_usuario,
         correo: usuario.correo_usuario,
