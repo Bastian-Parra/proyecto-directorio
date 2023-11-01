@@ -1,3 +1,5 @@
+@import url("../styles/fonts/fonts.css");
+
 :root {
     --primaryColor: #3d8af7;
     --greyColor: #ebebeb;
@@ -5,116 +7,100 @@
 
 
 
-.principal-container {
-    display: flex;
+.container-login {
     width: 1200px;
     margin: 0 auto;
-    margin-top:50px;
-    height: auto;
-}
-
-.left-container {
-    border: 1px solid rgb(204, 203, 203);
-    width: 1000px;
-    height: auto;
-    max-width: 800px;
-    background-color: #fff;
-    box-shadow: 0px 0px 16px 1px rgba(0,0,0,0.22);
-    border-radius: 5px;
-    overflow: hidden;
-}
-
-.container-img {
-    height: 200px;
-    background-image: url('../assets/loginImg.png');
-    background-position-y: -140px;
-    background-size: 600px;
-}
-
-.container-text {
-    padding: 50px 30px 50px 30px;
-}
-
-.form-container {
-    display: flex;
-    flex-direction: column;
-}
-
-.right-container {
-    width: 600px;
-    background-color: #fff;
-    box-shadow: 0px 0px 16px 1px rgba(0,0,0,0.22);
-    border-radius: 5px;
-    overflow: hidden;
-    margin-left: 50px;
-    border: 1px solid rgb(204, 203, 203);
-}
-
-.title-container {
-    background-color: var(--primaryColor);
-    color: #fff;
-    font-weight:600;
-    padding: 20px;
-    font-size: 20px;
+    margin-top: 50px;
+    max-width: 1200px;
     text-align: center;
 }
 
-.form-container {
-    padding: 60px;
+.titulo-login {
+    font-family: fuenteRegular;
+    font-weight: 400;
+    font-size: 20px;
+    background-color: var(--primaryColor);
+    border-radius: 5px;
+    padding: 5px;
+    margin-bottom: 30px;
+    overflow: hidden;
+    color: #fff;
+}
+.container-login form {
+    width: 500px;
+    margin: 0 auto;
+    border: 1px solid black;
+    background-color: #fff;
+    padding:50px;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid rgb(204, 203, 203);
+    box-shadow: 0px 0px 16px 1px rgba(0,0,0,0.22);
+    border-radius: 5px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
 }
 
-.form-container label {
+.error {
+    color: red;
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+label {
+    color: #000;
+    text-align: left;
     font-size: 15px;
     margin-bottom: 5px;
 }
 
-.form-container input {
-    margin-bottom: 30px;
+form input {
+    border: 2px solid rgb(204, 203, 203);
     padding: 10px;
-    border: 2px solid var(--greyColor);
-    border-radius:5px;
+    border-radius: 5px;
+    margin-bottom: 20px;
 }
 
-.form-container button {
-    padding: 10px;
-    border: 2px solid var(--primaryColor);
+button {
     background-color: var(--primaryColor);
     color: #fff;
+    border: 2px solid var(--primaryColor);
+    border-radius:5px;
+    padding: 10px;
     font-size: 15px;
-    font-weight: 500;
+}
+
+button:hover {
+    cursor: pointer;
+    transition: 0.5s;
+    background-color: #fff;
+    border: 2px solid var(--primaryColor);
+    color: var(--primaryColor);
+}
+
+.error-login {
+    background-color: red;
+    color: #fff;
+    margin-bottom: 20px;
+    padding: 5px;
     border-radius: 5px;
 }
 
-.form-container button:hover {
-    background-color: #fff;
-    color: var(--primaryColor);
-    border: 2px solid var(--primaryColor);
-    transition: 0.5s;
-    cursor: pointer;
-}
-
-#checkbox {
+.no-account {
     margin-top: 10px;
-    margin-right: 5px;
+    text-align: left;
+    color: #000;
 }
 
-#checkboxlabel {
-    margin-top: -2px;
-}
-
-#enviar-registro {
-    text-decoration: underline;
-    margin-left: 10px;
-}
-
-#enviar-registro:hover {
-    cursor: pointer;
+.no-account a:hover {
     color: var(--primaryColor);
 }
 
-#container-redirect {
-    display: flex;
-}
+
+
 
 
 

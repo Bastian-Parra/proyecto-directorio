@@ -1,6 +1,5 @@
-html {
-    scroll-behavior: smooth;
-}
+@import url('../styles/fonts/fonts.css');
+
 
 :root {
     --primaryColor: #3d8af7;
@@ -25,8 +24,8 @@ html {
     max-width: 400px;
 }
 .container-left h1{
-    font-weight: 800;
-    font-size: 28px;
+    font-family: fuenteBold;
+    font-size: 34px;
 }
 
 .container-left h3 {
@@ -83,7 +82,8 @@ html {
     height: auto;
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
-    background-image: url("../assets/valparaiso.jpg");
+    background-image: url("../assets/images/valparaiso.jpg");
+    background-size: 900px;
 }
 
 
@@ -171,8 +171,9 @@ hr {
     padding: 20px 0px 0px 0px;
     scroll-snap-type: center;
     margin-right: 60px;
-    border-radius: 5px;
+    border-radius: 30px;
     scroll-snap-align: center;
+    overflow: hidden;
 }
 
 .carrusel-item:hover {

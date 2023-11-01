@@ -13,6 +13,10 @@ const Usuario = db.define('usuarios', {
     type: DataTypes.STRING,
     unique: true,
   },
+  rango: {
+    type: DataTypes.STRING,
+    defaultValue: "usuario",
+  }
 },{timestamps:false,});
 
 db.sync()

@@ -1,13 +1,22 @@
 import express from 'express'
 import cors from 'cors'
 import db from './database/db.config.js'
-import routes from './routes/routes.js'
+import routesAuth from './routes/auth.routes.js'
+import routesNegocio from './routes/negocios.routes.js'
+import routerEventos from './routes/eventos.routes.js'
+import routerTareas from './routes/tareas.negocios.routes.js'
 import bodyParser from 'body-parser'
+import cookieParser from 'cookie-parser'
+import routerConsultas from './routes/consultas.routes.js'
 const app = express()
 
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(cors())
+app.use(cors({
+    origin: 'http://localhost:5173',
+    credentials: true
+}))
 app.use(express.json())
+app.use(cookieParser())
 
 try {
     await db.authenticate()
@@ -15,10 +24,14 @@ try {
 } catch (error) {
     console.error("Error al conectar con la DB: " + error)
 }
+app.use('/auth', routesAuth)
+app.use('/negocios', routesNegocio)
+app.use('/consultas', routerConsultas)
+app.use('/eventos', routerEventos)
+app.use('/tareas', routerTareas)
 
-app.use('/', routes)
+const PORT = 4000
 
-const PORT = 5000
 app.listen(PORT, () =>{
     console.log("listening on port http://localhost:" + PORT)
 })

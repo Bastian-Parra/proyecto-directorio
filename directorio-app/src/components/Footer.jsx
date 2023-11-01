@@ -9,7 +9,7 @@ export default function Footer() {
 function ContenidoFooter() {
     return (
         <div className="container-footer">
-            <p>Web Creada con propositos de Estudio por <b>Bastian Parra</b>, <b>Ignacio Gallardo</b> & <b>Nicolás Flores</b> &copy;</p>
+            <p>Web Creada con propositos de Estudio por Bastian Parra, Ignacio Gallardo & Nicolás Flores &copy;</p>
         </div>
     )
 }
