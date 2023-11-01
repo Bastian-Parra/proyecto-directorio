@@ -112,6 +112,7 @@ export const eliminarLugar = async (req, res) => {
     }
 };
 
+/*
 export const AlmacenarImagenes = multer.diskStorage({
     destination: (req, file, cb) => {
         cb(null, "Images");
@@ -136,4 +137,4 @@ export const SubirImagenes = multer({
         }
     }
 }).single('imagen')
-
+*/

@@ -1,10 +1,10 @@
 import express from 'express';
-import { obtenerEvento, obtenerEventos, SubirImagenes, addEvento } from '../controllers/eventoController.js';
+import { obtenerEvento, obtenerEventos,AgregarEvento } from '../controllers/eventoController.js';
 
 const router = express.Router();
 
 router.get('/mostrar', obtenerEventos);
 router.get('/mostrar/:id', obtenerEvento);
-router.post('/add',SubirImagenes, addEvento)
+router.post('/add', AgregarEvento)
 
 export default router;

@@ -5,7 +5,6 @@ import multer from 'multer'
 export const obtenerNegocios = async (req, res) => {
     try {
         const negocios = await  Negocio.findAll()
-        console.log(negocios)
         res.json(negocios)
     } catch (error) {
         console.log(error)
@@ -15,13 +14,14 @@ export const obtenerNegocios = async (req, res) => {
 
 export const obtenerNegocio = async (req, res) => {
     const negocio = await Negocio.findByPk(req.params.id)
-    
-    if (!negocio) return res.status(404).json({message: "Negocio no encontrado"})
 
+    if (!negocio) return res.status(404).json({message: "Negocio no encontrado"})
+    
+    console.log(negocio)
     res.json(negocio)
 }
 
-export const addNegocio = async (req, res) => {
+export const AgregarNegocio = async (req, res) => {
     try {
         const {tipo_negocio, H_operacion, descripcion, nombre, direccion, telefono, correo, id_ubicacion} = req.body;
     
@@ -126,7 +126,7 @@ export const eliminarNegocio = async (req, res) => {
     }
 }
 
-
+/*
 export const AlmacenarImagenes = multer.diskStorage({
     destination: (req, file, cb) => {
         cb(null, "Images")
@@ -152,3 +152,4 @@ export const SubirImagenes = multer({
     }
 }).single('imagen')
 
+*/
