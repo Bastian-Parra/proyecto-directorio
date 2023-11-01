@@ -49,7 +49,6 @@ function App() {
                   <Route path='/profile' element={<Perfil/>}></Route>
                 </Route>
                 <Route element={<RutaDashboard />}>
-                  <Route path='/dashboard' element={<Dashboard/>}></Route>
                   <Route path='/dashboard/negocios' element={<NegociosDashboard/>}></Route>
                   <Route path='/dashboard/eventos' element={<EventosDashboard/>}></Route>
                   <Route path='/dashboard/lugares' element={<LugaresDashboard/>}></Route>
