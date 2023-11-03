@@ -19,6 +19,7 @@ import { BrowserRouter } from 'react-router-dom'
 import { AuthProvider } from './context/AuthContext.jsx'
 import { NegociosProvider } from './context/negociosContext.jsx'
 import { EventosProvider } from './context/eventosContext.jsx'
+import { LugaresProvider } from './context/lugaresContext.jsx'
 import EventosDashboard from './components/dashboard/eventosDashboard.jsx'
 import NegociosDashboard from './components/dashboard/negociosDashboard.jsx'
 import LugaresDashboard from './components/dashboard/lugaresDashboard.jsx'
@@ -31,6 +32,7 @@ function App() {
     <div className="App">   
       <div className="content">
         <AuthProvider>
+          <LugaresProvider>
           <NegociosProvider>
           <EventosProvider>
             <BrowserRouter>
@@ -57,6 +59,7 @@ function App() {
             </BrowserRouter>
           </EventosProvider>
           </NegociosProvider>
+          </LugaresProvider>
         </AuthProvider>
       </div>
       <Footer/>
