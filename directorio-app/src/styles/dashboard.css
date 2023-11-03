@@ -42,7 +42,37 @@
     width: 1200px;
     margin: 0 auto;
     background-color: #fff;
-    border: 2px solid var(--greyColor);
+    border-radius: 5px;
+    border: 2px solid black;
     height: auto;
     text-align: center;
+    margin-bottom: 50px;
 }
+
+table {
+    width: 100%;
+    text-align: left;
+    height: auto;
+}
+
+table th {
+    width: auto;
+    padding: 10px;
+}
+
+td {
+    padding: 5px;
+}
+
+#columna-opciones {
+    width: 160px;
+}
+.container-tabla h1{
+    background-color: #333;
+    color: #fff;
+}
+
+.marcado {
+    background-color: #111;
+}
+

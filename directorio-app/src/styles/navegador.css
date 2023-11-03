@@ -123,3 +123,16 @@
     color: var(--primaryColor);
   }
 
+  #btn-eliminar {
+    float: right;
+    background-color: red;
+    border: none;
+  }
+
+  #btn-editar {
+    float: right;
+    margin-right: 10px;
+    background-color: rgb(38, 221, 38);
+    border: none;
+  }
+
