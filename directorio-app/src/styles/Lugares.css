@@ -1,35 +1,95 @@
 :root {
-     --primaryColor: #3d8af7;
-     --greyColor: #ebebeb;
- }
-
-
-.contenedor-header-lugares {
-     width: 1200px;
-     max-width: 1200px;
-     height: auto;
-     margin: 0 auto;
-     margin-top: 50px;
+    --primaryColor: #3d8af7;
+    --greyColor: #ebebeb;
 }
 
-#probandoId {
-     color: red;
+.container-lugar {
+    overflow: hidden;
+    width: 1200px;
+    margin: 0 auto;
+    margin-top: 50px;
+    border-radius: 5px;
+    display: flex;
+    background-color: #fff;
+    border: 1px solid rgb(204, 203, 203);
+    box-shadow: 0px 0px 16px 1px rgba(0,0,0,0.22);
+}
+.container-lugares-inside {
+    width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); 
+    grid-gap: 20px;
+    margin-top: 50px;
+    font-size: 15px;
+    margin-bottom: 50px;
 }
 
-.contenedor-header {
-     box-shadow: 0px 0px 16px 1px rgba(0,0,0,0.22);
-     display: flex;
-     height: 300px;
-     background-color: #fff;
-     border: 2px solid var(--greyColor);
+.lugar-card {
+    padding: 10px;
+    overflow: hidden;
+    border-radius: 5px;
+    background-color: #fff;
+    border: 1px solid rgb(204, 203, 203);
 }
 
-.contenedor-izquierda {
-     background-image: url('../assets/images/descarga2.png');
-     height: auto;
-     width: 600px;
+.lugar-card:hover {
+    transition: 0.25s;
+    box-shadow: 0px 0px 16px 1px rgba(0,0,0,0.22);
 }
 
-.contenedor-derecha {
-     width: 600px;
+#title-card {
+    border-radius: 5px;
+    background-color: var(--greyColor);
+    text-align: center;
+    padding: 5px;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+#btn-lugar {
+    padding: 20px 0px 20px 0px;
+    width: 100%;
+    text-align: center;
+}
+
+#btn-lugar a {
+    background-color: var(--primaryColor);
+    padding: 5px 20px 5px 20px;
+    color: #fff;
+    text-decoration: none;
+    border-radius:5px ;
+}
+
+.container-left-lugar {
+    width: 700px;
+    height: 300px;
+    margin-right: 50px;
+    background-image: url("../assets/images/descarga2.png");
+}
+
+
+.container-right-lugar {
+    padding: 60px 0px 60px 0px;
+    width: 400px;
+}
+
+.container-filters {
+    width: 1200px;
+    margin: 0 auto;
+    margin-top: 50px;
+}
+
+.filtro {
+    padding: 5px 10px 5px 10px;
+    margin-right: 10px;
+    border: 0;
+}
+
+
+#buscar {
+    padding: 5px;
+    border: 2px solid var(--greyColor);
+    border-radius: 5px;
+    margin-right: 10px;
 }

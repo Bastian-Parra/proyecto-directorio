@@ -1,7 +1,7 @@
 import '../styles/lugares.css' 
 import '../styles/fonts/fonts.css' 
 import { useEffect } from 'react'
-import { useLugares} from '../context/luagresContext.jsx'
+import { useLugares} from '../context/lugaresContext.jsx'
 import LugaresCard from '../components/LugaresCard'
 const LugaresPage = () => {
   
