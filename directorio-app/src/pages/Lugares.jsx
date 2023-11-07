@@ -1,19 +1,47 @@
-import React from 'react'
-import '../styles/lugares.css'
-const parrafoHeader = 'En la zona de Valparaíso, Chile, se encuentran numerosos lugares de interés que ofrecen una amplia variedad de experiencias para los visitantes. Esta región costera es conocida por su belleza escénica y su rica historia cultural. Aquí, puedes encontrar una gran cantidad de tiendas, restaurantes y otras opciones para disfrutar de la vida urbana.'
+import '../styles/lugares.css' 
+import '../styles/fonts/fonts.css' 
+import { useEffect } from 'react'
+import { useLugares} from '../context/luagresContext.jsx'
+import LugaresCard from '../components/LugaresCard'
+const LugaresPage = () => {
+  
+  const { mostrarLugares, lugares } = useLugares()
 
-function Lugares() {
-  return(
-    <div className="contenedor-header-lugares">
-      <div className="contenedor-header">
-        <div className="contenedor-izquierda"></div>
-        <div className="contenedor-derecha">
-          <h1>Lugares de interes a tu disposicion</h1>
-          <p>{parrafoHeader}</p>
-        </div>
+
+  useEffect(() => {
+    mostrarLugares()
+  }, [])
+
+  if (lugares.length === 0) {
+    return (
+      <h1>No hay lugares</h1>
+    )
+  }
+
+  return (
+    <>
+    <div className='container-lugar'>
+      <div className='container-left-lugar'></div>
+      <div className='container-right-lugar'>
+        <p>En la ciudad de Valparaíso, Chile, se abren las puertas a numerosas oportunidades de negocios que ofrecen una variada gama de experiencias para empresarios e inversores.  Aquí, encontrarás una diversidad de oportunidades comerciales, que van desde acogedores restaurantes y tiendas únicas hasta servicios profesionales!!</p>
       </div>
     </div>
+    <div className='container-filters'>
+      <button className='filtro'>Filtrar</button>
+      <label htmlFor="site-search" placeholder='Nombre del negocio'>Buscar por nombre </label>
+      <input id="buscar" type="search" name="q" />
+      <button className='filtro'>Buscar</button>
+    </div>
+    <div className='container-lugares-inside'>
+        {lugares.map(lugar => (
+          <LugaresCard lugar={lugar} key={lugar.id}/>
+        ))}
+    </div>
+    </>
   )
 }
 
-export default Lugares
+
+// separo el componente del contenido para una mejor legibilidad
+
+export default LugaresPage
