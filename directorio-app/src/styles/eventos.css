@@ -4,8 +4,15 @@
 }
 
 .container-evento {
+  margin: 0 auto;
   display: flex;
-  margin: 20px;
+  width: 1200px;
+  margin-top: 50px;
+  border: 1px solid rgb(204, 203, 203);
+  box-shadow: 0px 0px 16px 1px rgba(0,0,0,0.22);
+  background-color: #fff;
+  border-radius: 5px;
+  overflow: hidden;
 }
 
 .container-left-evento {
@@ -23,11 +30,12 @@
 .container-filters {
   display: flex;
   align-items: center;
-  margin: 20px;
+  margin: 0 auto;
+  margin-top: 50px;
 }
 
-.filtro {
-  background-color: #007bff;
+.filtro-eventos {
+  background-color: var(--primaryColor);
   color: #fff;
   padding: 10px 20px;
   border: none;
@@ -47,10 +55,13 @@ label {
 }
 
 .container-eventos-inside {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  margin: 20px;
+  width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); 
+  grid-gap: 20px;
+  margin-top: 50px;
+  margin-bottom: 50px;
 }
 
 .descripción_sección {

@@ -21,22 +21,66 @@ export const obtenerEvento = async (req, res) => {
     res.json(evento)
 }
 
-export const crearEvento = async (param_direccion_evento, param_nombre_evento, param_fecha_hora, param_id_ubicacion) => {
+export const eliminarEvento = async (req, res) => {
+    try {
+        const evento = await Evento.findByPk(req.params.id)
+        
+        if (!evento) return res.status(400).json({message: "Evento no encontrado"})
+        
+        await evento.destroy()
+        
+        res.status(200).json({ success: true, message: 'Evento eliminado exitosamente' });
+        
+    } catch (error) {
+        console.error('Error al eliminar un evento', error)
+        res.status(500).json({ success: false, error: 'Error al eliminar un evento'})
+    }
+}
+
+export const actualizarEvento = async (req, res) => {
+    try {
+        const evento = await Evento.findByPk(req.params.id)
+        
+        if (!evento) return res.status(400).json({message: "Evento no encontrado"})
+        
+        const {direccion_evento, nombre_evento, fecha_hora, id_ubicacion} = req.body;
+        
+        const eventoExistente = await verificarEvento(nombre_evento, direccion_evento, id_ubicacion)
+        
+        if (eventoExistente) {
+            return res.status(400).json({message: "Evento encontrado"})
+        }
+        
+        await evento.update({
+            direccion_evento: direccion_evento,
+            nombre_evento: nombre_evento,
+            fecha_hora: fecha_hora,
+            id_ubicacion: id_ubicacion,
+        })
+        
+        res.status(200).json({ success: true, message: 'Evento actualizado exitosamente' });
+        
+    } catch (error) {
+        console.error('Error al actualizar un evento', error)
+        res.status(500).json({ success: false, error: 'Error al actualizar un evento'})
+    }
+}
+
+export const crearEvento = async (direccion_evento, nombre_evento, fecha_hora, id_ubicacion) => {
 
     try {
         await Negocio.create({
-          
-          direccion_evento: param_direccion_evento,
-          nombre_evento: param_nombre_evento,
-          fecha_hora: param_fecha_hora,
-          id_ubicacion: param_id_ubicacion,
+          direccion_evento: direccion_evento,
+          nombre_evento: nombre_evento,
+          fecha_hora: fecha_hora,
+          id_ubicacion: id_ubicacion,
         })
     } catch (error) {
         throw error
     }
 }
 
-export const addEvento = async (req, res) => {
+export const AgregarEvento = async (req, res) => {
     try {
         const {id_ubicacion, direccion_evento, nombre_evento, fecha_hora} = req.body;
     
@@ -47,7 +91,7 @@ export const addEvento = async (req, res) => {
     }
 
     // se llama a la funcion para crear el negocio
-    await crearNegocio(direccion_evento, nombre_evento, fecha_hora, id_ubicacion, req.file.path)
+    await crearEvento(direccion_evento, nombre_evento, fecha_hora, id_ubicacion, req.file.path)
 
     res.status(200).json({ success: true, message: 'Evento creado exitosamente' });
     } catch (error) {
@@ -73,7 +117,7 @@ export const verificarEvento = async (nombre_evento, direccion_evento,id_ubicaci
     }
 }
 
-
+/*
 export const AlmacenarImagenes = multer.diskStorage({
     destination: (req, file, cb) => {
         cb(null, "Images")
@@ -98,3 +142,5 @@ export const SubirImagenes = multer({
         }
     }
 }).single('imagen')
+
+*/

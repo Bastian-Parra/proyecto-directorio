@@ -11,7 +11,7 @@ function ProfileComponents() {
                 <ul>
                     <li><b>Nombre de usuario: </b> {usuario.nombre}</li>
                     <li><b>Correo: </b> {usuario.correo}</li>
-                    {usuario.rango}
+                    <li><b>Rol: </b> {usuario.rango}</li>
                 </ul>
             </div>
         </div>

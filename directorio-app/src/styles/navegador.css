@@ -20,7 +20,6 @@
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
     height: auto;
-    width: 1200px;
     padding: 15px 0px 15px 0px;
     background-color: #fff;
     margin: 0 auto;
@@ -112,5 +111,28 @@
     opacity: 0.75;
     transform: translateY(-5px);
     color: var(--primaryColor);
+  }
+
+  #btn-dashboard{
+    float: right;
+  }
+
+  #btn-dashboard:hover{
+    opacity: 0.75;
+    transform: translateY(-5px);
+    color: var(--primaryColor);
+  }
+
+  #btn-eliminar {
+    float: right;
+    background-color: red;
+    border: none;
+  }
+
+  #btn-editar {
+    float: right;
+    margin-right: 10px;
+    background-color: rgb(38, 221, 38);
+    border: none;
   }
 

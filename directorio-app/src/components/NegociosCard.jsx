@@ -1,3 +1,6 @@
+import { useEffect } from 'react'
+import {Link} from 'react-router-dom'
+
 function NegociosCard({negocio}) {
     return (
             <div className="negocio-card">
@@ -8,7 +11,9 @@ function NegociosCard({negocio}) {
             <p><b>Direccion:</b> {negocio.direccion}</p>
             <p><b>Contacto Telefonico:</b> {negocio.telefono}</p>
             <p><b>Correo de contacto:</b> {negocio.correo}</p>
-            <div id="btn-negocio"><a href="">Ver mas</a></div>
+            <div id="btn-negocio">
+            </div>
+                <Link to={`/negocios/${negocio.id}`}>Ver más</Link>
             </div>
     )
 }

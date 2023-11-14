@@ -1,5 +1,5 @@
 import { createContext, useContext, useState } from "react";
-import { consultaNegocios } from "../api/negocios";
+import { consultaNegocio, consultaNegocios } from "../api/negocios";
 
 const negociosContext = createContext()
 
@@ -15,6 +15,7 @@ export const useNegocios = () => {
 export function NegociosProvider({children}) {
 
     const [negocios, setNegocios] = useState([])
+    const [negocio, setNegocio] = useState([])
 
     const mostrarNegocios = async () => {
         try {
@@ -25,11 +26,18 @@ export function NegociosProvider({children}) {
         }
     }
 
+    const mostrarNegocio = async (id) => {
+        const respuesta = await consultaNegocio(id)
+        setNegocio(respuesta.data)
+    }
+
     return (
         <negociosContext.Provider 
         value={{
+            negocio,
             negocios,
             mostrarNegocios,
+            mostrarNegocio,
             }}>
             {children}
         </negociosContext.Provider>
