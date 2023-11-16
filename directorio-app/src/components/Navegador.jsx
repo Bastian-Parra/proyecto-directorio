@@ -30,7 +30,7 @@ function Navigator() {
             </li>
             {esAdmin && (
               <li>
-              <Link id="btn-dashboard" to="/dashboard"><FontAwesomeIcon icon={faDashboard} id="iconos-nav" />Dashboard</Link>
+              <Link id="btn-dashboard" to="/dashboard/lugares"><FontAwesomeIcon icon={faDashboard} id="iconos-nav" />Dashboard</Link>
             </li>
             )}
 

@@ -6,27 +6,73 @@
 
 .container-dashboard {
     width: 1200px;
-    border: 2px solid var(--greyColor);
     margin: 0 auto;
     margin-top: 50px;
-    border-radius: 5px;
+    height: auto;
+    padding: 0;
 }
 
 .container-dashboard ul {
-    list-style: none;
+    padding: 0;
+    border-radius: 5px;
+    margin: 0;
+    overflow: hidden;
+    list-style-type: none;
+    background-color: #333;
+    margin-bottom: 50px;
 }
 
-ul li {
-    margin: 10px;
-    display: inline;
+.container-dashboard ul li {
+    float: left;
 }
 
 .container-dashboard ul li a {
+    display: block;
+    color: #fff;
+    text-align: center;
+    padding: 14px 16px;
     text-decoration: none;
-    color: #000;
 }
 
 .container-dashboard ul li a:hover {
-    transition: 0.5s;
-    color: var(--primaryColor);
+    background-color: #111;
 }
+
+.container-tabla {
+    width: 1200px;
+    margin: 0 auto;
+    background-color: #fff;
+    border-radius: 5px;
+    border: 2px solid black;
+    height: auto;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+table {
+    width: 100%;
+    text-align: left;
+    height: auto;
+}
+
+table th {
+    width: auto;
+    padding: 10px;
+}
+
+td {
+    padding: 5px;
+}
+
+#columna-opciones {
+    width: 160px;
+}
+.container-tabla h1{
+    background-color: #333;
+    color: #fff;
+}
+
+.marcado {
+    background-color: #111;
+}
+

@@ -2,11 +2,10 @@ import { useAuth } from "./context/AuthContext";
 import { Navigate, Outlet } from "react-router-dom";
 function RutasProtegidas() {
 
-    const {loading, estaAutentificado} = useAuth()
+    const {estaAutentificado} = useAuth()
+    console.log(estaAutentificado)
 
-    if(loading) return <h1>Cargando...</h1>
-
-    if(!loading && !estaAutentificado) return <Navigate to="/login" replace/>
+    if(!estaAutentificado) return <Navigate to="/login" replace/>
 
     return <Outlet/>
 }

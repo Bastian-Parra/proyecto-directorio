@@ -20,6 +20,7 @@ import { AuthProvider } from './context/AuthContext.jsx'
 import { NegociosProvider } from './context/negociosContext.jsx'
 import { LugaresProvider } from './context/lugaresContext.jsx'
 import { EventosProvider } from './context/eventosContext.jsx'
+import { LugaresProvider } from './context/lugaresContext.jsx'
 import EventosDashboard from './components/dashboard/eventosDashboard.jsx'
 import NegociosDashboard from './components/dashboard/negociosDashboard.jsx'
 import LugaresDashboard from './components/dashboard/lugaresDashboard.jsx'
@@ -32,6 +33,7 @@ function App() {
     <div className="App">   
       <div className="content">
         <AuthProvider>
+          <LugaresProvider>
           <NegociosProvider>
           <EventosProvider>
             <LugaresProvider>
@@ -51,7 +53,6 @@ function App() {
                   <Route path='/profile' element={<Perfil/>}></Route>
                 </Route>
                 <Route element={<RutaDashboard />}>
-                  <Route path='/dashboard' element={<Dashboard/>}></Route>
                   <Route path='/dashboard/negocios' element={<NegociosDashboard/>}></Route>
                   <Route path='/dashboard/eventos' element={<EventosDashboard/>}></Route>
                   <Route path='/dashboard/lugares' element={<LugaresDashboard/>}></Route>
@@ -61,6 +62,7 @@ function App() {
             </LugaresProvider>
           </EventosProvider>
           </NegociosProvider>
+          </LugaresProvider>
         </AuthProvider>
       </div>
       <Footer/>
