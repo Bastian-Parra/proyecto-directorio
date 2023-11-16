@@ -1,3 +1,6 @@
+import { useEffect } from 'react'
+import {Link} from 'react-router-dom'
+
 function LugaresCard({lugar}) {
     return (
             <div className="negocio-card">
