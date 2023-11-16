@@ -23,7 +23,7 @@ export const obtenerNegocio = async (req, res) => {
 
 export const AgregarNegocio = async (req, res) => {
     try {
-        const {tipo_negocio, H_operacion, descripcion, nombre, direccion, telefono, correo, id_ubicacion} = req.body;
+        const {tipo_negocio, H_operacion, descripcion, nombre, direccion, telefono, correo, imagen} = req.body;
     
     const negocioExistente = await verificarNegocio(nombre, tipo_negocio)
 
@@ -32,7 +32,7 @@ export const AgregarNegocio = async (req, res) => {
     }
 
     // se llama a la funcion para crear el negocio
-    await crearNegocio(tipo_negocio, H_operacion, descripcion, nombre, direccion, telefono, correo, id_ubicacion)
+    await crearNegocio(tipo_negocio, H_operacion, descripcion, nombre, direccion, telefono, correo, imagen)
 
     res.status(200).json({ success: true, message: 'Negocio creado exitosamente' });
 
@@ -42,7 +42,7 @@ export const AgregarNegocio = async (req, res) => {
     }
 }
 
-export const crearNegocio = async (param_tipo_negocio, param_H_operacion, param_descripcion, param_nombre, param_direccion, param_telefono, param_correo, param_id_ubicacion) => {
+export const crearNegocio = async (param_tipo_negocio, param_H_operacion, param_descripcion, param_nombre, param_direccion, param_telefono, param_correo, imagen) => {
 
     try {
         await Negocio.create({
@@ -53,7 +53,7 @@ export const crearNegocio = async (param_tipo_negocio, param_H_operacion, param_
             direccion: param_direccion,
             telefono: param_telefono,
             correo: param_correo,
-            id_ubicacion: param_id_ubicacion,
+            imagen: param_imagen,
         })
     } catch (error) {
         throw error
@@ -83,9 +83,9 @@ export const actualizarNegocio = async (req, res) => {
         
         if (!negocio) return res.status(400).json({message: "Negocio no encontrado"})
         
-        const {tipo_negocio, H_operacion, descripcion, nombre, direccion, telefono, correo, id_ubicacion} = req.body;
+        const {tipo_negocio, H_operacion, descripcion, nombre, direccion, telefono, correo} = req.body;
         
-        const negocioExistente = await verificarNegocio(nombre, tipo_negocio, id_ubicacion)
+        const negocioExistente = await verificarNegocio(nombre, tipo_negocio)
         
         if (negocioExistente) {
             return res.status(400).json({message: "Negocio existente encontrado"})
@@ -99,7 +99,6 @@ export const actualizarNegocio = async (req, res) => {
             direccion: direccion,
             telefono: telefono,
             correo: correo,
-            id_ubicacion: id_ubicacion,
         })
         
         res.status(200).json({ success: true, message: 'Negocio actualizado exitosamente' });

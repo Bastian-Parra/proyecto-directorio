@@ -23,6 +23,7 @@ function Navigator() {
         <li><Link id="button-rest" to="/negocios"><FontAwesomeIcon icon={faShop} id="iconos-nav" />Negocios</Link></li>
         <li><Link id="button-rest" to="/eventos"><FontAwesomeIcon icon={faCalendarDays} id="iconos-nav" />Eventos</Link></li>
         <li><Link id="button-rest" to="/lugares"><FontAwesomeIcon icon={faMapLocationDot} id="iconos-nav" />Lugares de Interés</Link></li>
+        
         {estaAutentificado ? (
           <>
             <li>
@@ -30,7 +31,7 @@ function Navigator() {
             </li>
             {esAdmin && (
               <li>
-              <Link id="btn-dashboard" to="/dashboard/lugares"><FontAwesomeIcon icon={faDashboard} id="iconos-nav" />Dashboard</Link>
+              <Link id="btn-dashboard" to="/dashboard/negocios"><FontAwesomeIcon icon={faDashboard} id="iconos-nav" />Dashboard</Link>
             </li>
             )}
 

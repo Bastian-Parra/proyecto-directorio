@@ -70,6 +70,7 @@ export const register = async(nombre, contraseña, correo) => {
         contraseña: contraseñaHash, 
         correo_usuario: correo, 
         rango: "usuario", // esto se agrega para la diferenciacion de rangos de los usuarios (por defecto es "usuario")
+        imagen: "default.png",
       })
 
     } catch (error) {

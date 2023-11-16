@@ -10,7 +10,6 @@ const Negocio = db.define('negocios' , {
     direccion: {type : DataTypes.STRING},
     telefono: {type : DataTypes.STRING},
     correo: {type : DataTypes.STRING},
-    id_ubicacion: {type : DataTypes.INTEGER},
     imagen: {type : DataTypes.STRING},
 
 }, {timestamps:false,})
