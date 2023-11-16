@@ -2,7 +2,7 @@ import '../styles/lugares.css'
 import '../styles/fonts/fonts.css' 
 import { useEffect } from 'react'
 import { useLugares} from '../context/lugaresContext.jsx'
-import LugaresCard from '../components/LugaresCard'
+import LugaresCard from '../components/LugaresCard.jsx'
 const LugaresPage = () => {
   
   const { mostrarLugares, lugares } = useLugares()

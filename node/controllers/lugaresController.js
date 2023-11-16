@@ -1,5 +1,5 @@
 import { Sequelize } from "sequelize";
-import Lugar from '../models/lugares.js';
+import Lugar from '../models/lugaresModels.js';
 import multer from 'multer';
 
 export const obtenerLugares = async (req, res) => {

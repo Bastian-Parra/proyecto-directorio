@@ -7,7 +7,7 @@ import "../styles/lugaresDetails.css"
 
 function lugaresDetails() {
 
-    const {mostrarLugar, lugar} = useLugares()
+    const {mostrarLugares, lugar} = useLugares()
     const parametros = useParams()
 
     useEffect(() => {
