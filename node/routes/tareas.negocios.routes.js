@@ -1,3 +1,4 @@
+/*
 import {Router} from 'express'
 
 import { authRequerida } from '../middlewares/validarToken.js'
@@ -28,3 +29,5 @@ router.delete('/lugares/delete/:id', authRequerida ,eliminarLugar)
 router.put('/lugares/update/:id', authRequerida, actualizarLugar)
 
 export default router
+
+*/

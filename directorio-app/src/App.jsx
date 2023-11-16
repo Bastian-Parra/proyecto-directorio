@@ -18,6 +18,7 @@ import {Route, Routes, Navigate} from 'react-router-dom'
 import { BrowserRouter } from 'react-router-dom'
 import { AuthProvider } from './context/AuthContext.jsx'
 import { NegociosProvider } from './context/negociosContext.jsx'
+import { LugaresProvider } from './context/lugaresContext.jsx'
 import { EventosProvider } from './context/eventosContext.jsx'
 import { LugaresProvider } from './context/lugaresContext.jsx'
 import EventosDashboard from './components/dashboard/eventosDashboard.jsx'
@@ -35,6 +36,7 @@ function App() {
           <LugaresProvider>
           <NegociosProvider>
           <EventosProvider>
+            <LugaresProvider>
             <BrowserRouter>
               <Navegador/>
               <Routes>
@@ -57,6 +59,7 @@ function App() {
                 </Route>
               </Routes>
             </BrowserRouter>
+            </LugaresProvider>
           </EventosProvider>
           </NegociosProvider>
           </LugaresProvider>
