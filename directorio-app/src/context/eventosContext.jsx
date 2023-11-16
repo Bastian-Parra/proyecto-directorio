@@ -1,5 +1,5 @@
 import { createContext, useContext, useState } from "react";
-import { consultaEventos } from "../api/eventos.js";
+import { consultaEventos, consultaEvento } from "../api/eventos.js";
 
 const eventosContext = createContext()
 
@@ -15,6 +15,7 @@ export const useEventos = () => {
 export function EventosProvider({children}) {
 
     const [eventos, setEventos] = useState([])
+    const [evento, setEvento] = useState({})
 
     const mostrarEventos = async () => { 
         try {
@@ -24,12 +25,18 @@ export function EventosProvider({children}) {
             console.error(error)
         }
     }
+    const mostrarEvento = async (id) => {
+        const respuesta = await consultaEvento(id)
+        setEvento(respuesta.data)
+    }
 
     return (
         <eventosContext.Provider 
         value={{
             eventos,
+            evento,
             mostrarEventos,
+            mostrarEvento,
             }}>
             {children}
         </eventosContext.Provider>
