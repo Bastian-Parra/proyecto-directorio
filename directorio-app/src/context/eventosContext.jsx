@@ -33,8 +33,8 @@ export function EventosProvider({children}) {
     return (
         <eventosContext.Provider 
         value={{
-            eventos,
             evento,
+            eventos,
             mostrarEventos,
             mostrarEvento,
             }}>

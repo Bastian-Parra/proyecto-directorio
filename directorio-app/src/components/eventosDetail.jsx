@@ -23,7 +23,7 @@ function EventoDetails() {
                 <div className="evento-details-left">
                     <h2> { ">> "}Detalles del Evento:</h2>
                     <p id="titulo-evento"><b>Descripción:</b> {evento.descripcion_evento}</p>
-                    <p id="titulo-evento"><b>Tipo de Negocio:</b> {evento.direccion_evento}</p>
+                    <p id="titulo-evento"><b>Tipo de Evento:</b> {evento.direccion_evento}</p>
                     <p id="titulo-evento"><b>Horario de Operación:</b> {evento.fecha_hora}</p>
                 </div>
                 <div className="evento-details-right"></div> 
