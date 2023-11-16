@@ -23,13 +23,10 @@ function lugaresDetails() {
             <div className="lugar-details">
                 <div className="lugar-details-left">
                     <h2> { ">> "}Detalles del Lugar:</h2>
-                    <p id="titulo-lugar"><b>Descripción:</b> {lugar.descripcion}</p>
-                    <p id="titulo-lugar"><b>Tipo de Lugar:</b> {lugar.tipo_lugar}</p>
-                    <p id="titulo-lugar"><b>Horario de Operación:</b> {lugar.H_operacion}</p>
-                    <p id="titulo-lugar"><b>Dirección:</b> {lugar.direccion}</p>
-                    <h2> { ">> "}Contacto:</h2>
-                    <p id="titulo-lugar"><b>Teléfono:</b> {lugar.telefono}</p>
-                    <p id="titulo-lugar"><b>Correo Electrónico:</b> {lugar.correo}</p>
+                    <p id="titulo-lugar"><b>Nombre del Lugar:</b> {lugar.nombre_lugar}</p>
+                    <p id="titulo-lugar"><b>Reseña del Lugar:</b> {lugar.id_reseña}</p>
+                    <p id="titulo-lugar"><b>Ubicacion del lugar:</b> {lugar.id_ubicacion}</p>
+                    <p id="titulo-lugar"><b>Dirección:</b> {lugar.direccion_lugar}</p>
                 </div>
                 <div className="lugar-details-right"></div> 
             </div>

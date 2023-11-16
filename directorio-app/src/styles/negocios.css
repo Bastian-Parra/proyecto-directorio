@@ -65,7 +65,10 @@
     width: 700px;
     height: 300px;
     margin-right: 50px;
-    background-image: url("../assets/images/descarga2.png");
+    background-image: url("../assets/images/negociosfinal.png");
+    background-position: center center; /* Centra la imagen horizontalmente y alinea la parte superior de la imagen con la parte superior del contenedor */
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
+    background-size: cover; 
 }
 
 
