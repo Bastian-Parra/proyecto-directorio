@@ -4,13 +4,8 @@ import db from './database/db.config.js'
 import routesAuth from './routes/auth.routes.js'
 import routesNegocio from './routes/negocios.routes.js'
 import routerEventos from './routes/eventos.routes.js'
-<<<<<<< HEAD
 import routerLugar from './routes/lugares.routes.js'
 /*import routerTareas from './routes/tareas.negocios.routes.js' */
-=======
-import routerLugares from './routes/lugares.routes.js'
-import routerTareas from './routes/tareas.negocios.routes.js'
->>>>>>> 1f91b33c859a5234c7f74f60a850a769fa8c865d
 import bodyParser from 'body-parser'
 import cookieParser from 'cookie-parser'
 import routerConsultas from './routes/consultas.routes.js'
@@ -34,13 +29,8 @@ app.use('/auth', routesAuth)
 app.use('/negocios', routesNegocio)
 app.use('/consultas', routerConsultas)
 app.use('/eventos', routerEventos)
-<<<<<<< HEAD
 app.use('/lugares', routerLugar)
 /*app.use('/tareas', routerTareas) */
-=======
-app.use('/tareas', routerTareas)
-app.use('/lugares', routerLugares)
->>>>>>> 1f91b33c859a5234c7f74f60a850a769fa8c865d
 
 const PORT = 4000
 
