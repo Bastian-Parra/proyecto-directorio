@@ -13,9 +13,14 @@ function EventoDetails() {
 
     const {mostrarEvento, evento} = useEventos()
     const parametros = useParams()
-    const [selectedImageIndex, setSelectedImageIndex] = useState(0);
-    const thumbnails = [Imagen1, Imagen2];
+    const [comentario, setComentario] = useState("");
+    const [evaluacion, setEvaluacion] = useState("");
 
+    const handleResenaSubmit = (e) => {
+        e.preventDefault();
+        console.log('Comentario:', comentario, 'Evaluación:', evaluacion);
+        // Aquí puedes agregar la lógica para enviar los datos al servidor o manejarlos como necesites
+    };
     useEffect(() => {
         if (parametros.id) {
             mostrarEvento(parametros.id)
@@ -23,30 +28,60 @@ function EventoDetails() {
     }, [])
 
     return (
-        <div className="container-details">
-            <Link id="volver-btn" to="/eventos"><FontAwesomeIcon icon={faArrowLeft}></FontAwesomeIcon></Link>
-            <h1> {">>"} {evento.nombre_evento}{" <<"}</h1>
-            <div className="evento-details">
-                <div className="evento-details-left">
-                    <h2> { ">> "}Detalles del Evento:</h2>
-                    <p id="titulo-evento"><b>Descripción:</b> {evento.descripcion_evento}</p>
-                    <p id="titulo-evento"><b>Tipo de Evento:</b> {evento.direccion_evento}</p>
-                    <p id="titulo-evento"><b>Horario de Operación:</b> {evento.fecha_hora}</p>
-                </div>
-                <div className="evento-details-right">
-                <Carousel showThumbs>
-                    <div>
-                        <img src={Imagen1} alt="Imagen 1" />
+        <div>
+            <div className="container-details">
+                <Link id="volver-btn" to="/eventos">
+                    <FontAwesomeIcon icon={faArrowLeft}></FontAwesomeIcon>
+                </Link>
+                <h1>
+                    {">>"} {evento.nombre_evento}{" <<"}
+                </h1>
+                <div className="evento-details">
+                    <div className="evento-details-left">
+                        <h2> {">> "}Detalles del Evento:</h2>
+                        <p id="titulo-evento">
+                            <b>Descripción:</b> {evento.descripcion_evento}
+                        </p>
+                        <p id="titulo-evento">
+                            <b>Tipo de Evento:</b> {evento.direccion_evento}
+                        </p>
+                        <p id="titulo-evento">
+                            <b>Horario de Operación:</b> {evento.fecha_hora}
+                        </p>
                     </div>
-                    <div>
-                        <img src={Imagen2} alt="Imagen 2" />
+                    <div className="evento-details-right">
+                        <Carousel showThumbs>
+                            <div>
+                                <img src={Imagen1} alt="Imagen 1" />
+                            </div>
+                            <div>
+                                <img src={Imagen2} alt="Imagen 2" />
+                            </div>
+                        </Carousel>
                     </div>
-                    {/* Añade más imágenes si las tienes */}
-                </Carousel>
                 </div>
-            </div> 
             </div>
-    )
+            <div className="container-resena">
+                <h2>Escribe tu reseña</h2>
+                <form onSubmit = {handleResenaSubmit}>
+                    <textarea
+                        value = {comentario}
+                        onChange = {(e) => setComentario(e.target.value)}
+                        placeholder = "Escribe tu comentario acá"
+                    />
+                    <br />
+                    <div>
+                        {[...Array(5)].map((star, index) => (
+                            <span key = {index} onClick = {() => setEvaluacion(index + 1)}>
+                                {index < evaluacion ? "★" : "☆"}
+                            </span>
+                        ))}
+                    </div>
+                    <button type = "submit">Enviar</button>
+                </form>
+            </div>
+        </div>
+    );
 }
 
 export default EventoDetails;
