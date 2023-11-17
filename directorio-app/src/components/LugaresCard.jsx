@@ -1,7 +1,7 @@
 
 function LugaresCard({lugar}) {
     return (
-            <div className="negocio-card">
+            <div className="lugar-card">
             <p id="title-card">{lugar.nombre_lugar}</p>
             <p><b>Reseña:</b> {lugar.id_reseña}</p>
             <p><b>Ubicacion: </b>{lugar.id_ubicacion}</p>

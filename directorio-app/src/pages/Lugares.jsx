@@ -23,7 +23,7 @@ const LugaresPage = () => {
     <div className='container-lugar'>
       <div className='container-left-lugar'></div>
       <div className='container-right-lugar'>
-        <p>En la ciudad de Valparaíso, Chile, se abren las puertas a numerosas oportunidades de negocios que ofrecen una variada gama de experiencias para empresarios e inversores.  Aquí, encontrarás una diversidad de oportunidades comerciales, que van desde acogedores restaurantes y tiendas únicas hasta servicios profesionales!!</p>
+        <p>En Valparaíso, Chile, la ciudad costera se destaca como un vibrante centro para emprendedores y visionarios de negocios. Con su pintoresco entorno y rica cultura, Valparaíso invita a explorar un abanico de posibilidades comerciales. Desde restaurantes con encanto y boutiques exclusivas hasta ofertas de servicios profesionales, la ciudad es un lienzo para la innovación y el crecimiento empresarial.</p>
       </div>
     </div>
     <div className='container-filters'>
