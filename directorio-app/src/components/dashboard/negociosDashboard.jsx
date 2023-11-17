@@ -1,6 +1,7 @@
 import HeaderDashboard from "./headerDashboard";
 import { useNegocios } from "../../context/negociosContext";
 import { useEffect } from "react";
+import { Link } from "react-router-dom";
 function NegociosDashboard() {
 
     const { mostrarNegocios, negocios } = useNegocios()
@@ -13,6 +14,9 @@ function NegociosDashboard() {
     return (
         <>
         <HeaderDashboard/>
+        <div className="container-btn">
+            <Link to="/dashboard/negocios/add">Añadir</Link>
+        </div>
         <div className="container-tabla">
             <h1>Negocios</h1>
             

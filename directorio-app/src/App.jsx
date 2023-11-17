@@ -20,10 +20,10 @@ import { AuthProvider } from './context/AuthContext.jsx'
 import { NegociosProvider } from './context/negociosContext.jsx'
 import { LugaresProvider } from './context/lugaresContext.jsx'
 import { EventosProvider } from './context/eventosContext.jsx'
-import { LugaresProvider } from './context/lugaresContext.jsx'
 import EventosDashboard from './components/dashboard/eventosDashboard.jsx'
 import NegociosDashboard from './components/dashboard/negociosDashboard.jsx'
 import LugaresDashboard from './components/dashboard/lugaresDashboard.jsx'
+import TaskNegocio from './components/dashboard/tasks/addNegocio.jsx'
 import './app.css'
 
 
@@ -36,7 +36,6 @@ function App() {
           <LugaresProvider>
           <NegociosProvider>
           <EventosProvider>
-            <LugaresProvider>
             <BrowserRouter>
               <Navegador/>
               <Routes>
@@ -54,12 +53,12 @@ function App() {
                 </Route>
                 <Route element={<RutaDashboard />}>
                   <Route path='/dashboard/negocios' element={<NegociosDashboard/>}></Route>
+                  <Route path='/dashboard/negocios/add' element={<TaskNegocio/>}></Route>
                   <Route path='/dashboard/eventos' element={<EventosDashboard/>}></Route>
                   <Route path='/dashboard/lugares' element={<LugaresDashboard/>}></Route>
                 </Route>
               </Routes>
             </BrowserRouter>
-            </LugaresProvider>
           </EventosProvider>
           </NegociosProvider>
           </LugaresProvider>

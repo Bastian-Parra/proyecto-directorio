@@ -3,7 +3,9 @@ import { fileURLToPath } from 'url';
 import { dirname, join } from 'path';
 import subir from '../middlewares/multer.js';
 import Usuario from '../models/usuarioModel.js';
+import Negocio from '../models/negociosModels.js';
 import { json } from 'sequelize';
+import { subirImagen } from '../controllers/negociosController.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -67,5 +69,34 @@ router.get('/obtenerImageURL/:id', async (req, res) => {
         res.status(500).json({ error: 'Error interno del servidor' });
     }
 });
+
+router.get('/getNegocioURL/:id', async (req, res) => {
+    const id = req.params.id;
+
+    try {
+        const negocio = await Negocio.findByPk(id);
+
+        if (!negocio) {
+            return res.status(404).json({ error: 'Negocio no encontrado' });
+        }
+
+        console.log(negocio.imagen)
+        const imagenURL = negocio.imagen;
+
+        if (!imagenURL) {
+            return res.status(404).json({ error: 'Imagen no existe' });
+        }
+
+        const imgUrlCompleta = `/images/negocios_images/${imagenURL}`;
+
+        console.log(imgUrlCompleta);
+        res.json(imgUrlCompleta);
+    } catch (error) {
+        console.error("Error al obtener la URL de la imagen", error);
+        res.status(500).json({ error: 'Error interno del servidor' });
+    }
+});
+
+
 
 export default router;
