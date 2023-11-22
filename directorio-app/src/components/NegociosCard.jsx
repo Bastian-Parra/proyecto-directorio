@@ -26,9 +26,9 @@ function NegociosCard({negocio}) {
             <p><b>Direccion:</b> {negocio.direccion}</p>
             <p><b>Contacto Telefonico:</b> {negocio.telefono}</p>
             <p><b>Correo de contacto:</b> {negocio.correo}</p>
-            <div id="btn-negocio">
+            <div className="container-btn-negocio">
+              <Link id="btn-negocio" to={`/negocios/${negocio.id}`}>Ver más</Link>
             </div>
-                <Link to={`/negocios/${negocio.id}`}>Ver más</Link>
             </div>
     )
 }

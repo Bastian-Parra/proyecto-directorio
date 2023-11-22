@@ -42,9 +42,6 @@ app.use('/negocios', routesNegocio)
 app.use('/consultas', routerConsultas)
 app.use('/eventos', routerEventos)
 app.use('/lugares', routerLugar)
-/*app.use('/tareas', routerTareas) */
-
-// app.use('/tareas', routerTareas)
 app.use('/lugares', routerLugares)
 app.use('/imagenes',routerImagenes)
 app.use('/tareas', routerTareas)

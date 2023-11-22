@@ -1,10 +1,13 @@
 import HeaderDashboard from "./headerDashboard";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPlus, faMagnifyingGlass} from '@fortawesome/free-solid-svg-icons';
 import { useNegocios } from "../../context/negociosContext";
 import { useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 function NegociosDashboard() {
 
-    const { mostrarNegocios, negocios } = useNegocios()
+    const { mostrarNegocios, negocios, eliminarNegocio } = useNegocios()
+    const navigate = useNavigate()
     
     useEffect(() => {
         mostrarNegocios()
@@ -14,8 +17,9 @@ function NegociosDashboard() {
     return (
         <>
         <HeaderDashboard/>
-        <div className="container-btn">
-            <Link to="/dashboard/negocios/add">Añadir</Link>
+        <div className="container-btn-task">
+            <Link className="btn-add" to="/dashboard/negocios/add"><FontAwesomeIcon icon={faPlus}/></Link>
+            <Link className="btn-add" to="#"><FontAwesomeIcon icon={faMagnifyingGlass}/></Link>
         </div>
         <div className="container-tabla">
             <h1>Negocios</h1>
@@ -36,8 +40,10 @@ function NegociosDashboard() {
                             <td>{negocio.nombre}</td>
                             <td>{negocio.descripcion}</td>
                             <td id="columna-opciones">
-                                <button id="btn-eliminar">Eliminar</button>
-                                <button id="btn-editar">Editar</button>
+                                <button id="btn-eliminar" onClick={() => {
+                                    eliminarNegocio(negocio.id)
+                                }}>Eliminar</button>
+                                <Link id="btn-editar" to={`/dashboard/negocios/edit/${negocio.id}`}>Editar</Link>
                             </td>
                         </tr>
                     ))}

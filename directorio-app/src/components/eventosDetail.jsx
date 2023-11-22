@@ -19,7 +19,6 @@ function EventoDetails() {
     const handleResenaSubmit = (e) => {
         e.preventDefault();
         console.log('Comentario:', comentario, 'Evaluación:', evaluacion);
-        // Aquí puedes agregar la lógica para enviar los datos al servidor o manejarlos como necesites
     };
     useEffect(() => {
         if (parametros.id) {

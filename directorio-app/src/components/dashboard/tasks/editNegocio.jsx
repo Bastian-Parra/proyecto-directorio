@@ -5,50 +5,46 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowLeft, faCircleExclamation } from '@fortawesome/free-solid-svg-icons'
 import { useEffect, useState } from "react"
 import { useNegocios } from "../../../context/negociosContext.jsx"
+function EditNegocio() {
 
-// task: agregar un negocio en el dashboard
-function AddNegocio() {
-    
+    const {register, handleSubmit, formState: {errors}, setValue} = useForm()
+    const [errores, setErrores] = useState([])
+    const reenviar = useNavigate()
+    const {mostrarNegocio, actualizarNegocio} = useNegocios()
 
-    const {register, handleSubmit, formState: {errors}} = useForm()     // se utiliza useForm para crear un formulario
-    const [errores, setErrores] = useState([]) // se utiliza useState para manejar los errores
-    const reenviar = useNavigate() // navigate para redireccionar
+    const parametros = useParams()
+
+    useEffect(() => {
+       async function cargarNegocio() {
+            if (parametros.id) {
+                const negocio = await mostrarNegocio(parametros.id)
+                console.log(negocio)
+                setValue('tipo_negocio', negocio.tipo_negocio)
+                setValue('H_operacion', negocio.H_operacion)
+                setValue('descripcion', negocio.descripcion)
+                setValue('nombre', negocio.nombre)
+                setValue('direccion', negocio.direccion)
+                setValue('telefono', negocio.telefono)
+                setValue('correo', negocio.correo)
+            }
+       }
+       cargarNegocio()
+    }, [])
 
 
     const onSubmit = async (data) => {
-        try {
-            const formData = new FormData()
-
-            formData.append("tipo_negocio", data.tipo_negocio)
-            formData.append("H_operacion", data.H_operacion)
-            formData.append("descripcion", data.descripcion)
-            formData.append("nombre", data.nombre)
-            formData.append("direccion", data.direccion)
-            formData.append("telefono", data.telefono)
-            formData.append("correo", data.correo)
-            formData.append("imagen", data.imagen[0])
-
-            const respuesta = await AgregarNegocio(formData, {
-                headers: {
-                    "Content-Type": "multipart/form-data",
-                }
-            })
-            console.log(respuesta.data)
-            alert("Negocio creado con exito")
+        if(parametros.id) {
+            actualizarNegocio(parametros.id, data)
+            alert("Negocio actualizado con exito!")
             reenviar('/dashboard/negocios')
-        } catch (error) {
-            setErrores(error.response.data)
-        }
-        
+        } 
     }
 
     return (
-
-        // se crea el formulario y con register de useForm() se guardan los datos
         <div className="container-form">
             <Link id="volver-btn1" to="/dashboard/negocios"><FontAwesomeIcon icon={faArrowLeft}></FontAwesomeIcon>  Regresar</Link>
 
-            <form onSubmit={handleSubmit(onSubmit)} encType="multipart/form-data">               
+            <form onSubmit={handleSubmit(onSubmit)} encType="multipart/form-data">
                 <input 
                     type="text"
                     placeholder="Tipo de Negocio"
@@ -131,23 +127,10 @@ function AddNegocio() {
                     errors.correo &&
                         <p className="error"><FontAwesomeIcon icon={faCircleExclamation}></FontAwesomeIcon> El correo electronico es requerido</p>
                     }
-
-                <input 
-                    type="file"
-                    name="imagen"
-                    id="imagen"
-                    {...register("imagen", {required: true})}
-                />
-
-                    {       
-                    errors.imagen &&
-                        <p className="error"><FontAwesomeIcon icon={faCircleExclamation}></FontAwesomeIcon> Una imagen para identificar el negocio es requerida</p>
-                    }
-
-                <button type="submit">Crear</button>
+                <button type="submit">Guardar Cambios</button>
             </form>
         </div>
     )
 }
 
-export default AddNegocio;
+export default EditNegocio;

@@ -1,7 +1,8 @@
 
 import {Router} from 'express'
 import { subirImagen } from '../controllers/negociosController.js'
-
+import {validarSchema} from '../middlewares/validarDatos.js'
+import { addNegocioSchema } from '../schemas/addNegocioSchema.js'
 import { authRequerida } from '../middlewares/validarToken.js'
 import { AgregarNegocio, obtenerNegocio, obtenerNegocios, eliminarNegocio, actualizarNegocio } from '../controllers/negociosController.js'
 import { AgregarEvento, obtenerEvento, obtenerEventos, eliminarEvento, actualizarEvento } from '../controllers/eventoController.js'

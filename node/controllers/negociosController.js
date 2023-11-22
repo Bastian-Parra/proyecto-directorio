@@ -23,8 +23,6 @@ export const obtenerNegocio = async (req, res) => {
 
 export const AgregarNegocio = async (req, res) => {
     try {
-        console.log(req.file);
-        console.log(req.body);
         const {tipo_negocio, H_operacion, descripcion, nombre, direccion, telefono, correo} = req.body;
         const imagenPath = req.file.filename
         console.log(imagenPath)
@@ -88,12 +86,6 @@ export const actualizarNegocio = async (req, res) => {
         if (!negocio) return res.status(400).json({message: "Negocio no encontrado"})
         
         const {tipo_negocio, H_operacion, descripcion, nombre, direccion, telefono, correo} = req.body;
-        
-        const negocioExistente = await verificarNegocio(nombre, tipo_negocio)
-        
-        if (negocioExistente) {
-            return res.status(400).json({message: "Negocio existente encontrado"})
-        }
         
         await negocio.update({
             tipo_negocio: tipo_negocio,

@@ -19,6 +19,7 @@ function RegisterPage() {
     errors: registerErrors,
   } = useAuth()
 
+
   const navigate = useNavigate()
 
   useEffect(() => {
