@@ -12,6 +12,7 @@ import routerLugares from './routes/lugares.routes.js'
 import bodyParser from 'body-parser'
 import routerConsultas from './routes/consultas.routes.js'
 import routerImagenes from './routes/images.routes.js'
+import cookieParser from 'cookie-parser'
 
 /*===================IMPORTS======================*/
 
