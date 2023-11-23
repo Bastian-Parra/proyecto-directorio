@@ -19,10 +19,6 @@ function EventoDetails() {
     const handleResenaSubmit = (e) => {
         e.preventDefault();
         console.log('Comentario:', comentario, 'Evaluación:', evaluacion);
-<<<<<<< HEAD
-        // Aquí puedes agregar la lógica para enviar los datos al servidor o manejarlos como necesites
-=======
->>>>>>> bastian
     };
     useEffect(() => {
         if (parametros.id) {
