@@ -6,12 +6,8 @@ import routesAuth from './routes/auth.routes.js'
 import routesNegocio from './routes/negocios.routes.js'
 import routerEventos from './routes/eventos.routes.js'
 import routerLugar from './routes/lugares.routes.js'
-<<<<<<< HEAD
-/*import routerTareas from './routes/tareas.negocios.routes.js' */
-=======
 import routerTareas from './routes/tareas.negocios.routes.js'
 import routerLugares from './routes/lugares.routes.js'
->>>>>>> bastian
 import bodyParser from 'body-parser'
 import cookieParser from 'cookie-parser'
 import routerConsultas from './routes/consultas.routes.js'
@@ -46,13 +42,9 @@ app.use('/negocios', routesNegocio)
 app.use('/consultas', routerConsultas)
 app.use('/eventos', routerEventos)
 app.use('/lugares', routerLugar)
-<<<<<<< HEAD
-/*app.use('/tareas', routerTareas) */
-=======
 app.use('/lugares', routerLugares)
 app.use('/imagenes',routerImagenes)
 app.use('/tareas', routerTareas)
->>>>>>> bastian
 
 const PORT = 4000
 
