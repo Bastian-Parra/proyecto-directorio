@@ -25,7 +25,6 @@ export const AgregarNegocio = async (req, res) => {
     try {
         const {tipo_negocio, H_operacion, descripcion, nombre, direccion, telefono, correo} = req.body;
         const imagenPath = req.file.filename
-        console.log(imagenPath)
         
     const negocioExistente = await verificarNegocio(nombre, tipo_negocio)
 
@@ -131,5 +130,5 @@ const almacenarImagen = multer.diskStorage({
     }
 })
 
-export const subirImagen = multer({storage: almacenarImagen})
+export const subirImagenNegocio = multer({storage: almacenarImagen})
 

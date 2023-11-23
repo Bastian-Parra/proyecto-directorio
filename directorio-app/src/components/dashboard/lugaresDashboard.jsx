@@ -1,6 +1,9 @@
 import HeaderDashboard from "./headerDashboard";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPlus, faMagnifyingGlass} from '@fortawesome/free-solid-svg-icons';
 import {useLugares} from "../../context/lugaresContext.jsx"
 import { useEffect } from "react";
+import { Link } from "react-router-dom";
 function LugaresDashboard() {
 
     const {mostrarLugares, lugares} = useLugares()
@@ -12,6 +15,10 @@ function LugaresDashboard() {
     return (
         <>
         <HeaderDashboard/>
+        <div className="container-btn-task">
+            <Link className="btn-add" to="/dashboard/lugares/add"><FontAwesomeIcon icon={faPlus}/></Link>
+            <Link className="btn-add" to="#"><FontAwesomeIcon icon={faMagnifyingGlass}/></Link>
+        </div>
         <div className="container-tabla">
             <h1>Lugares</h1>
             

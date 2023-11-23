@@ -23,16 +23,17 @@ export const obtenerLugar = async (req, res) => {
 
 export const AgregarLugar = async (req, res) => {
     try {
-        const {id_reseña, id_ubicacion, nombre_lugar, direccion_lugar} = req.body;
+        const {nombre_lugar, direccion_lugar} = req.body;
+        const imagenPath = req.file.filename
     
-    const lugarExistente = await verificarLugar(nombre_lugar, id_reseña)
+    const lugarExistente = await verificarLugar(nombre_lugar)
 
     if (lugarExistente) {
         return res.status(409).json({message: "El lugar ya existe"})
     }
 
     // se llama a la funcion para crear el negocio
-    await crearLugar(id_reseña, id_ubicacion, nombre_lugar, direccion_lugar)
+    await crearLugar(nombre_lugar, direccion_lugar, imagenPath)
 
     res.status(200).json({ success: true, message: 'Lugar creado exitosamente' });
 
@@ -42,14 +43,13 @@ export const AgregarLugar = async (req, res) => {
     }
 }
 
-export const crearLugar = async (param_id_reseña, param_id_ubicacion, param_nombre_lugar, param_direccion_lugar) => {
+export const crearLugar = async (param_nombre_lugar, param_direccion_lugar, imagenPath) => {
 
     try {
         await Lugar.create({
-            id_reseña: param_id_reseña,
-            id_ubicacion: param_id_ubicacion,
             nombre_lugar: param_nombre_lugar,
             direccion_lugar: param_direccion_lugar,
+            imagen: imagenPath,
         })
     } catch (error) {
         throw error
@@ -57,13 +57,12 @@ export const crearLugar = async (param_id_reseña, param_id_ubicacion, param_nom
 }
 
 
-export const verificarLugar = async (nombre_lugar, idreseña) => {
+export const verificarLugar = async (nombre_lugar) => {
     try {
         const lugar = await Lugar.findOne({
             where: {
               [Sequelize.Op.or]: [
                 { nombre_lugar: nombre_lugar }, 
-                { id_reseña: idreseña },
               ],
             },
         })
@@ -79,17 +78,15 @@ export const actualizarLugar = async (req, res) => {
         
         if (!lugar) return res.status(400).json({message: "Lugar no encontrado"})
         
-        const {id_reseña, id_ubicacion, nombre_lugar, direccion_lugar} = req.body;
+        const {nombre_lugar, direccion_lugar} = req.body;
         
-        const lugarExistente = await verificarLugar(nombre_lugar, id_reseña, id_ubicacion)
+        const lugarExistente = await verificarLugar(nombre_lugar)
         
         if (lugarExistente) {
             return res.status(400).json({message: "Lugar existente encontrado"})
         }
         
         await lugar.update({
-            id_reseña: id_reseña,
-            id_ubicacion: id_ubicacion,
             nombre_lugar: nombre_lugar,
             direccion_lugar: direccion_lugar,
         })
@@ -118,30 +115,13 @@ export const eliminarLugar = async (req, res) => {
     }
 }
 
-/*
-export const AlmacenarImagenes = multer.diskStorage({
+const almacenarImagen = multer.diskStorage({
     destination: (req, file, cb) => {
-        cb(null, "Images")
+        cb(null, "images/lugares_images/")
     },
     filename: (req, file, cb) => {
-        cb(null, Date.now(), file.originalname)
+        cb(null, Date.now() + file.originalname);
     }
 })
 
-export const SubirImagenes = multer({
-    storage: AlmacenarImagenes,
-    limits: {fileSize: 1024 * 1024 * 10},
-    fileFilter: (req, file, cb) => {
-        const fileTypes = /jpeg|jpg|png|gif/
-        const mimetype = fileTypes.test(file.mimetype)
-        const extname = fileTypes.test(path.extname(file.originalname))
-
-        if (mimetype && extname) {
-            cb(null, true)
-        } else {
-            cb(null, false)
-        }
-    }
-}).single('imagen')
-
-*/
+export const subirImagenLugar = multer({storage: almacenarImagen})
