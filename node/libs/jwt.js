@@ -8,7 +8,7 @@ export function crearTokenDeAcceso(payload) {
             payload,
             TOKEN_SECRET,
             {
-                expiresIn: '1h',
+                expiresIn: '2h',
             },
             (err, token) => {
                 if (err) reject(err)

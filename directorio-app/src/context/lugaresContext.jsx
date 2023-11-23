@@ -1,5 +1,5 @@
 import { createContext, useContext, useState } from "react";
-import { consultaLugares } from "../api/lugares"; 
+import { consultaLugares, consultalugar} from "../api/lugares"; 
 const lugaresContext = createContext();
 
 export const useLugares = () => {
@@ -15,6 +15,7 @@ export const useLugares = () => {
 export function LugaresProvider({ children }) {
 
     const [lugares, setLugares] = useState([]);
+    const [lugar, setLugar] = useState([])
 
     const mostrarLugares = async () => {
         try {
@@ -25,9 +26,20 @@ export function LugaresProvider({ children }) {
         }
     }
 
+    const mostrarLugar = async (id) => {
+        try {
+            const respuesta = await consultalugar(id)
+            setLugar(respuesta.data);
+        } catch (error) {
+            console.error(error)
+        }
+    }
+
     return (
         <lugaresContext.Provider
             value={{
+                lugar,
+                mostrarLugar,
                 lugares,
                 mostrarLugares,
             }}>

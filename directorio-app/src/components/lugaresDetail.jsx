@@ -23,7 +23,7 @@ function LugaresDetails() {
     };
     useEffect(() => {
         if (parametros.id) {
-            mostrarLugares(parametros.id)
+            mostrarLugar(parametros.id)
         }
     }, [])
 

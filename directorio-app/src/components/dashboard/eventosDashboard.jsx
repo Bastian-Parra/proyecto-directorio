@@ -1,4 +1,5 @@
 import HeaderDashboard from "./headerDashboard";
+import '../../styles/dashboard.css'
 import { useEventos} from "../../context/eventosContext"
 import { useEffect } from "react";
 function EventosDashboard() {
