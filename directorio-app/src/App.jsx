@@ -15,6 +15,7 @@ import RutasProtegidas from './RutasProtegidas.jsx'
 import RutaDashboard from './dashboardProtegido.jsx'
 import NegocioDetails from './components/negociosDetail.jsx'
 import EventoDetails from './components/eventosDetail.jsx'
+import LugaresDetails from './components/lugaresDetail.jsx'
 import {Route, Routes, Navigate} from 'react-router-dom'
 import { BrowserRouter } from 'react-router-dom'
 import { AuthProvider } from './context/AuthContext.jsx'
@@ -48,6 +49,7 @@ function App() {
                 <Route path='/eventos/:id' element={<EventoDetails/>}></Route>  {/**recordar que sin esta linea no hay ruta para eventosDetail */}
                 <Route path='/eventos' element={<Eventos/>}></Route>
                 <Route path='/lugares' element={<Lugares/>}></Route>
+                <Route path='/lugares/:id' element={<LugaresDetails/>}></Route>
                 <Route path='/register' element={<Registro/>}></Route>
                 <Route path='/login' element={<Login/>}></Route>
                 <Route path="/404" element={<Error404 />} />

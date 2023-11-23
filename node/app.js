@@ -13,8 +13,7 @@ import bodyParser from 'body-parser'
 import cookieParser from 'cookie-parser'
 import routerConsultas from './routes/consultas.routes.js'
 import routerImagenes from './routes/images.routes.js'
-import bodyParser from 'body-parser'
-import cookieParser from 'cookie-parser'
+
 
 /*===================IMPORTS======================*/
 
