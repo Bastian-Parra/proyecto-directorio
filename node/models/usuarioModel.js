@@ -16,6 +16,9 @@ const Usuario = db.define('usuarios', {
   rango: {
     type: DataTypes.STRING,
     defaultValue: "usuario",
+  },
+  imagen: {
+    type: DataTypes.STRING,
   }
 },{timestamps:false,});
 

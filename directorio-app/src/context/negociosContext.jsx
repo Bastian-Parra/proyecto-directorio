@@ -1,6 +1,6 @@
 import { createContext, useContext, useState } from "react";
 import { consultaNegocio, consultaNegocios } from "../api/negocios";
-
+import { ActualizarNegocio, EliminarNegocio } from "../api/dashboard";
 const negociosContext = createContext()
 
 export const useNegocios = () => {
@@ -27,8 +27,30 @@ export function NegociosProvider({children}) {
     }
 
     const mostrarNegocio = async (id) => {
-        const respuesta = await consultaNegocio(id)
-        setNegocio(respuesta.data)
+        try {
+            const respuesta = await consultaNegocio(id)
+            setNegocio(respuesta.data)
+            return respuesta.data
+        } catch (error) {
+            console.error(error)
+        }
+    }
+
+    const eliminarNegocio  = async (id) => {
+        try {
+            const respuesta = await EliminarNegocio(id)
+            if (respuesta.status === 200) setNegocios(negocios.filter(negocio => negocio.id !== id))
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
+    const actualizarNegocio = async (id, params) => {
+        try {
+            const respuesta = await ActualizarNegocio(id, params)
+        } catch (error) {
+            console.error(error)
+        }
     }
 
     return (
@@ -38,6 +60,8 @@ export function NegociosProvider({children}) {
             negocios,
             mostrarNegocios,
             mostrarNegocio,
+            eliminarNegocio,
+            actualizarNegocio,
             }}>
             {children}
         </negociosContext.Provider>

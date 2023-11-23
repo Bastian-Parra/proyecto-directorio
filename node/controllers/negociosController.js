@@ -23,8 +23,10 @@ export const obtenerNegocio = async (req, res) => {
 
 export const AgregarNegocio = async (req, res) => {
     try {
-        const {tipo_negocio, H_operacion, descripcion, nombre, direccion, telefono, correo, id_ubicacion} = req.body;
-    
+        const {tipo_negocio, H_operacion, descripcion, nombre, direccion, telefono, correo} = req.body;
+        const imagenPath = req.file.filename
+        console.log(imagenPath)
+        
     const negocioExistente = await verificarNegocio(nombre, tipo_negocio)
 
     if (negocioExistente) {
@@ -32,7 +34,7 @@ export const AgregarNegocio = async (req, res) => {
     }
 
     // se llama a la funcion para crear el negocio
-    await crearNegocio(tipo_negocio, H_operacion, descripcion, nombre, direccion, telefono, correo, id_ubicacion)
+    await crearNegocio(tipo_negocio, H_operacion, descripcion, nombre, direccion, telefono, correo, imagenPath)
 
     res.status(200).json({ success: true, message: 'Negocio creado exitosamente' });
 
@@ -42,7 +44,7 @@ export const AgregarNegocio = async (req, res) => {
     }
 }
 
-export const crearNegocio = async (param_tipo_negocio, param_H_operacion, param_descripcion, param_nombre, param_direccion, param_telefono, param_correo, param_id_ubicacion) => {
+export const crearNegocio = async (param_tipo_negocio, param_H_operacion, param_descripcion, param_nombre, param_direccion, param_telefono, param_correo, imagenPath) => {
 
     try {
         await Negocio.create({
@@ -53,7 +55,7 @@ export const crearNegocio = async (param_tipo_negocio, param_H_operacion, param_
             direccion: param_direccion,
             telefono: param_telefono,
             correo: param_correo,
-            id_ubicacion: param_id_ubicacion,
+            imagen: imagenPath,
         })
     } catch (error) {
         throw error
@@ -83,13 +85,7 @@ export const actualizarNegocio = async (req, res) => {
         
         if (!negocio) return res.status(400).json({message: "Negocio no encontrado"})
         
-        const {tipo_negocio, H_operacion, descripcion, nombre, direccion, telefono, correo, id_ubicacion} = req.body;
-        
-        const negocioExistente = await verificarNegocio(nombre, tipo_negocio, id_ubicacion)
-        
-        if (negocioExistente) {
-            return res.status(400).json({message: "Negocio existente encontrado"})
-        }
+        const {tipo_negocio, H_operacion, descripcion, nombre, direccion, telefono, correo} = req.body;
         
         await negocio.update({
             tipo_negocio: tipo_negocio,
@@ -99,7 +95,6 @@ export const actualizarNegocio = async (req, res) => {
             direccion: direccion,
             telefono: telefono,
             correo: correo,
-            id_ubicacion: id_ubicacion,
         })
         
         res.status(200).json({ success: true, message: 'Negocio actualizado exitosamente' });
@@ -126,30 +121,15 @@ export const eliminarNegocio = async (req, res) => {
     }
 }
 
-/*
-export const AlmacenarImagenes = multer.diskStorage({
+
+const almacenarImagen = multer.diskStorage({
     destination: (req, file, cb) => {
-        cb(null, "Images")
+        cb(null, "images/negocios_images/")
     },
     filename: (req, file, cb) => {
-        cb(null, Date.now(), file.originalname)
+        cb(null, Date.now() + file.originalname);
     }
 })
 
-export const SubirImagenes = multer({
-    storage: AlmacenarImagenes,
-    limits: {fileSize: 1024 * 1024 * 10},
-    fileFilter: (req, file, cb) => {
-        const fileTypes = /jpeg|jpg|png|gif/
-        const mimetype = fileTypes.test(file.mimetype)
-        const extname = fileTypes.test(path.extname(file.originalname))
+export const subirImagen = multer({storage: almacenarImagen})
 
-        if (mimetype && extname) {
-            cb(null, true)
-        } else {
-            cb(null, false)
-        }
-    }
-}).single('imagen')
-
-*/
