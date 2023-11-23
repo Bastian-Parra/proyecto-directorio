@@ -1,10 +1,10 @@
 import { AgregarNegocio } from "../../../api/dashboard.js"
 import {useForm} from "react-hook-form"
-import { Link, useParams, useNavigate} from "react-router-dom"
+import { Link, useNavigate} from "react-router-dom"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowLeft, faCircleExclamation } from '@fortawesome/free-solid-svg-icons'
-import { useEffect, useState } from "react"
-import { useNegocios } from "../../../context/negociosContext.jsx"
+import { useState } from "react"
+
 
 // task: agregar un negocio en el dashboard
 function AddNegocio() {
@@ -33,7 +33,6 @@ function AddNegocio() {
                     "Content-Type": "multipart/form-data",
                 }
             })
-            console.log(respuesta.data)
             alert("Negocio creado con exito")
             reenviar('/dashboard/negocios')
         } catch (error) {
