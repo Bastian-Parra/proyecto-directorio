@@ -11,7 +11,7 @@ import Imagen2 from '../assets/imagenesdeprueba/3.png'
 
 function LugaresDetails() {
 
-    const {mostrarLugares, lugares} = useLugares()
+    const {mostrarLugar, lugares} = useLugares()
     const parametros = useParams()
     const [comentario, setComentario] = useState("");
     const [evaluacion, setEvaluacion] = useState("");
@@ -43,12 +43,11 @@ function LugaresDetails() {
                 </div>
                 <div className="lugar-details-right">
                 <Carousel showThumbs>
-                            <div>
-                                <img src={Imagen1} alt="Imagen 1" />
-                            </div>
-                            <div>
-                                <img src={Imagen2} alt="Imagen 2" />
-                            </div>
+                {lugares.map((lugar) => (
+                    <div key={lugar.id}>
+                        <img src={Link} alt={`Imagen del lugar ${lugares.imagen}`} />
+                    </div>
+                ))}
                         </Carousel>
                     </div>
                 </div>
