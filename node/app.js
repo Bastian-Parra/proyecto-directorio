@@ -13,6 +13,7 @@ import bodyParser from 'body-parser'
 import routerConsultas from './routes/consultas.routes.js'
 import routerImagenes from './routes/images.routes.js'
 import cookieParser from 'cookie-parser'
+import { connectDB } from './database/db.config.mongodb.js'
 
 /*===================IMPORTS======================*/
 
@@ -20,7 +21,6 @@ import { fileURLToPath } from 'url';
 import { dirname } from 'path';
 
 const app = express()
-
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
@@ -41,6 +41,7 @@ try {
 } catch (error) {
     console.error("Error al conectar con la DB: " + error)
 }
+
 app.use('/auth', routesAuth)
 app.use('/negocios', routesNegocio)
 app.use('/consultas', routerConsultas)
@@ -49,8 +50,10 @@ app.use('/lugares', routerLugares)
 app.use('/imagenes', routerImagenes)
 app.use('/tareas', routerTareas)
 
-const PORT = 4000
 
+connectDB()
+
+const PORT = 4000
 app.listen(PORT, () =>{
     console.log("listening on port http://localhost:" + PORT)
 })

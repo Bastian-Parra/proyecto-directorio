@@ -1,5 +1,6 @@
 import { createContext, useContext, useState } from "react";
 import { consultaLugares, consultalugar} from "../api/lugares"; 
+import { EliminarLugar, ActualizarLugar } from "../api/dashboard";
 const lugaresContext = createContext();
 
 export const useLugares = () => {
@@ -35,13 +36,32 @@ export function LugaresProvider({ children }) {
         }
     }
 
+    const eliminarLugar = async (id) => {
+        try {
+            const respuesta = await EliminarLugar(id)
+            if (respuesta.status === 200) setLugares(lugares.filter(lugar => lugar.id !== id))
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
+    const actualizarLugar = async (id, params) => {
+        try {
+            await ActualizarLugar(id, params)
+        } catch (error) {
+            console.error(error)
+        }
+    }
+
     return (
         <lugaresContext.Provider
             value={{
-                lugar,
                 mostrarLugar,
-                lugares,
+                eliminarLugar,
                 mostrarLugares,
+                actualizarLugar,
+                lugares,
+                lugar,
             }}>
             {children}
         </lugaresContext.Provider>

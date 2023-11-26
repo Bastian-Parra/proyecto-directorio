@@ -27,6 +27,7 @@ import LugaresDashboard from './components/dashboard/lugaresDashboard.jsx'
 import AddNegocio from './components/dashboard/tasks/addNegocio.jsx'
 import EditNegocio from './components/dashboard/tasks/editNegocio.jsx'
 import AddLugar from './components/dashboard/tasks/addLugar.jsx'
+import EditLugar from './components/dashboard/tasks/editLugar.jsx'
 import './app.css'
 
 
@@ -63,6 +64,7 @@ function App() {
                   <Route path='/dashboard/eventos' element={<EventosDashboard/>}></Route>
                   <Route path='/dashboard/lugares' element={<LugaresDashboard/>}></Route>
                   <Route path='/dashboard/lugares/add' element={<AddLugar/>}></Route>
+                  <Route path='/dashboard/lugares/edit/:id' element={<EditLugar/>}></Route>
                 </Route>
               </Routes>
             </BrowserRouter>

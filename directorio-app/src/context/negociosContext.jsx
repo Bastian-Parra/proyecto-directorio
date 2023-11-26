@@ -47,7 +47,7 @@ export function NegociosProvider({children}) {
 
     const actualizarNegocio = async (id, params) => {
         try {
-            const respuesta = await ActualizarNegocio(id, params)
+            await ActualizarNegocio(id, params)
         } catch (error) {
             console.error(error)
         }

@@ -2,8 +2,7 @@
 import {Router} from 'express'
 import { subirImagenNegocio } from '../controllers/negociosController.js'
 import { subirImagenLugar } from '../controllers/lugaresController.js'
-import {validarSchema} from '../middlewares/validarDatos.js'
-import { addNegocioSchema } from '../schemas/addNegocioSchema.js'
+import { subirImagenEvento } from '../controllers/eventoController.js'
 import { authRequerida } from '../middlewares/validarToken.js'
 import { AgregarNegocio, obtenerNegocio, obtenerNegocios, eliminarNegocio, actualizarNegocio } from '../controllers/negociosController.js'
 import { AgregarEvento, obtenerEvento, obtenerEventos, eliminarEvento, actualizarEvento } from '../controllers/eventoController.js'
@@ -20,7 +19,7 @@ router.put('/negocios/update/:id', authRequerida, actualizarNegocio)
 // rutas para el dashboard de eventos
 router.get('/eventos', authRequerida, obtenerEventos)
 router.get('/eventos/:id', authRequerida, obtenerEvento)
-router.post('/eventos/add', authRequerida, AgregarEvento)
+router.post('/eventos/add', subirImagenEvento.single('imagen'), authRequerida, AgregarEvento)
 router.delete('/eventos/delete/:id', eliminarEvento)
 router.put('/eventos/update/:id', authRequerida, actualizarEvento)
 
