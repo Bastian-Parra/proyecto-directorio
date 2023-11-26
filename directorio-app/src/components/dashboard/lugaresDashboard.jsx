@@ -8,7 +8,7 @@ function LugaresDashboard() {
 
     const {mostrarLugares, lugares, eliminarLugar} = useLugares()
     const navigate = useNavigate()
-    console.log(lugares)
+    
 
     useEffect(() => {
         mostrarLugares()
@@ -28,7 +28,7 @@ function LugaresDashboard() {
                 <thead>
                     <tr>
                         <th>ID</th>
-                        <th>ID Reseña</th>
+                        <th>Descripcion</th>
                         <th>Nombre</th>
                         <th>Opciones</th>
                     </tr>
@@ -37,13 +37,13 @@ function LugaresDashboard() {
                     {lugares.map((lugar) => (
                         <tr key={lugar.id}>
                             <td>{lugar.id}</td>
-                            <td>{lugar.id_reseña}</td>
+                            <td>{lugar.descripcion_lugar}</td>
                             <td>{lugar.nombre_lugar}</td>
                             <td id="columna-opciones">
                                 <button id="btn-eliminar" onClick={() => {
                                     eliminarLugar(lugar.id)
                                 }}>Eliminar</button>
-                                <Link id="btn-editar" to={`/dashboard/lugares/edit/${lugar.id}`}>Editar</Link>
+                                <Link id="btn-editar" to={`/dashboard/lugar/edit/${lugar.id}`}>Editar</Link>
                             </td>
                         </tr>
                     ))}

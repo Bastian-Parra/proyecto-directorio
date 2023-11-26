@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowLeft, faCircleExclamation } from '@fortawesome/free-solid-svg-icons'
 import { useState } from "react"
 
-// task: agregar un negocio en el dashboard
+// task: agregar un lugar en el dashboard
 function AddLugar() {
     
 
@@ -20,6 +20,7 @@ function AddLugar() {
 
             formData.append("nombre_lugar", data.nombre_lugar)
             formData.append("direccion_lugar", data.direccion_lugar)
+            formData.append("descripcion", data.descripcion_lugar)
             formData.append("imagen", data.imagen[0])
 
             const respuesta = await AgregarLugar(formData, {
@@ -64,6 +65,17 @@ function AddLugar() {
                     {       
                     errors.direccion_lugar &&
                         <p className="error"><FontAwesomeIcon icon={faCircleExclamation}></FontAwesomeIcon> La direccion del lugar es requerida.</p>
+                    }
+                    
+                <textarea
+                    rows="3"
+                    id="descripcion"
+                    placeholder="Descripción del Lugar"
+                    {...register("descripcion", {required: true})}
+                />
+                    {       
+                    errors.descripcion_lugar &&
+                        <p className="error"><FontAwesomeIcon icon={faCircleExclamation}></FontAwesomeIcon> La descripcion es requerida</p>
                     }
 
                 <input 
