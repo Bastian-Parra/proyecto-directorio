@@ -19,7 +19,7 @@ function NegociosCard({negocio}) {
     return (
             <div className="negocio-card">
             <p id="title-card">{negocio.nombre}</p>
-            <img id="img-negocio" src={`http://localhost:4000${imagenURL}`} alt="Imagen de perfil" />
+            <img id="img-card" src={`http://localhost:4000${imagenURL}`}/>
             <p><b>Descripcion:</b> {negocio.descripcion}</p>
             <p><b>Tipo: </b>{negocio.tipo_negocio}</p>
             <p><b>Horario:</b> {negocio.H_operacion}</p>

@@ -14,7 +14,7 @@ const LugaresPage = () => {
 
   if (lugares.length === 0) {
     return (
-      <h1>No hay lugares</h1>
+      <h1>No hay Lugares de interes</h1>
     )
   }
 
@@ -40,8 +40,5 @@ const LugaresPage = () => {
     </>
   )
 }
-
-
-// separo el componente del contenido para una mejor legibilidad
 
 export default LugaresPage
