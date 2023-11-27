@@ -20,7 +20,7 @@ function AddLugar() {
 
             formData.append("nombre_lugar", data.nombre_lugar)
             formData.append("direccion_lugar", data.direccion_lugar)
-            formData.append("descripcion", data.descripcion_lugar)
+            formData.append("descripcion_lugar", data.descripcion_lugar)
             formData.append("imagen", data.imagen[0])
 
             const respuesta = await AgregarLugar(formData, {
@@ -69,9 +69,9 @@ function AddLugar() {
                     
                 <textarea
                     rows="3"
-                    id="descripcion"
+                    id="descripcion_lugar"
                     placeholder="Descripción del Lugar"
-                    {...register("descripcion", {required: true})}
+                    {...register("descripcion_lugar", {required: true})}
                 />
                     {       
                     errors.descripcion_lugar &&

@@ -43,7 +43,7 @@ function LugaresDashboard() {
                                 <button id="btn-eliminar" onClick={() => {
                                     eliminarLugar(lugar.id)
                                 }}>Eliminar</button>
-                                <Link id="btn-editar" to={`/dashboard/lugar/edit/${lugar.id}`}>Editar</Link>
+                                <Link id="btn-editar" to={`/dashboard/lugares/edit/${lugar.id}`}>Editar</Link>
                             </td>
                         </tr>
                     ))}

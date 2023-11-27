@@ -30,7 +30,9 @@ export function LugaresProvider({ children }) {
     const mostrarLugar = async (id) => {
         try {
             const respuesta = await consultaLugar(id)
-            setLugar(respuesta.data);
+            setLugar(respuesta.data);    
+            return respuesta.data
+
         } catch (error) {
             console.error(error)
         }

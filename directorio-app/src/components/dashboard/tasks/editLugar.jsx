@@ -67,9 +67,9 @@ function EditLugar() {
                     
                 <textarea
                     rows="3"
-                    id="descripcion"
+                    id="descripcion_lugar"
                     placeholder="Descripción del Lugar"
-                    {...register("descripcion", {required: true})}
+                    {...register("descripcion_lugar", {required: true})}
                 />
                     {       
                     errors.descripcion_lugar &&
