@@ -1,31 +1,14 @@
-import mongoose from 'mongoose';
+import Joi from 'joi';
 
-// Definiendo el esquema para agregar un evento
-const addEventoSchema = new mongoose.Schema({
-    direccion_evento: {
-        type: String,
-        required: true,
-        trim: true // elimina espacios en blanco al principio y al final
-    },
-    nombre_evento: {
-        type: String,
-        required: true,
-        trim: true
-    },
-    fecha_hora: {
-        type: Date,
-        required: true
-    },
-    descripcion_evento: {
-        type: String,
-        required: true,
-        trim: true
-    },
-    imagen: {
-        type: String,
-        required: false // asumiendo que la imagen no es obligatoria
-    }
-});
+const validarEvento = (evento) => {
+    const schema = Joi.object({
+        direccion_evento: Joi.string().required().trim(),
+        nombre_evento: Joi.string().required().trim(),
+        fecha_hora: Joi.date().required(),
+        descripcion_evento: Joi.string().required().trim(),
+        imagen: Joi.string()
+    });
+    return schema.validate(evento);
+};
 
-// Exportando el esquema
-export default addEventoSchema;
+export { validarEvento };
