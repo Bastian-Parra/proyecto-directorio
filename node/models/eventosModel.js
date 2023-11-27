@@ -10,7 +10,7 @@ const eventoSchema = mongoose.Schema({
         type : String
     },
     fecha_hora: {
-        type : String
+        type : Date
     },
     descripcion_evento: {
         type: String
