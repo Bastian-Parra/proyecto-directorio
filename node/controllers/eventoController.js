@@ -1,6 +1,9 @@
 import Evento from '../models/eventosModel.js'
 import multer from 'multer'
 
+/*import schema evento*/
+import addEventoSchema from '../schemas/addEventoSchema.js';
+
 export const obtenerEventos = async (req, res) => {
     try {
         const eventos = await  Evento.find()
@@ -20,7 +23,7 @@ export const obtenerEvento = async (req, res) => {
     res.json(evento)
 }
 
-export const AgregarEvento = async (req, res) => {
+export const eliminarEvento = async (req, res) => {
     try {
         const evento = await Evento.findByIdAndDelete(req.params.id)
         
@@ -65,26 +68,22 @@ export const crearEvento = async (direccion_evento, nombre_evento, fecha_hora, d
     }
 }
 
-export const AgregarEvento = async (req, res) => {
+export const agregarEvento = async (req, res) => {
+    // Validación de los datos de entrada
+    const { error } = addEventoSchema.validate(req.body);
+    if (error) {
+        return res.status(400).json({ mensaje: 'Datos inválidos', detalles: error.details });
+    }
+
+    // Crear y guardar el nuevo evento
     try {
-        const {direccion_evento, nombre_evento, fecha_hora, descripcion_evento} = req.body;
-        const imagenPath = req.file.filename
-    
-    const eventoExistente = await verificarEvento(nombre_evento, direccion_evento)
-
-    if (eventoExistente) {
-        return res.status(400).json(["El evento ya existe!"])
-    }
-
-    // se llama a la funcion para crear el negocio
-    await crearEvento(direccion_evento, nombre_evento, fecha_hora, descripcion_evento, imagenPath)
-
-    res.status(200).json({ success: true, message: 'Evento creado exitosamente' });
+        const nuevoEvento = new Evento(req.body);
+        await nuevoEvento.save();
+        res.status(201).json(nuevoEvento);
     } catch (error) {
-        console.error('Error al crear un evento', error)
-        res.status(500).json({ success: false, error: 'Error al crear un evento'})
+        res.status(500).json({ mensaje: 'Error al crear el evento', detalles: error });
     }
-}
+};
 
 export const verificarEvento = async (nombre_evento, direccion_evento) => {
     try {
