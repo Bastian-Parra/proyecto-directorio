@@ -35,7 +35,7 @@ const NegociosPage = () => {
     </div>
     <div className='container-negocios-inside'>
         {negocios.map(negocio => (
-          <NegociosCard negocio={negocio} key={negocio.id}/>
+          <NegociosCard negocio={negocio} key={negocio._id}/>
         ))}
     </div>
     </>

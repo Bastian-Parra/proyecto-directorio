@@ -22,6 +22,8 @@ import { NegociosProvider } from './context/negociosContext.jsx'
 import { LugaresProvider } from './context/lugaresContext.jsx'
 import { EventosProvider } from './context/eventosContext.jsx'
 import EventosDashboard from './components/dashboard/eventosDashboard.jsx'
+import AddEventos from './components/dashboard/tasks/addEventos.jsx'
+import EditEventos from './components/dashboard/tasks/editEventos.jsx'
 import NegociosDashboard from './components/dashboard/negociosDashboard.jsx'
 import LugaresDashboard from './components/dashboard/lugaresDashboard.jsx'
 import AddNegocio from './components/dashboard/tasks/addNegocio.jsx'
@@ -63,6 +65,8 @@ function App() {
                   <Route path='/dashboard/negocios/add' element={<AddNegocio/>}></Route>
                   <Route path='/dashboard/negocios/edit/:id' element={<EditNegocio/>}></Route>
                   <Route path='/dashboard/eventos' element={<EventosDashboard/>}></Route>
+                  <Route path='/dashboard/eventos/add' element={<AddEventos/>}></Route>
+                  <Route path='/dashboard/eventos/edit/:id' element={<EditEventos/>}></Route>
                   <Route path='/dashboard/lugares' element={<LugaresDashboard/>}></Route>
                   <Route path='/dashboard/lugares/add' element={<AddLugar/>}></Route>
                   <Route path='/dashboard/lugares/edit/:id' element={<EditLugar/>}></Route>

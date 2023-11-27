@@ -1,143 +1,81 @@
-import Evento from '../models/eventosModel.js'
-import { Sequelize } from "sequelize"
-import multer from 'multer'
+import Evento from '../models/eventosModel.js'; // Importando el modelo de Mongoose
+import { validarEvento } from '../schemas/addEventoSchema.js'; // Importando y renombrando el esquema de addEventoSchema
+import multer from 'multer';
 
 export const obtenerEventos = async (req, res) => {
     try {
-        const eventos = await  Evento.findAll()
-        console.log(eventos)
-        res.json(eventos)
+        const eventos = await Evento.find();
+        console.log(eventos);
+        res.json(eventos);
     } catch (error) {
-        console.log(error)
-        res.status(500).json({error: 'Error al obtener eventos'})
+        console.log(error);
+        res.status(500).json({ error: 'Error al obtener eventos' });
     }
-}
+};
 
 export const obtenerEvento = async (req, res) => {
-    const evento = await Evento.findByPk(req.params.id)
-    
-    if (!evento) return res.status(400).json({message: "Evento no encontrado"})
-
-    res.json(evento)
-}
+    try {
+        const evento = await Evento.findById(req.params.id);
+        if (!evento) return res.status(400).json({ message: "Evento no encontrado" });
+        res.json(evento);
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({ error: 'Error al obtener el evento' });
+    }
+};
 
 export const eliminarEvento = async (req, res) => {
     try {
-        const evento = await Evento.findByPk(req.params.id)
-        
-        if (!evento) return res.status(400).json({message: "Evento no encontrado"})
-        
-        await evento.destroy()
-        
+        const evento = await Evento.findByIdAndDelete(req.params.id);
+        if (!evento) return res.status(400).json({ message: "Evento no encontrado" });
         res.status(200).json({ success: true, message: 'Evento eliminado exitosamente' });
-        
     } catch (error) {
-        console.error('Error al eliminar un evento', error)
-        res.status(500).json({ success: false, error: 'Error al eliminar un evento'})
+        console.log(error);
+        res.status(500).json({ error: 'Error al eliminar el evento' });
     }
-}
+};
 
 export const actualizarEvento = async (req, res) => {
     try {
-        const evento = await Evento.findByPk(req.params.id)
-        
-        if (!evento) return res.status(400).json({message: "Evento no encontrado"})
-        
-        const {direccion_evento, nombre_evento, fecha_hora} = req.body;
-        
-        const eventoExistente = await verificarEvento(nombre_evento, direccion_evento)
-        
-        if (eventoExistente) {
-            return res.status(400).json({message: "Evento encontrado"})
-        }
-        
-        await evento.update({
-            direccion_evento: direccion_evento,
-            nombre_evento: nombre_evento,
-            fecha_hora: fecha_hora,
-        })
-        
-        res.status(200).json({ success: true, message: 'Evento actualizado exitosamente' });
-        
+        const evento = await Evento.findByIdAndUpdate(req.params.id, req.body, { new: true });
+        if (!evento) return res.status(404).json({ message: "Evento no encontrado" });
+        res.status(200).json({ success: true, message: 'Evento actualizado exitosamente', evento });
     } catch (error) {
-        console.error('Error al actualizar un evento', error)
-        res.status(500).json({ success: false, error: 'Error al actualizar un evento'})
+        console.log(error);
+        res.status(500).json({ error: 'Error al actualizar el evento' });
     }
-}
-
-export const crearEvento = async (direccion_evento, nombre_evento, fecha_hora) => {
-
-    try {
-        await Negocio.create({
-          direccion_evento: direccion_evento,
-          nombre_evento: nombre_evento,
-          fecha_hora: fecha_hora,
-        })
-    } catch (error) {
-        throw error
-    }
-}
+};
 
 export const AgregarEvento = async (req, res) => {
     try {
-        const {direccion_evento, nombre_evento, fecha_hora} = req.body;
-    
-    const eventoExistente = await verificarEvento(nombre_evento, direccion_evento)
+        const { error } = validarEvento(req.body);
+        if (error) return res.status(400).json({ mensaje: 'Datos inválidos', detalles: error.details });
 
-    if (eventoExistente) {
-        return res.status(400).json({message: "El evento ya existe"})
-    }
-
-    // se llama a la funcion para crear el negocio
-    await crearEvento(direccion_evento, nombre_evento, fecha_hora, req.file.path)
-
-    res.status(200).json({ success: true, message: 'Evento creado exitosamente' });
+        let nuevoEvento = new Evento(req.body); // Usando el modelo Evento aquí
+        nuevoEvento = await nuevoEvento.save();
+        res.status(201).json(nuevoEvento);
     } catch (error) {
-        console.error('Error al crear un evento', error)
-        res.status(500).json({ success: false, error: 'Error al crear un evento'})
+        console.log(error);
+        res.status(500).json({ mensaje: 'Error al crear el evento', detalles: error });
     }
-}
+};
 
-export const verificarEvento = async (nombre_evento, direccion_evento,id_ubicacion) => {
+export const verificarEvento = async (nombre_evento, direccion_evento) => {
     try {
-        const evento = await Evento.findOne({
-            where: {
-              [Sequelize.Op.or]: [
-                { nombre: nombre_evento }, 
-                { direccion: direccion_evento },
-              ],
-            },
-        })
-        return !!evento
+        const evento = await Evento.findOne({ nombre_evento: nombre_evento, direccion_evento: direccion_evento });
+        return !!evento;
     } catch (error) {
-        throw error
+        throw error;
     }
-}
+};
 
-/*
-export const AlmacenarImagenes = multer.diskStorage({
+const almacenarImagen = multer.diskStorage({
     destination: (req, file, cb) => {
-        cb(null, "Images")
+        cb(null, "images/eventos_images/");
     },
     filename: (req, file, cb) => {
-        cb(null, Date.now(), file.originalname)
+        cb(null, Date.now() + file.originalname);
     }
-})
+});
 
-export const SubirImagenes = multer({
-    storage: AlmacenarImagenes,
-    limits: {fileSize: 1024 * 1024 * 10},
-    fileFilter: (req, file, cb) => {
-        const fileTypes = /jpeg|jpg|png|gif/
-        const mimetype = fileTypes.test(file.mimetype)
-        const extname = fileTypes.test(path.extname(file.originalname))
-
-        if (mimetype && extname) {
-            cb(null, true)
-        } else {
-            cb(null, false)
-        }
-    }
-}).single('imagen')
-
-*/
+export const subirImagenEvento = multer({ storage: almacenarImagen });

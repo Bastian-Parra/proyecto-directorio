@@ -5,6 +5,7 @@ import axios from '../api/axios.js'
 function NegociosCard({negocio}) {
 
     const [imagenURL, setImagenURL] = useState('');
+
     useEffect(() => {
         // Hacer una solicitud al servidor para obtener la URL de la imagen
         axios.get(`http://localhost:4000/imagenes/getNegocioURL/${negocio.id}`)

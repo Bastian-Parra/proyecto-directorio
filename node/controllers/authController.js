@@ -23,6 +23,7 @@ export const verificarUsuario = async (nombre, correo) => {
       throw error
   }
 }
+
 export const registerFunction = async (req, res) => {
   const { nombre_usuario, contraseña, correo_usuario } = req.body;
 
