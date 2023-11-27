@@ -51,7 +51,7 @@ app.use('/imagenes', routerImagenes)
 app.use('/tareas', routerTareas)
 
 
-connectDB()
+connectDB();
 
 const PORT = 4000
 app.listen(PORT, () =>{
