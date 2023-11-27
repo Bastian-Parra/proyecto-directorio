@@ -43,17 +43,18 @@ export const actualizarEvento = async (req, res) => {
         
         if (!evento) return res.status(400).json({message: "Evento no encontrado"})
         
-        const {direccion_evento, nombre_evento, fecha_hora} = req.body;
+        const {direccion_evento, nombre_evento, fecha_hora, descripcion_evento} = req.body;
         
         const eventoExistente = await verificarEvento(nombre_evento, direccion_evento)
         
-        if (eventoExistente) {
-            return res.status(400).json({message: "Evento encontrado"})
+        if (eventoExistente && eventoExistente.id !== evento.id) {
+            return res.status(400).json({message: "Evento encontrado con mismo nombre"})
         }
         
         await evento.update({
             direccion_evento: direccion_evento,
             nombre_evento: nombre_evento,
+            descripcion_evento: descripcion_evento,
             fecha_hora: fecha_hora,
         })
         
@@ -65,13 +66,14 @@ export const actualizarEvento = async (req, res) => {
     }
 }
 
-export const crearEvento = async (direccion_evento, nombre_evento, fecha_hora) => {
+export const crearEvento = async (direccion_evento, nombre_evento, fecha_hora, descripcion_evento) => {
 
     try {
-        await Negocio.create({
+        await Evento.create({
           direccion_evento: direccion_evento,
           nombre_evento: nombre_evento,
           fecha_hora: fecha_hora,
+          descipcion_evento: descripcion_evento,
         })
     } catch (error) {
         throw error
@@ -80,25 +82,25 @@ export const crearEvento = async (direccion_evento, nombre_evento, fecha_hora) =
 
 export const AgregarEvento = async (req, res) => {
     try {
-        const {direccion_evento, nombre_evento, fecha_hora} = req.body;
+        const {direccion_evento, nombre_evento, fecha_hora, descipcion_evento} = req.body;
     
-    const eventoExistente = await verificarEvento(nombre_evento, direccion_evento)
+        const eventoExistente = await verificarEvento(nombre_evento, direccion_evento)
 
-    if (eventoExistente) {
-        return res.status(400).json({message: "El evento ya existe"})
-    }
+        if (eventoExistente) {
+            return res.status(400).json({message: "El evento ya existe"})
+        }
 
-    // se llama a la funcion para crear el negocio
-    await crearEvento(direccion_evento, nombre_evento, fecha_hora, req.file.path)
+        // se llama a la funcion para crear el evento
+        await crearEvento(direccion_evento, nombre_evento, fecha_hora, descipcion_evento, req.file.path)
 
-    res.status(200).json({ success: true, message: 'Evento creado exitosamente' });
+        res.status(200).json({ success: true, message: 'Evento creado exitosamente' });
     } catch (error) {
         console.error('Error al crear un evento', error)
         res.status(500).json({ success: false, error: 'Error al crear un evento'})
     }
 }
 
-export const verificarEvento = async (nombre_evento, direccion_evento,id_ubicacion) => {
+export const verificarEvento = async (nombre_evento, direccion_evento) => {
     try {
         const evento = await Evento.findOne({
             where: {

@@ -31,6 +31,8 @@ function EventosDashboard() {
                         <th>ID</th>
                         <th>Nombre</th>
                         <th>Fecha y Hora</th>
+                        <th>Dirección</th>
+                        <th>Descripción</th>
                         <th>Opciones</th>
                     </tr>
                 </thead>
@@ -40,6 +42,8 @@ function EventosDashboard() {
                             <td>{evento.id}</td>
                             <td>{evento.nombre_evento}</td>
                             <td>{evento.fecha_hora}</td>
+                            <td>{evento.direccion_evento}</td>
+                            <td>{evento.descripcion_evento}</td>
                             <td id="columna-opciones">
                                 <button id="btn-eliminar" onClick={() => {
                                     eliminarEvento(evento.id)

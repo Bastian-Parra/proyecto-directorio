@@ -3,6 +3,7 @@ import { Link, useNavigate} from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowLeft, faCircleExclamation } from '@fortawesome/free-solid-svg-icons'
 import { useEffect, useState } from 'react'
+import { useParams } from 'react-router-dom';
 import { useEventos } from '../../../context/eventosContext.jsx'
 
 function EditEvento() {
@@ -18,12 +19,15 @@ function EditEvento() {
        async function cargarEvento() {
             if (parametros.id) {
                 const evento = await mostrarEvento(parametros.id)
-                console.log(evento)
-                setValue('nombre_evento', evento.nombre_evento)
-                setValue('fecha_hora', evento.fecha_hora)
-                setValue('descripcion', evento.descripcion)
+                if (evento){
+                    console.log(evento)
+                    setValue('nombre_evento', evento.nombre_evento)
+                    const fechaHoraFormato = new Date(evento.fecha_hora).toISOString().slice(0, 16);
+                    setValue('fechaHoraFormato', fechaHoraFormato)
+                    setValue('direccion_evento', evento.direccion_evento)
+                    setValue('descripcion_evento', evento.descripcion_evento)
             }
-       }
+       }}
        cargarEvento()
     }, [])
 
@@ -55,19 +59,29 @@ function EditEvento() {
                 <input
                     type="datetime-local"
                     placeholder="Fecha y Hora"
-                    {...register("fecha_hora", { required: true })}
-                    id="fecha_hora"
+                    {...register("fechaHoraFormato", { required: true })}
+                    id="fechaHoraFormato"
                 />
 
                 {errors.fecha_hora &&
                     <p className="error"><FontAwesomeIcon icon={faCircleExclamation}></FontAwesomeIcon> La fecha y hora del evento es requerida</p>
                 }
+                <textarea
+                    type="text"
+                    placeholder="Direccion"
+                    {...register("direccion_evento", { required: true })}
+                    id="direccion_evento"
+                />
 
+                {errors.direccion &&
+                    <p className="error"><FontAwesomeIcon icon={faCircleExclamation}></FontAwesomeIcon> La direccion del evento es requerida</p>
+                }
+                
                 <textarea
                     type="text"
                     placeholder="Descripcion"
-                    {...register("descripcion", { required: true })}
-                    id="descripcion"
+                    {...register("descripcion_evento", { required: true })}
+                    id="descripcion_evento"
                 />
 
                 {errors.descripcion &&
