@@ -131,4 +131,3 @@ const almacenarImagen = multer.diskStorage({
 })
 
 export const subirImagenNegocio = multer({storage: almacenarImagen})
-

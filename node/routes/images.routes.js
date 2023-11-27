@@ -5,7 +5,7 @@ import subir from '../middlewares/multer.js';
 import Usuario from '../models/usuarioModel.js';
 import Negocio from '../models/negociosModels.js';
 import Lugar from '../models/lugaresModels.js';
-import { json } from 'sequelize';
+import Evento from '../models/eventosModel.js'
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -74,7 +74,7 @@ router.get('/getNegocioURL/:id', async (req, res) => {
     const id = req.params.id;
 
     try {
-        const negocio = await Negocio.findByPk(id);
+        const negocio = await Negocio.findById(id);
 
         if (!negocio) {
             return res.status(404).json({ error: 'Negocio no encontrado' });
@@ -115,6 +115,33 @@ router.get('/getLugarURL/:id', async (req, res) => {
         }
 
         const imgUrlCompleta = `/images/lugares_images/${imagenURL}`;
+
+        res.json(imgUrlCompleta)
+
+    } catch (error) {
+        console.error("Errror al obtener la URL de la imagen", error)
+        res.status(500).json({error: "Error interno del servidor", error})
+    }
+})
+
+router.get('/getEventoURL/:id', async (req, res) => {
+    const id = req.params.id
+
+    try {
+        const lugar = await Evento.findById(id)
+
+        if(!lugar) {
+            return res.status(404).json({error: 'Negocio no encontrado'})
+        }
+
+        console.log(lugar.imagen)
+        const imagenURL = lugar.imagen
+
+        if(!imagenURL) {
+            return res.status(404).json({error: 'Imagen no existe'})
+        }
+
+        const imgUrlCompleta = `/images/eventos_images/${imagenURL}`;
 
         res.json(imgUrlCompleta)
 

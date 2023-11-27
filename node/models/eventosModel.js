@@ -1,14 +1,23 @@
-import db from '../database/db.config.js'
-import { DataTypes } from 'sequelize'
 
-const Evento = db.define('eventos' , {
+import mongoose from 'mongoose'
+
+const eventoSchema = mongoose.Schema({
     
-    direccion_evento: {type : DataTypes.STRING},
-    nombre_evento: {type : DataTypes.STRING},
-    fecha_hora: {type : DataTypes.DATE},
-    descripcion_evento: {type : DataTypes.STRING},
-    
-}, {timestamps:false,})
+    direccion_evento: {
+        type : String
+    },
+    nombre_evento: {
+        type : String
+    },
+    fecha_hora: {
+        type : String
+    },
+    descripcion_evento: {
+        type: String
+    },
+    imagen: {
+        type: String
+    }
+})
 
-
-export default Evento
+export default mongoose.model("Evento", eventoSchema, "eventos")

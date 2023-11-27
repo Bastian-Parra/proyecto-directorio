@@ -18,5 +18,5 @@ export const EliminarEvento = (id) => axios.delete(`/tareas/eventos/delete/${id}
 export const MostrarLugares = () => axios.get('/tareas/lugares')
 export const MostrarLugar = (id) => axios.get(`/tareas/lugares/${id}`)
 export const AgregarLugar = (lugar) => axios.post('/tareas/lugares/add', lugar)
-export const ActualizarLugar = (lugar) => axios.put(`/tareas/lugares/update/${lugar.id}`, lugar)
+export const ActualizarLugar = (id, lugar) => axios.put(`/tareas/lugares/update/${id}`, lugar)
 export const EliminarLugar = (id) => axios.delete(`/tareas/lugares/delete/${id}`)

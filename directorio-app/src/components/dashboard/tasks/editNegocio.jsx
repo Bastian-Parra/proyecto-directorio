@@ -3,22 +3,20 @@ import {useForm} from "react-hook-form"
 import { Link, useParams, useNavigate} from "react-router-dom"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowLeft, faCircleExclamation } from '@fortawesome/free-solid-svg-icons'
-import { useEffect, useState } from "react"
+import { useEffect} from "react"
 import { useNegocios } from "../../../context/negociosContext.jsx"
 function EditNegocio() {
 
     const {register, handleSubmit, formState: {errors}, setValue} = useForm()
-    const [errores, setErrores] = useState([])
     const reenviar = useNavigate()
     const {mostrarNegocio, actualizarNegocio} = useNegocios()
 
     const parametros = useParams()
-
+    console.log(parametros.id)
     useEffect(() => {
        async function cargarNegocio() {
             if (parametros.id) {
                 const negocio = await mostrarNegocio(parametros.id)
-                console.log(negocio)
                 setValue('tipo_negocio', negocio.tipo_negocio)
                 setValue('H_operacion', negocio.H_operacion)
                 setValue('descripcion', negocio.descripcion)
