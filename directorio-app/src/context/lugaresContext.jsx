@@ -47,21 +47,22 @@ export function LugaresProvider({ children }) {
 
     const actualizarLugar = async (id, params) => {
         try {
-            await ActualizarLugar(id, params)
+            const respuesta = await ActualizarLugar(id, params)
         } catch (error) {
             console.error(error)
         }
     }
 
+
     return (
         <lugaresContext.Provider
             value={{
+                lugar,
+                mostrarLugares,
+                lugares,
                 mostrarLugar,
                 eliminarLugar,
-                mostrarLugares,
                 actualizarLugar,
-                lugares,
-                lugar,
             }}>
             {children}
         </lugaresContext.Provider>

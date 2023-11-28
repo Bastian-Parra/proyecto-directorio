@@ -55,7 +55,7 @@ app.use('/tareas', routerTareas)
 app.use('/resenas', routerResenas)
 
 
-connectDB()
+connectDB();
 
 const PORT = 4000
 app.listen(PORT, () =>{

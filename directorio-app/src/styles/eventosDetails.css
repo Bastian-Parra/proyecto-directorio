@@ -1,9 +1,18 @@
+root{
+  --primaryColor: #3d8af7;
+  --greyColor: #ebebeb;
+}
+
 .container-details {
   max-width: 800px;
   margin: 0 auto;
+  height: auto;
   padding: 20px;
   float: center;
   margin-top: 50px;
+  box-shadow: 0px 0px 16px 1px rgba(0, 0, 0, 0.22);
+  background-color: #fff;
+  border-radius: 5px;
 }
 
 #volver-btn {
@@ -26,6 +35,10 @@
 .evento-details-right {
   flex: 1;
 }
+.evento-details-right img {
+  width: 100%;
+  border-radius: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);}
 
 h1 {
   font-size: 24px;
@@ -36,6 +49,7 @@ h2 {
   font-size: 20px;
   margin-bottom: 10px;
 }
+
 
 #titulo-evento {
   font-weight: bold;

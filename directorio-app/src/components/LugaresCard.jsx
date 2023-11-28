@@ -1,7 +1,8 @@
 
 import axios from '../api/axios.js'
 import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom'
+
 function LugaresCard({lugar}) {
 
     const [imagenURL, setImagenURL] = useState('');

@@ -19,7 +19,6 @@ function EventoDetails() {
     const handleResenaSubmit = (e) => {
         e.preventDefault();
         console.log('Comentario:', comentario, 'Evaluación:', evaluacion);
-        // Aquí puedes agregar la lógica para enviar los datos al servidor o manejarlos como necesites
     };
     useEffect(() => {
         if (parametros.id) {
@@ -60,25 +59,6 @@ function EventoDetails() {
                         </Carousel>
                     </div>
                 </div>
-            </div>
-            <div className="container-resena">
-                <h2>Escribe tu reseña</h2>
-                <form onSubmit = {handleResenaSubmit}>
-                    <textarea
-                        value = {comentario}
-                        onChange = {(e) => setComentario(e.target.value)}
-                        placeholder = "Escribe tu comentario acá"
-                    />
-                    <br />
-                    <div>
-                        {[...Array(5)].map((star, index) => (
-                            <span key = {index} onClick = {() => setEvaluacion(index + 1)}>
-                                {index < evaluacion ? "★" : "☆"}
-                            </span>
-                        ))}
-                    </div>
-                    <button type = "submit">Enviar</button>
-                </form>
             </div>
         </div>
     );
