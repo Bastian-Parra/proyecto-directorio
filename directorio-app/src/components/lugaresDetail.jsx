@@ -8,7 +8,7 @@ import "../styles/lugaresDetails.css"
 import { useAuth } from "../context/AuthContext";
 import { AgregarReseñaLugar } from "../api/resenas";
 import { useResenas } from "../context/resenasContext";
-import ResenaCardLugar from "./resenaCardNegocio.jsx";
+import ResenaCardLugar from "./resenaCardLugar.jsx";
 
 function NegocioDetails() {
 

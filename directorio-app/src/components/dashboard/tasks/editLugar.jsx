@@ -76,13 +76,6 @@ function EditLugar() {
                     errors.descripcion_lugar &&
                         <p className="error"><FontAwesomeIcon icon={faCircleExclamation}></FontAwesomeIcon> La descripcion es requerida</p>
                     }
-                
-                <input 
-                    type="text"
-                    placeholder="Direccion del lugar"
-                    id="descripcion_lugar"
-                    {...register("descripcion_lugar", {required: true})}
-                />
 
                 <button type="submit">Guardar Cambios</button>
             </form>
