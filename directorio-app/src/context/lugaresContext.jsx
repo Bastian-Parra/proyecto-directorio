@@ -49,7 +49,7 @@ export function LugaresProvider({ children }) {
 
     const actualizarLugar = async (id, params) => {
         try {
-            const respuesta = await ActualizarLugar(id, params)
+            await ActualizarLugar(id, params)
         } catch (error) {
             console.error(error)
         }
