@@ -1,5 +1,5 @@
 import { createContext, useContext, useState } from "react";
-import { consultaLugares, consultalugar} from "../api/lugares"; 
+import { consultaLugares, consultaLugar} from "../api/lugares"; 
 import { EliminarLugar, ActualizarLugar } from "../api/dashboard";
 const lugaresContext = createContext();
 
@@ -29,7 +29,7 @@ export function LugaresProvider({ children }) {
 
     const mostrarLugar = async (id) => {
         try {
-            const respuesta = await consultalugar(id)
+            const respuesta = await consultaLugar(id)
             setLugar(respuesta.data);
         } catch (error) {
             console.error(error)

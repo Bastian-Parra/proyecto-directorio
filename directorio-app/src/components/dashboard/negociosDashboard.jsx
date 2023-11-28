@@ -41,7 +41,11 @@ function NegociosDashboard() {
                             <td>{negocio.descripcion}</td>
                             <td id="columna-opciones">
                                 <button id="btn-eliminar" onClick={() => {
-                                    eliminarNegocio(negocio.id)
+                                    window.confirm("¿Estas seguro?")
+                                    if (confirm("Press a button!")) {
+                                        eliminarNegocio(negocio.id)
+                                      }
+                                    
                                 }}>Eliminar</button>
                                 <Link id="btn-editar" to={`/dashboard/negocios/edit/${negocio.id}`}>Editar</Link>
                             </td>

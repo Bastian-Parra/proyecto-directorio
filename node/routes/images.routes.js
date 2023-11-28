@@ -74,7 +74,7 @@ router.get('/getNegocioURL/:id', async (req, res) => {
     const id = req.params.id;
 
     try {
-        const negocio = await Negocio.findById(id);
+        const negocio = await Negocio.findByPk(id);
 
         if (!negocio) {
             return res.status(404).json({ error: 'Negocio no encontrado' });

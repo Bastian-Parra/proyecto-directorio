@@ -23,7 +23,8 @@ function EditLugar() {
                 const lugar = await mostrarLugar(parametros.id)
                 
                 setValue("nombre_lugar", lugar.nombre_lugar)
-                setValue("direccion_lugar", lugar.direccion_lugar)            
+                setValue("direccion_lugar", lugar.direccion_lugar)      
+                setValue("descripcion_lugar", lugar.descripcion_lugar)      
             }
         }
         cargarLugar() // se llama a la funcion
@@ -69,6 +70,15 @@ function EditLugar() {
                     errors.direccion_lugar &&
                         <p className="error"><FontAwesomeIcon icon={faCircleExclamation}></FontAwesomeIcon> La direccion del lugar es requerida.</p>
                     }
+                
+                <input 
+                    type="text"
+                    placeholder="Direccion del lugar"
+                    id="descripcion_lugar"
+                    {...register("descripcion_lugar", {required: true})}
+                />
+
+
 
                 
                 <button type="submit">Guardar cambios</button>

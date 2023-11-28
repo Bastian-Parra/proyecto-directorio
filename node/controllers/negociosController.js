@@ -4,7 +4,7 @@ import multer from 'multer'
 
 export const obtenerNegocios = async (req, res) => {
     try {
-        const negocios = await  Negocio.findAll()
+        const negocios = await Negocio.findAll()
         res.json(negocios)
     } catch (error) {
         console.log(error)
