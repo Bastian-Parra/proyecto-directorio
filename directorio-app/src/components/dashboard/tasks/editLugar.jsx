@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowLeft, faCircleExclamation } from '@fortawesome/free-solid-svg-icons'
 import { useEffect, useState } from "react"
 import { useLugares } from "../../../context/lugaresContext.jsx"
+import { MostrarLugar } from "../../../api/dashboard.js"
 function EditLugar() {
 
     const {register, handleSubmit, formState: {errors}, setValue} = useForm()
@@ -14,10 +15,11 @@ function EditLugar() {
 
     const parametros = useParams()
 
+    console.log(parametros.id)
     useEffect(() => {
        async function cargarLugar() {
             if (parametros.id) {
-                const lugar = await mostrarLugar(parametros.id) 
+                const lugar = await mostrarLugar(parametros.id)
                 setValue("nombre_lugar", lugar.nombre_lugar)
                 setValue("direccion_lugar", lugar.direccion_lugar)      
                 setValue("descripcion_lugar", lugar.descripcion_lugar)      
