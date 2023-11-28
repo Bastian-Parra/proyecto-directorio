@@ -52,8 +52,7 @@ function ContenedorRecomendaciones() {
           Algunas recomendaciones...
           </h1>
           <p>
-            Sitios con mejores reseñas y valoraciones.
-            <br></br>dentro de la zona Valparaiso <br></br>Y mas visitados son.
+            Sitios interesantes y listos para ser descubiertos dentro de la zona Valparaiso, alguno de estos son...
           </p>
   
           <div className="contenedor-carrusel">
@@ -61,7 +60,7 @@ function ContenedorRecomendaciones() {
               <img src={imgContenedor_1}></img>
               <div className="container-bottom">
                 <p>
-                <b>La Sebastiana:</b> <br/>Es una de las tres casas del famoso poeta chileno Pablo Neruda, ubicada en Valparaíso, Chile. 
+                <b>La Sebastiana</b> <br/>Es una de las tres casas del famoso poeta chileno Pablo Neruda, ubicada en Valparaíso, Chile. 
                 </p>
               </div>
             </div>
@@ -77,7 +76,7 @@ function ContenedorRecomendaciones() {
               <img src={imgContenedor_3}></img>
               <div className="container-bottom">
                 <p>
-                <b>Villa Victoria:</b><br/>Es una casa de patrimonio cultural en Valparaíso, conocida por su arquitectura única y su importancia en la historia local.
+                <b>Villa Victoria</b><br/>Es una casa de patrimonio cultural en Valparaíso, conocida por su arquitectura única y su importancia en la historia local.
                 </p>
               </div>
             </div>

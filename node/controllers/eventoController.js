@@ -47,7 +47,17 @@ export const actualizarEvento = async (req, res) => {
 
 export const AgregarEvento = async (req, res) => {
     try {
-        let nuevoEvento = new Evento(req.body); // Usando el modelo Evento aquí
+        const { direccion_evento, nombre_evento, fecha_hora, descripcion_evento} = req.body
+        const imagenPath = req.file.filename
+
+        let nuevoEvento = new Evento({
+            direccion_evento: direccion_evento,
+            nombre_evento: nombre_evento,
+            fecha_hora: fecha_hora,
+            descripcion_evento: descripcion_evento,
+            imagen: imagenPath,
+        })
+
         nuevoEvento = await nuevoEvento.save();
         res.status(201).json(nuevoEvento);
     } catch (error) {
