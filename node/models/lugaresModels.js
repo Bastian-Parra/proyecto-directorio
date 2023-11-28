@@ -9,5 +9,4 @@ const Lugar = db.define('lugares', {
     imagen : {type : DataTypes.STRING},
 }, {timestamps:false,})
 
-
 export default Lugar;

@@ -30,6 +30,7 @@ import AddNegocio from './components/dashboard/tasks/addNegocio.jsx'
 import EditNegocio from './components/dashboard/tasks/editNegocio.jsx'
 import AddLugar from './components/dashboard/tasks/addLugar.jsx'
 import EditLugar from './components/dashboard/tasks/editLugar.jsx'
+import { ResenasProvider } from './context/resenasContext.jsx'
 import './app.css'
 
 
@@ -42,6 +43,7 @@ function App() {
           <LugaresProvider>
           <NegociosProvider>
           <EventosProvider>
+          <ResenasProvider>
             <BrowserRouter>
               <Navegador/>
               <Routes>
@@ -73,6 +75,7 @@ function App() {
                 </Route>
               </Routes>
             </BrowserRouter>
+          </ResenasProvider>
           </EventosProvider>
           </NegociosProvider>
           </LugaresProvider>

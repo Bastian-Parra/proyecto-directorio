@@ -27,12 +27,6 @@ const NegociosPage = () => {
         <p>En la ciudad de Valparaíso, Chile, se abren las puertas a numerosas oportunidades de negocios que ofrecen una variada gama de experiencias para empresarios e inversores.  Aquí, encontrarás una diversidad de oportunidades comerciales, que van desde acogedores restaurantes y tiendas únicas hasta servicios profesionales!!</p>
       </div>
     </div>
-    <div className='container-filters'>
-      <button className='filtro'>Filtrar</button>
-      <label htmlFor="site-search" placeholder='Nombre del negocio'>Buscar por nombre </label>
-      <input id="buscar" type="search" name="q" />
-      <button className='filtro'>Buscar</button>
-    </div>
     <div className='container-negocios-inside'>
         {negocios.map(negocio => (
           <NegociosCard negocio={negocio} key={negocio._id}/>

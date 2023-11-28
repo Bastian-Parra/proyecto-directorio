@@ -26,12 +26,6 @@ const LugaresPage = () => {
         <p>En Valparaíso, Chile, la ciudad costera se destaca como un vibrante centro para emprendedores y visionarios de negocios. Con su pintoresco entorno y rica cultura, Valparaíso invita a explorar un abanico de posibilidades comerciales. Desde restaurantes con encanto y boutiques exclusivas hasta ofertas de servicios profesionales, la ciudad es un lienzo para la innovación y el crecimiento empresarial.</p>
       </div>
     </div>
-    <div className='container-filters'>
-      <button className='filtro'>Filtrar</button>
-      <label htmlFor="site-search" placeholder='Nombre del negocio'>Buscar por nombre </label>
-      <input id="buscar" type="search" name="q" />
-      <button className='filtro'>Buscar</button>
-    </div>
     <div className='container-lugares-inside'>
         {lugares.map(lugar => (
           <LugaresCard lugar={lugar} key={lugar.id}/>

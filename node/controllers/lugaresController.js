@@ -4,7 +4,7 @@ import multer from 'multer';
 
 export const obtenerLugares = async (req, res) => {
     try {
-        const lugares = await  Lugar.findAll()
+        const lugares = await Lugar.findAll()
         res.json(lugares)
     } catch (error) {
         console.log(error)
@@ -17,7 +17,6 @@ export const obtenerLugar = async (req, res) => {
 
     if (!lugar) return res.status(404).json({message: "Lugar no encontrado"})
     
-    console.log(lugar)
     res.json(lugar)
 }
 

@@ -8,7 +8,6 @@ import { useState } from "react"
 
 // task: agregar un negocio en el dashboard
 function AddNegocio() {
-    
 
     const {register, handleSubmit, formState: {errors}} = useForm()     // se utiliza useForm para crear un formulario
     const [errores, setErrores] = useState([]) // se utiliza useState para manejar los errores

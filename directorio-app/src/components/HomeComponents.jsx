@@ -1,6 +1,6 @@
-import imgContenedor_1 from '../assets/images/descarga.png'
-import imgContenedor_2 from '../assets/images/descarga2.png'
-import imgContenedor_3 from '../assets/images/descarga3.png'
+import imgContenedor_1 from '../assets/images/lasebastiana.jpg'
+import imgContenedor_2 from '../assets/images/restaurantmaralegre.jpg'
+import imgContenedor_3 from '../assets/images/villa-victoria.jpg'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCalendarDays, faShop, faMapLocationDot } from '@fortawesome/free-solid-svg-icons'
 import { Link } from 'react-router-dom'
@@ -20,25 +20,24 @@ function ContenedorAbout() {
           ¿Qué encuentras aquí?
           </h1>
           <p>
-            Duis cillum consequat ex voluptate in ex consequat ad adipisicing.
-            <br></br>Do ullamco ullamco cillum velit aliqua sunt et <br></br>proident deserunt
-            adipisicing eiusmod.
+            En esta pagina WEB encontraras diversas necesidades dentro de la zona de valparaiso.
+            <br></br>Necesidades culturales,gastronomicas, ritmicas,etc. <br></br>Las cuales las encuentras aqui.
           </p>
           <div className="container-inside-about">
             <div className="minicontainer">
               <FontAwesomeIcon icon={faShop} className="iconos"/>
               <h4>Negocios</h4>
-              <p>Laboris et excepteur reprehenderit labore enim ullamco in sunt velit cupidatat qui magna.</p>
+              <p>Negocios dentro de la zona de Valparaiso.</p>
             </div>
             <div className="minicontainer">
             <FontAwesomeIcon icon={faCalendarDays} className="iconos"/>
               <h4>Eventos</h4>
-              <p>Laboris et excepteur reprehenderit labore enim ullamco in sunt velit cupidatat qui magna.</p>
+              <p>Eventos dentro de la zona de Valparaiso.</p>
             </div>
             <div className="minicontainer">
             <FontAwesomeIcon icon={faMapLocationDot} className="iconos"/>
               <h4>Lugares</h4>
-              <p>Laboris et excepteur reprehenderit labore enim ullamco in sunt velit cupidatat qui magna.</p>
+              <p>Lugares dentro de la zona de Valparaiso.</p>
             </div>
   
           </div>
@@ -53,9 +52,8 @@ function ContenedorRecomendaciones() {
           Algunas recomendaciones...
           </h1>
           <p>
-            Duis cillum consequat ex voluptate in ex consequat ad adipisicing.
-            <br></br>Do ullamco ullamco cillum velit aliqua sunt et <br></br>proident deserunt
-            adipisicing eiusmod.
+            Sitios con mejores reseñas y valoraciones.
+            <br></br>dentro de la zona Valparaiso <br></br>Y mas visitados son.
           </p>
   
           <div className="contenedor-carrusel">
@@ -63,30 +61,24 @@ function ContenedorRecomendaciones() {
               <img src={imgContenedor_1}></img>
               <div className="container-bottom">
                 <p>
-                  Qui excepteur pariatur et dolore reprehenderit sint 
-                  exercitation laboris veniam ipsum commodo qui.
+                <b>La Sebastiana:</b> <br/>Es una de las tres casas del famoso poeta chileno Pablo Neruda, ubicada en Valparaíso, Chile. 
                 </p>
-                <Link to="#">Ver más</Link>
               </div>
             </div>
             <div className="carrusel-item">
               <img src={imgContenedor_2}></img>
               <div className="container-bottom">
                 <p>
-                  Qui excepteur pariatur et dolore reprehenderit sint 
-                  exercitation laboris veniam ipsum commodo qui.
+                <b>Maralegre</b> <br/>Platos del mar y un ambiente temático lo posiciona como un establecimiento gastronómico ubicado en Valparaiso,Chile.
                 </p>
-                <Link to="#">Ver más</Link>
               </div>
             </div>
             <div className="carrusel-item">
               <img src={imgContenedor_3}></img>
               <div className="container-bottom">
                 <p>
-                  Qui excepteur pariatur et dolore reprehenderit sint 
-                  exercitation laboris veniam ipsum commodo qui.
+                <b>Villa Victoria:</b><br/>Es una casa de patrimonio cultural en Valparaíso, conocida por su arquitectura única y su importancia en la historia local.
                 </p>
-                <Link to="#">Ver más</Link>
               </div>
             </div>
           </div>

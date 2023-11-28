@@ -105,8 +105,15 @@ td {
     margin-bottom: 50px;
 }
 
-textarea {
-    resize: none;
+.container-form form textarea {
+    margin-bottom: 20px;
+    border: 2px solid var(--greyColor);
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.container-form form input {
+    border: 2px solid var(--greyColor);
 }
 
 .btn-add {
@@ -122,6 +129,28 @@ textarea {
     background-color: #fff;
     border: 2px solid #333;
     color: #333;
+}
+
+#btn-editar {
+    background-color: rgb(10, 179, 10);
+    color: #fff;
+    padding: 9px;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+#btn-editar:hover {
+    background-color: green;
+    color: #fff;
+    padding: 9px;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+#btn-eliminar:hover {
+    background-color: rgb(185, 6, 6);
+    color: #fff;
+    transition: none;
 }
 
 

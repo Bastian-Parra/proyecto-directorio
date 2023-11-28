@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowLeft, faCircleExclamation } from '@fortawesome/free-solid-svg-icons'
 import { useEffect, useState } from "react"
 import { useLugares } from "../../../context/lugaresContext.jsx"
+import { MostrarLugar } from "../../../api/dashboard.js"
 function EditLugar() {
 
     const {register, handleSubmit, formState: {errors}, setValue} = useForm()
@@ -13,15 +14,16 @@ function EditLugar() {
     const {mostrarLugar, actualizarLugar} = useLugares()
 
     const parametros = useParams()
+    console.log(parametros.id)
 
+    console.log(parametros.id)
     useEffect(() => {
        async function cargarLugar() {
             if (parametros.id) {
                 const lugar = await mostrarLugar(parametros.id)
-                console.log(lugar)
-                setValue('nombre_lugar', lugar.nombre_lugar)
-                setValue('direccion_lugar', lugar.direccion_lugar)
-                setValue('descripcion_lugar', lugar.descripcion_lugar)             
+                setValue("nombre_lugar", lugar.nombre_lugar)
+                setValue("direccion_lugar", lugar.direccion_lugar)      
+                setValue("descripcion_lugar", lugar.descripcion_lugar)      
             }
        }
        cargarLugar()
@@ -32,7 +34,8 @@ function EditLugar() {
         if(parametros.id) {
             actualizarLugar(parametros.id, data)
             alert("Lugar actualizado con exito!")
-            reenviar('/dashboard/lugares')
+            console.log(data)
+            
         } 
     }
 
@@ -75,7 +78,7 @@ function EditLugar() {
                     errors.descripcion_lugar &&
                         <p className="error"><FontAwesomeIcon icon={faCircleExclamation}></FontAwesomeIcon> La descripcion es requerida</p>
                     }
-                
+
                 <button type="submit">Guardar Cambios</button>
             </form>
         </div>

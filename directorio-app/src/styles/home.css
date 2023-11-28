@@ -82,8 +82,9 @@
     height: auto;
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
-    background-image: url("../assets/images/valparaiso.jpg");
-    background-size: 900px;
+    background-image: url("../assets/images/home.png");
+    background-size: cover;
+    background-position: center;
 }
 
 
@@ -189,12 +190,10 @@ hr {
 }
 
 
-.contenedor-carrusel p {
-    margin-bottom: 20px;
-}
 
 .container-bottom {
     padding: 10px 10px 20px 10px;
+    height: 170px;
     background-color: rgba(0, 0, 0, 0.093);
 }
 

@@ -12,8 +12,11 @@ import routerLugares from './routes/lugares.routes.js'
 import bodyParser from 'body-parser'
 import routerConsultas from './routes/consultas.routes.js'
 import routerImagenes from './routes/images.routes.js'
+import routerResenas from './routes/reseñas.routes.js'
 import cookieParser from 'cookie-parser'
 import { connectDB } from './database/db.config.mongodb.js'
+import './models/relaciones.js'
+import './models/relaciones2.js'
 
 /*===================IMPORTS======================*/
 
@@ -49,6 +52,7 @@ app.use('/eventos', routerEventos)
 app.use('/lugares', routerLugares)
 app.use('/imagenes', routerImagenes)
 app.use('/tareas', routerTareas)
+app.use('/resenas', routerResenas)
 
 
 connectDB();
