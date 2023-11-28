@@ -22,6 +22,7 @@ function LugaresCard({lugar}) {
             <p id="title-card">{lugar.nombre_lugar}</p>
             <img id='img-card' src={`http://localhost:4000${imagenURL}`}/>
             <p><b>Direccion:</b> {lugar.direccion_lugar}</p>
+            <p><b>Descripcion :</b> {lugar.descripcion_lugar}</p>
             <div id="btn-lugar"> 
             <Link id="btn-lugar" to={`/lugares/${lugar.id}`}>Ver mas</Link>
             </div>

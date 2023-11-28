@@ -23,7 +23,7 @@ export const obtenerLugar = async (req, res) => {
 
 export const AgregarLugar = async (req, res) => {
     try {
-        const {nombre_lugar, direccion_lugar} = req.body;
+        const {nombre_lugar, direccion_lugar, descripcion_lugar} = req.body;
         const imagenPath = req.file.filename
     
     const lugarExistente = await verificarLugar(nombre_lugar)
@@ -33,7 +33,7 @@ export const AgregarLugar = async (req, res) => {
     }
 
     // se llama a la funcion para crear el negocio
-    await crearLugar(nombre_lugar, direccion_lugar, imagenPath)
+    await crearLugar(nombre_lugar, direccion_lugar, descripcion_lugar, imagenPath)
 
     res.status(200).json({ success: true, message: 'Lugar creado exitosamente' });
 
@@ -43,12 +43,13 @@ export const AgregarLugar = async (req, res) => {
     }
 }
 
-export const crearLugar = async (param_nombre_lugar, param_direccion_lugar, imagenPath) => {
+export const crearLugar = async (param_nombre_lugar, param_direccion_lugar, param_descripcion_lugar, imagenPath) => {
 
     try {
         await Lugar.create({
             nombre_lugar: param_nombre_lugar,
             direccion_lugar: param_direccion_lugar,
+            descripcion_lugar: param_descripcion_lugar,
             imagen: imagenPath,
         })
     } catch (error) {
@@ -78,7 +79,7 @@ export const actualizarLugar = async (req, res) => {
         
         if (!lugar) return res.status(400).json({message: "Lugar no encontrado"})
         
-        const {nombre_lugar, direccion_lugar} = req.body;
+        const {nombre_lugar, direccion_lugar, descripcion_lugar} = req.body;
         
         const lugarExistente = await verificarLugar(nombre_lugar)
         
@@ -89,6 +90,7 @@ export const actualizarLugar = async (req, res) => {
         await lugar.update({
             nombre_lugar: nombre_lugar,
             direccion_lugar: direccion_lugar,
+            descripcion_lugar: descripcion_lugar,
         })
         
         res.status(200).json({ success: true, message: 'Lugar actualizado exitosamente' });

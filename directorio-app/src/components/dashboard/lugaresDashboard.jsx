@@ -3,11 +3,13 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus, faMagnifyingGlass} from '@fortawesome/free-solid-svg-icons';
 import {useLugares} from "../../context/lugaresContext.jsx"
 import { useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 function LugaresDashboard() {
 
     const {mostrarLugares, lugares, eliminarLugar} = useLugares()
-    console.log(lugares)
+    const navigate = useNavigate()
+    
+
     useEffect(() => {
         mostrarLugares()
     }, [])
@@ -26,7 +28,7 @@ function LugaresDashboard() {
                 <thead>
                     <tr>
                         <th>ID</th>
-                        <th>ID Reseña</th>
+                        <th>Descripcion</th>
                         <th>Nombre</th>
                         <th>Opciones</th>
                     </tr>
@@ -35,7 +37,7 @@ function LugaresDashboard() {
                     {lugares.map((lugar) => (
                         <tr key={lugar.id}>
                             <td>{lugar.id}</td>
-                            <td>{lugar.id_reseña}</td>
+                            <td>{lugar.descripcion_lugar}</td>
                             <td>{lugar.nombre_lugar}</td>
                             <td id="columna-opciones">
                                 <button id="btn-eliminar" onClick={() => {

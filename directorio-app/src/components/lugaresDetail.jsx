@@ -6,12 +6,11 @@ import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'
 import "../styles/lugaresDetails.css"
 import { Carousel } from 'react-responsive-carousel';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
-import Imagen1 from '../assets/imagenesdeprueba/1.png'
-import Imagen2 from '../assets/imagenesdeprueba/3.png'
+
 
 function LugaresDetails() {
 
-    const {mostrarLugares, lugares} = useLugares()
+    const {mostrarLugar, lugares} = useLugares()
     const parametros = useParams()
     const [comentario, setComentario] = useState("");
     const [evaluacion, setEvaluacion] = useState("");
@@ -37,19 +36,13 @@ function LugaresDetails() {
                     <h2> { ">> "}Detalles del Lugar:</h2>
                     {lugares.id}
                     <p id="titulo-lugar"><b>Nombre del Lugar:</b> {lugares.nombre_lugar}</p>
-                    <p id="titulo-lugar"><b>Reseña del Lugar:</b> {lugares.id_reseña}</p>
-                    <p id="titulo-lugar"><b>Ubicacion del lugar:</b> {lugares.id_ubicacion}</p>
                     <p id="titulo-lugar"><b>Dirección:</b> {lugares.direccion_lugar}</p>
+                    <p id="titulo-lugar"><b>Descripcion del lugar:</b> {lugares.descripcion_lugar}</p>
                 </div>
                 <div className="lugar-details-right">
                 <Carousel showThumbs>
-                            <div>
-                                <img src={Imagen1} alt="Imagen 1" />
-                            </div>
-                            <div>
-                                <img src={Imagen2} alt="Imagen 2" />
-                            </div>
-                        </Carousel>
+             
+                        </Carousel> 
                     </div>
                 </div>
             </div>
