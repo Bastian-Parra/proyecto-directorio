@@ -27,7 +27,6 @@ function LugaresDashboard() {
                 <thead>
                     <tr>
                         <th>ID</th>
-                        <th>Descripcion</th>
                         <th>Nombre</th>
                         <th>Opciones</th>
                     </tr>
@@ -36,11 +35,12 @@ function LugaresDashboard() {
                     {lugares.map((lugar) => (
                         <tr key={lugar.id}>
                             <td>{lugar.id}</td>
-                            <td>{lugar.descripcion_lugar}</td>
                             <td>{lugar.nombre_lugar}</td>
                             <td id="columna-opciones">
                                 <button id="btn-eliminar" onClick={() => {
-                                    eliminarLugar(lugar.id)
+                                    if (window.confirm("¿Estás seguro? ")) {
+                                        eliminarLugar(lugar.id)
+                                    }
                                 }}>Eliminar</button>
                                 <Link id="btn-editar" to={`/dashboard/lugares/edit/${lugar.id}`}>Editar</Link>
                             </td>

@@ -30,8 +30,6 @@ function EventosDashboard() {
                         <th>ID</th>
                         <th>Nombre</th>
                         <th>Fecha y Hora</th>
-                        <th>Dirección</th>
-                        <th>Descripción</th>
                         <th>Opciones</th>
                     </tr>
                 </thead>
@@ -41,11 +39,11 @@ function EventosDashboard() {
                             <td>{evento._id}</td>
                             <td>{evento.nombre_evento}</td>
                             <td>{evento.fecha_hora}</td>
-                            <td>{evento.direccion_evento}</td>
-                            <td>{evento.descripcion_evento}</td>
                             <td id="columna-opciones">
                                 <button id="btn-eliminar" onClick={() => {
-                                    eliminarEvento(evento._id)
+                                    if (window.confirm("¿Estás seguro? ")) {
+                                        eliminarEvento(evento._id)
+                                    }
                                 }}>Eliminar</button>
                                 <Link id="btn-editar" to={`/dashboard/eventos/edit/${evento._id}`}>Editar</Link>
                             </td>

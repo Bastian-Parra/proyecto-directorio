@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useForm } from 'react-hook-form'
 import { useNegocios } from "../context/negociosContext";
 import { Link, useParams, useNavigate} from "react-router-dom";
@@ -9,6 +9,7 @@ import { useAuth } from "../context/AuthContext";
 import { AgregarReseñaNegocio} from "../api/resenas";
 import { useResenas } from "../context/resenasContext";
 import ResenaCardNegocio from "./resenaCardNegocio";
+import axios from '../api/axios'
 
 function NegocioDetails() {
 
@@ -18,9 +19,17 @@ function NegocioDetails() {
     const {usuario} = useAuth()
     const parametros = useParams()
     const reenviar = useNavigate()
+    const [imagenURL, setImagenURL] = useState('');
 
-
-    console.log(resenas)
+    useEffect(() => {
+        axios.get(`http://localhost:4000/imagenes/getNegocioURL/${negocio.id}`)
+          .then(response => {
+            setImagenURL(response.data);
+          })
+          .catch(error => {
+            console.error('error al obtener el url la imagen', error);
+          });
+      }, [negocio.id]);
 
     // hooks que se ejecutan apenas carca la pagina
     useEffect(() => {
@@ -73,7 +82,9 @@ function NegocioDetails() {
                     <p id="titulo-negocio"><b>Teléfono:</b> {negocio.telefono}</p>
                     <p id="titulo-negocio"><b>Correo Electrónico:</b> {negocio.correo}</p>
                 </div>
-                <div className="negocio-details-right"></div> 
+                <div className="negocio-details-right">
+                    <img id="img-detail" src={`http://localhost:4000${imagenURL}`} alt="" />    
+                </div> 
             </div>
         </div>
 

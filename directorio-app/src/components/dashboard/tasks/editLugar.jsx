@@ -11,7 +11,7 @@ function EditLugar() {
     const {register, handleSubmit, formState: {errors}, setValue} = useForm()
     const [errores, setErrores] = useState([])
     const reenviar = useNavigate()
-    const {mostrarLugar, actualizarLugar} = useLugares()
+    const {mostrarLugar, actualizarLugar, lugar} = useLugares()
 
     const parametros = useParams()
     console.log(parametros.id)
@@ -51,7 +51,6 @@ function EditLugar() {
                     id="nombre_lugar"
                     autoFocus
                 />
-
                     {       
                     errors.nombre_lugar &&
                         <p className="error"><FontAwesomeIcon icon={faCircleExclamation}></FontAwesomeIcon> El nombre del lugar es requerido</p>

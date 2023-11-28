@@ -30,7 +30,7 @@ const EventosPage = () => {
       </div>
       <div className='container-eventos-inside'>
         {eventos.map((evento) => (
-          <EventosCard evento={evento} key={evento.id}/>
+          <EventosCard evento={evento} key={evento._id}/>
         ))}
       </div>
     </>

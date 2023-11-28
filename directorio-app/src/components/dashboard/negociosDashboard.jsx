@@ -28,7 +28,6 @@ function NegociosDashboard() {
                     <tr>
                         <th>ID</th>
                         <th>Nombre</th>
-                        <th>Descripcion</th>
                         <th>Opciones</th>
                     </tr>
                 </thead>
@@ -37,13 +36,11 @@ function NegociosDashboard() {
                         <tr key={negocio.id}>
                             <td>{negocio.id}</td>
                             <td>{negocio.nombre}</td>
-                            <td>{negocio.descripcion}</td>
                             <td id="columna-opciones">
                                 <button id="btn-eliminar" onClick={() => {
-                                    window.confirm("¿Estas seguro?")
-                                    if (confirm("Press a button!")) {
+                                    if (window.confirm("¿Estás seguro? ")) {
                                         eliminarNegocio(negocio.id)
-                                      }
+                                    }
                                     
                                 }}>Eliminar</button>
                                 <Link id="btn-editar" to={`/dashboard/negocios/edit/${negocio.id}`}>Editar</Link>
