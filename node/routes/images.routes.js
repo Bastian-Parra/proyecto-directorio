@@ -131,7 +131,7 @@ router.get('/getEventoURL/:id', async (req, res) => {
         const lugar = await Evento.findById(id)
 
         if(!lugar) {
-            return res.status(404).json({error: 'Negocio no encontrado'})
+            return res.status(404).json({error: 'Evento no encontrado'})
         }
 
         console.log(lugar.imagen)
@@ -146,7 +146,7 @@ router.get('/getEventoURL/:id', async (req, res) => {
         res.json(imgUrlCompleta)
 
     } catch (error) {
-        console.error("Errror al obtener la URL de la imagen", error)
+        console.error("Error al obtener la URL de la imagen", error)
         res.status(500).json({error: "Error interno del servidor", error})
     }
 })
