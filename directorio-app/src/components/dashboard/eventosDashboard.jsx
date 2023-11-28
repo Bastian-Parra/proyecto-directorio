@@ -38,17 +38,17 @@ function EventosDashboard() {
                 </thead>
                 <tbody>
                     {eventos.map((evento) => (
-                        <tr key={evento.id}>
-                            <td>{evento.id}</td>
+                        <tr key={evento._id}>
+                            <td>{evento._id}</td>
                             <td>{evento.nombre_evento}</td>
                             <td>{evento.fecha_hora}</td>
                             <td>{evento.direccion_evento}</td>
                             <td>{evento.descripcion_evento}</td>
                             <td id="columna-opciones">
                                 <button id="btn-eliminar" onClick={() => {
-                                    eliminarEvento(evento.id)
+                                    eliminarEvento(evento._id)
                                 }}>Eliminar</button>
-                                <Link id="btn-editar" to={`/dashboard/eventos/edit/${evento.id}`}>Editar</Link>
+                                <Link id="btn-editar" to={`/dashboard/eventos/edit/${evento._id}`}>Editar</Link>
                             </td>
                         </tr>
                     ))}

@@ -1,5 +1,4 @@
 import Evento from '../models/eventosModel.js'; // Importando el modelo de Mongoose
-import { validarEvento } from '../schemas/addEventoSchema.js'; // Importando y renombrando el esquema de addEventoSchema
 import multer from 'multer';
 
 export const obtenerEventos = async (req, res) => {
@@ -48,9 +47,6 @@ export const actualizarEvento = async (req, res) => {
 
 export const AgregarEvento = async (req, res) => {
     try {
-        const { error } = validarEvento(req.body);
-        if (error) return res.status(400).json({ mensaje: 'Datos inválidos', detalles: error.details });
-
         let nuevoEvento = new Evento(req.body); // Usando el modelo Evento aquí
         nuevoEvento = await nuevoEvento.save();
         res.status(201).json(nuevoEvento);

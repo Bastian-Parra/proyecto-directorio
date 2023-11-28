@@ -1,6 +1,6 @@
 import { createContext, useContext, useState } from "react";
 import { consultaEventos, consultaEvento } from "../api/eventos.js";
-import { ActualizarEvento, EliminarEvento } from "../api/dashboard.js";
+import { ActualizarEvento, EliminarEvento } from "../api/dashboardnosql.js";
 
 const eventosContext = createContext()
 
@@ -40,7 +40,7 @@ export function EventosProvider({children}) {
     const eliminarEvento = async (id) => {
         try {
             const respuesta = await EliminarEvento(id)
-            if (respuesta.status === 200) setEventos(eventos.filter(evento => evento.id !== id))
+            if (respuesta.status === 200) setEventos(eventos.filter(evento => evento._id !== id))
         } catch (error) {
             console.log(error)
         }

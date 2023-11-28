@@ -14,6 +14,7 @@ function EditLugar() {
     const {mostrarLugar, actualizarLugar} = useLugares()
 
     const parametros = useParams()
+    console.log(parametros.id)
 
     console.log(parametros.id)
     useEffect(() => {
@@ -33,7 +34,8 @@ function EditLugar() {
         if(parametros.id) {
             actualizarLugar(parametros.id, data)
             alert("Lugar actualizado con exito!")
-            reenviar('/dashboard/lugares')
+            console.log(data)
+            
         } 
     }
 
