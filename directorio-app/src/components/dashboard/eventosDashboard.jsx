@@ -20,7 +20,6 @@ function EventosDashboard() {
         <HeaderDashboard/>
         <div className="container-btn-task">
             <Link className="btn-add" to="/dashboard/eventos/add"><FontAwesomeIcon icon={faPlus}/></Link>
-            <Link className="btn-add" to="#"><FontAwesomeIcon icon={faMagnifyingGlass}/></Link>
         </div>
         <div className="container-tabla">
             <h1>Eventos</h1>

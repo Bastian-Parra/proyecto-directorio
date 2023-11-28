@@ -19,7 +19,6 @@ function NegociosDashboard() {
         <HeaderDashboard/>
         <div className="container-btn-task">
             <Link className="btn-add" to="/dashboard/negocios/add"><FontAwesomeIcon icon={faPlus}/></Link>
-            <Link className="btn-add" to="#"><FontAwesomeIcon icon={faMagnifyingGlass}/></Link>
         </div>
         <div className="container-tabla">
             <h1>Negocios</h1>

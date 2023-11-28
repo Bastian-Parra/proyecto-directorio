@@ -61,27 +61,24 @@ function ContenedorRecomendaciones() {
               <img src={imgContenedor_1}></img>
               <div className="container-bottom">
                 <p>
-                La Sebastiana: Es una de las tres casas del famoso poeta chileno Pablo Neruda, ubicada en Valparaíso, Chile. 
+                <b>La Sebastiana:</b> <br/>Es una de las tres casas del famoso poeta chileno Pablo Neruda, ubicada en Valparaíso, Chile. 
                 </p>
-                <Link to="#">Ver más</Link>
               </div>
             </div>
             <div className="carrusel-item">
               <img src={imgContenedor_2}></img>
               <div className="container-bottom">
                 <p>
-                Restaurant Maralegre:Platos del mar y un ambiente temático lo posiciona como un establecimiento gastronómico ubicado en Valparaiso,Chile.
+                <b>Maralegre</b> <br/>Platos del mar y un ambiente temático lo posiciona como un establecimiento gastronómico ubicado en Valparaiso,Chile.
                 </p>
-                <Link to="#">Ver más</Link>
               </div>
             </div>
             <div className="carrusel-item">
               <img src={imgContenedor_3}></img>
               <div className="container-bottom">
                 <p>
-                Villa Victoria: Es una casa de patrimonio cultural en Valparaíso, conocida por su arquitectura única y su importancia en la historia local.
+                <b>Villa Victoria:</b><br/>Es una casa de patrimonio cultural en Valparaíso, conocida por su arquitectura única y su importancia en la historia local.
                 </p>
-                <Link to="#">Ver más</Link>
               </div>
             </div>
           </div>

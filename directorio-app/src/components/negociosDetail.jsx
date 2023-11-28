@@ -60,7 +60,7 @@ function NegocioDetails() {
         <>
         <div className="container-details-negocios">
             <Link id="volver-btn" to="/negocios"><FontAwesomeIcon icon={faArrowLeft}></FontAwesomeIcon></Link>
-            <h1> {">>"} {negocio.nombre}{" <<"}</h1>
+            <h1 id="titulo-detail"> {">>"} {negocio.nombre}{" <<"}</h1>
             
             <div className="negocio-details">
                 <div className="negocio-details-left">

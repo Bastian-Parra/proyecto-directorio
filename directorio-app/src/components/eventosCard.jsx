@@ -20,15 +20,14 @@ function EventosCard({ evento }) {
 
   return (
     <div className="evento-card"> 
-      <img id="img-card" src={`http://localhost:4000${imagenURL}`}/>
       <p id="title-card">{evento.nombre_evento}</p> 
+      <img id="img-card" src={`http://localhost:4000${imagenURL}`}/>
       <p><b>Descripción:</b> {evento.descripcion_evento}</p>
       <p><b>Dirección:</b> {evento.direccion_evento}</p>
       <p><b>Fecha y hora:</b> {evento.fecha_hora}</p>
       <div id="btn-evento">
       </div>
-          <Link to={`/eventos/${evento._id}`}>Ver más</Link>
-      </div>
+    </div>
   );
 }
 
