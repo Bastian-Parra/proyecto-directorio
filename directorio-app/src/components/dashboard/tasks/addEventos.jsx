@@ -1,4 +1,4 @@
-import { AgregarEvento } from "../../../api/dashboard.js";
+import { AgregarEvento } from "../../../api/dashboardnosql.js";
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -15,11 +15,13 @@ function AddEvento() {
         try {
             const formData = new FormData();
 
+            formData.append("direccion_evento", data.direccion_evento);
             formData.append("nombre_evento", data.nombre_evento);
             formData.append("fecha_hora", data.fecha_hora);
-            formData.append("descripcion", data.descripcion);
+            formData.append("descripcion_evento", data.descripcion_evento);
             formData.append("imagen", data.imagen[0]);
 
+            console.log(formData)
             const respuesta = await AgregarEvento(formData, {
                 headers: {
                     "Content-Type": "multipart/form-data",
@@ -36,8 +38,16 @@ function AddEvento() {
     return (
         <div className="container-form">
             <Link id="volver-btn1" to="/dashboard/eventos"><FontAwesomeIcon icon={faArrowLeft}></FontAwesomeIcon>  Regresar</Link>
-
+            
             <form onSubmit={handleSubmit(onSubmit)} encType="multipart/form-data">
+                <input
+                    type="text"
+                    placeholder="Direccion del Evento"
+                    {...register("direccion_evento", { required: true })}
+                    id="direccion_evento"
+                    autoFocus
+                />
+
                 <input
                     type="text"
                     placeholder="Nombre del Evento"
@@ -63,9 +73,9 @@ function AddEvento() {
 
                 <input
                     type="text"
-                    placeholder="Descripcion"
-                    {...register("descripcion", { required: true })}
-                    id="descripcion"
+                    placeholder="Descripcion_evento"
+                    {...register("descripcion_evento", { required: true })}
+                    id="descripcion_evento"
                 />
 
                 {errors.descripcion &&

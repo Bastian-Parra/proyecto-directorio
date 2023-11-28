@@ -8,7 +8,7 @@ const validarEvento = (evento) => {
         descripcion_evento: Joi.string().required().trim(),
         imagen: Joi.string()
     });
-    return schema.validate(evento);
+    return schema.validarEvento(evento);
 };
 
 export { validarEvento };

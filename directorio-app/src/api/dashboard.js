@@ -7,13 +7,6 @@ export const AgregarNegocio = (negocio) => axios.post('/tareas/negocios/add', ne
 export const ActualizarNegocio = (id, negocio) => axios.put(`/tareas/negocios/update/${id}`, negocio)
 export const EliminarNegocio = (id) => axios.delete(`/tareas/negocios/delete/${id}`)
 
-// rutas de eventos
-export const mostrarEventos = () => axios.get('/tareas/eventos')
-export const mostrarEvento = (id) => axios.get(`/tareas/eventos/${id}`)
-export const AgregarEvento = (evento) => axios.post('/tareas/eventos/add', evento)
-export const ActualizarEvento = (id, evento) => axios.put(`/tareas/eventos/update/${id}`, evento)
-export const EliminarEvento = (id) => axios.delete(`/tareas/eventos/delete/${id}`)
-
 // rutas de lugares
 export const MostrarLugares = () => axios.get('/tareas/lugares')
 export const MostrarLugar = (id) => axios.get(`/tareas/lugares/${id}`)
