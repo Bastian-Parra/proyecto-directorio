@@ -41,12 +41,8 @@ function LugaresDetails() {
                 </div>
                 <div className="lugar-details-right">
                 <Carousel showThumbs>
-                {lugares.map((lugar) => (
-                    <div key={lugar.id}>
-                        <img src={Link} alt={`Imagen del lugar ${lugares.imagen}`} />
-                    </div>
-                ))}
-                        </Carousel>
+             
+                        </Carousel> 
                     </div>
                 </div>
             </div>
