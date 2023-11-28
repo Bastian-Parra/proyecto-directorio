@@ -16,12 +16,6 @@
     border-radius: 5px;
 }
 
-h1 {
-    color: var(--primaryColor);
-    padding: 15px;
-    text-align: center;
-}
-
 .negocio-details {
     display: flex;
     flex-direction: row;
@@ -77,6 +71,12 @@ h1 {
 
 .container-comentarios form textarea {
     width: 400px;
+}
+
+.container-all-comentarios h1 {
+    color: var(--primaryColor);
+    padding: 15px;
+    text-align: center;
 }
 
 

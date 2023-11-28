@@ -22,11 +22,6 @@ function NegociosCard({negocio}) {
             <p id="title-card">{negocio.nombre}</p>
             <img id="img-card" src={`http://localhost:4000${imagenURL}`}/>
             <p><b>Descripcion:</b> {negocio.descripcion}</p>
-            <p><b>Tipo: </b>{negocio.tipo_negocio}</p>
-            <p><b>Horario:</b> {negocio.H_operacion}</p>
-            <p><b>Direccion:</b> {negocio.direccion}</p>
-            <p><b>Contacto Telefonico:</b> {negocio.telefono}</p>
-            <p><b>Correo de contacto:</b> {negocio.correo}</p>
             <div className="container-btn-negocio">
               <Link id="btn-negocio" to={`/negocios/${negocio.id}`}>Ver más</Link>
             </div>
