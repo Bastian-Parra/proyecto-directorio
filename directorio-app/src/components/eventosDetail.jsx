@@ -42,21 +42,13 @@ function EventoDetails() {
                             <b>Descripción:</b> {evento.descripcion_evento}
                         </p>
                         <p id="titulo-evento">
-                            <b>Tipo de Evento:</b> {evento.direccion_evento}
+                            <b>Direccion:</b> {evento.direccion_evento}
                         </p>
                         <p id="titulo-evento">
                             <b>Horario de Operación:</b> {evento.fecha_hora}
                         </p>
                     </div>
                     <div className="evento-details-right">
-                        <Carousel showThumbs>
-                            <div>
-                                <img src={Imagen1} alt="Imagen 1" />
-                            </div>
-                            <div>
-                                <img src={Imagen2} alt="Imagen 2" />
-                            </div>
-                        </Carousel>
                     </div>
                 </div>
             </div>

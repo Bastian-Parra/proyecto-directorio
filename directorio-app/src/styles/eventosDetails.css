@@ -1,17 +1,16 @@
-root{
+:root {
   --primaryColor: #3d8af7;
   --greyColor: #ebebeb;
 }
 
+
 .container-details {
-  max-width: 800px;
+  width: 1200px;
   margin: 0 auto;
-  height: auto;
-  padding: 20px;
-  float: center;
-  margin-top: 50px;
-  box-shadow: 0px 0px 16px 1px rgba(0, 0, 0, 0.22);
   background-color: #fff;
+  margin-top: 50px;
+  box-shadow: 0px 0px 16px 1px rgba(0,0,0,0.22);
+  height: auto;
   border-radius: 5px;
 }
 
@@ -30,6 +29,9 @@ root{
 .evento-details-left {
   flex: 1;
   margin-right: 20px;
+  padding: 20px;
+  text-align: left;
+  width: 600px;
 }
 
 .evento-details-right {
@@ -54,50 +56,4 @@ h2 {
 #titulo-evento {
   font-weight: bold;
   margin-bottom: 5px;
-}
-
-/*reseña */
-.reseña-container {
-  margin-top: 30px;
-  padding: 20px;
-  background-color: #f9f9f9;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.reseña-container h2 {
-  margin-bottom: 15px;
-}
-
-.reseña-container textarea {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  resize: vertical;
-  min-height: 100px;
-}
-
-.reseña-container div {
-  margin-top: 10px;
-}
-
-.reseña-container span {
-  cursor: pointer;
-  font-size: 24px;
-  color: #ffd700;
-}
-
-.reseña-container button {
-  margin-top: 10px;
-  padding: 10px 20px;
-  background-color: #007bff;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-.reseña-container button:hover {
-  background-color: #0056b3;
 }

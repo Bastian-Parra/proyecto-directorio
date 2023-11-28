@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom';
 import axios from '../api/axios.js'
 
 function EventosCard({ evento }) {
@@ -9,7 +8,7 @@ function EventosCard({ evento }) {
 
     useEffect(() => {
         // Hacer una solicitud al servidor para obtener la URL de la imagen
-        axios.get(`http://localhost:4000/imagenes/getEventoURL/${evento._id}`)
+        axios.get(`http://localhost:4000/images/getEventoURL/${evento._id}`)
           .then(response => {
             setImagenURL(response.data);
           })
@@ -20,14 +19,11 @@ function EventosCard({ evento }) {
 
   return (
     <div className="evento-card"> 
-      <img id="img-card" src={`http://localhost:4000${imagenURL}`}/>
       <p id="title-card">{evento.nombre_evento}</p> 
-      <p><b>Descripción:</b> {evento.descripcion_evento}</p>
+      <img id="img-card" src={`http://localhost:4000${imagenURL}`}/>
       <p><b>Dirección:</b> {evento.direccion_evento}</p>
       <p><b>Fecha y hora:</b> {evento.fecha_hora}</p>
-      <div id="btn-evento">
-      </div>
-          <Link to={`/eventos/${evento._id}`}>Ver más</Link>
+      <p><b>Descripción:</b> {evento.descripcion_evento}</p>
       </div>
   );
 }
