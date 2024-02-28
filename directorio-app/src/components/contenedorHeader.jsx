@@ -5,7 +5,6 @@ function ContenedorHeader() {
       <div className="container">
         <div className="container-left">
             <h1>Directorio de Negocios</h1>
-            <h3>A tu disposición</h3>
             <p>
               {parrafoHeader}
             </p>
